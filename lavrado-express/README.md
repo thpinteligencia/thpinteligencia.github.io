@@ -33,3 +33,5 @@ chmod +x import_page.sh
 3. Limpa os arquivos antigos na subpasta `lavrado-express/` (preservando o próprio script e este README).
 4. Copia os novos arquivos atualizados.
 5. Adiciona, faz commit e envia as atualizações para o GitHub (`git push`).
+
+*Última atualização desta documentação: 02 de julho de 2026.*
