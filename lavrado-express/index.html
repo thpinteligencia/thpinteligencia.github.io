@@ -18,20 +18,41 @@
     <!-- Header Glassmorphism -->
     <header class="header">
         <div class="header-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">🚴</span>
-                <span class="logo-text">Lavrado <span class="accent">Express</span></span>
-            </a>
+            <div class="logo-wrapper">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🚴</span>
+                    <span class="logo-text">Lavrado <span class="accent">Express</span></span>
+                </a>
+                <a href="../" class="back-link" title="Voltar ao site principal da THP">← thp.co</a>
+            </div>
             <nav class="nav">
                 <a href="#recursos">Recursos</a>
                 <a href="#como-funciona">Como Funciona</a>
                 <a href="#tecnologia">Tecnologia</a>
             </nav>
-            <a href="https://wa.me/seu-numero-do-bot" class="cta-button header-cta" target="_blank">
-                Falar com o Bot 💬
-            </a>
+            <div class="header-right">
+                <a href="https://wa.me/5595999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Lavrado%20Express!" class="cta-button header-cta" target="_blank">
+                    Falar com o Bot 💬
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu principal" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#recursos">Recursos</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="https://wa.me/5595999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Lavrado%20Express!" class="cta-button mobile-cta" target="_blank">
+            Falar com o Bot 💬
+        </a>
+        <a href="../" class="mobile-back-link">← Voltar para THP Inteligência</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -41,7 +62,7 @@
                 <h1>Despacho de Entregas Inteligente direto no <span class="gradient-text">WhatsApp</span></h1>
                 <p>O ecossistema definitivo para gerenciar, aprovar e despachar entregas em Boa Vista/RR. Sem aplicativos pesados: tudo acontece diretamente no chat do seu cliente, gerente e entregador.</p>
                 <div class="hero-ctas">
-                    <a href="https://wa.me/seu-numero-do-bot" class="cta-button primary-cta" target="_blank">Iniciar Atendimento</a>
+                    <a href="https://wa.me/5595999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Lavrado%20Express!" class="cta-button primary-cta" target="_blank">Iniciar Atendimento</a>
                     <a href="#como-funciona" class="cta-button secondary-cta">Ver Como Funciona</a>
                 </div>
             </div>
@@ -56,23 +77,23 @@
                             <span>online</span>
                         </div>
                     </div>
-                    <div class="chat-mockup-body">
+                    <div class="chat-mockup-body" id="chatBody">
                         <!-- Message 1 -->
-                        <div class="mock-msg incoming">
+                        <div class="mock-msg incoming animate-msg" data-delay="1200">
                             <span class="sender-tag">Cliente</span>
                             <div class="bubble">
                                 Olá! Gostaria de solicitar um motoboy para uma entrega no Centro.
                             </div>
                         </div>
                         <!-- Message 2 -->
-                        <div class="mock-msg outgoing">
+                        <div class="mock-msg outgoing animate-msg" data-delay="2500">
                             <span class="sender-tag">Lavrado Express</span>
                             <div class="bubble">
                                 📍 Perfeito! Por favor, clique abaixo para compartilhar sua localização ou envie seu endereço por texto.
                             </div>
                         </div>
                         <!-- Message 3 -->
-                        <div class="mock-msg incoming">
+                        <div class="mock-msg incoming animate-msg" data-delay="2000">
                             <span class="sender-tag">Cliente</span>
                             <div class="bubble location-bubble">
                                 📍 Localização Compartilhada<br>
@@ -80,7 +101,7 @@
                             </div>
                         </div>
                         <!-- Message 4 -->
-                        <div class="mock-msg outgoing">
+                        <div class="mock-msg outgoing animate-msg" data-delay="3200">
                             <span class="sender-tag">Lavrado Express</span>
                             <div class="bubble order-card">
                                 📦 <strong>Pedido #LV-892 criado!</strong><br>
@@ -88,6 +109,16 @@
                                 💸 Valor calculado: <strong>R$ 12,00</strong><br>
                                 <hr style="border-color: rgba(0,0,0,0.05); margin: 6px 0;">
                                 <span style="font-size: 0.75rem; color: #555;">Aguardando aprovação do gerente...</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Typing Bubble Template (Dynamic) -->
+                        <div class="mock-msg typing-bubble hidden" id="typingBubble">
+                            <span class="sender-tag" id="typingSender">Digitando</span>
+                            <div class="bubble typing-container">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
                             </div>
                         </div>
                     </div>
@@ -176,12 +207,12 @@
     </section>
 
     <!-- CTA Final -->
-    <section class="final-cta">
+    <section class="final-cta"> 
         <div class="container">
             <div class="cta-card">
                 <h2>Pronto para otimizar suas entregas?</h2>
                 <p>Fale com nossa equipe comercial ou inicie um teste gratuito do bot hoje mesmo.</p>
-                <a href="https://wa.me/seu-numero-do-bot" class="cta-button primary-cta" target="_blank">Começar Agora 🚀</a>
+                <a href="https://wa.me/5595999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Lavrado%20Express!" class="cta-button primary-cta" target="_blank">Começar Agora 🚀</a>
             </div>
         </div>
     </section>
@@ -189,8 +220,124 @@
     <!-- Footer -->
     <footer class="footer-bottom">
         <div class="container">
-            <p>&copy; 2026 Lavrado Express. Todos os direitos reservados. Desenvolvido com carinho pela <strong>THP Inteligência</strong>.</p>
+            <p>&copy; 2026 Lavrado Express. Todos os direitos reservados. Desenvolvido com carinho pela <a href="../" class="footer-brand-link">THP Inteligência</a>.</p>
         </div>
     </footer>
+
+    <!-- Script de Interatividade e Animações -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- MENU MOBILE ---
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                    mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+                
+                // Fecha o menu ao clicar em qualquer link dele
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            // --- ANIMACAO DO CHAT SIMULATOR ---
+            const chatBody = document.getElementById('chatBody');
+            const messages = document.querySelectorAll('.animate-msg');
+            const typingBubble = document.getElementById('typingBubble');
+            const typingSender = document.getElementById('typingSender');
+            
+            // Inicialmente esconde todas as mensagens reais
+            messages.forEach(msg => {
+                msg.style.display = 'none';
+                msg.classList.remove('visible');
+            });
+
+            let msgIndex = 0;
+
+            function showNextMessage() {
+                if (msgIndex >= messages.length) {
+                    // Todas as mensagens mostradas, remove a bolha de digitação de vez
+                    if (typingBubble) {
+                        typingBubble.classList.add('hidden');
+                    }
+                    return;
+                }
+
+                const currentMsg = messages[msgIndex];
+                const delay = parseInt(currentMsg.getAttribute('data-delay')) || 2000;
+                const isIncoming = currentMsg.classList.contains('incoming');
+                const senderName = isIncoming ? 'Cliente' : 'Lavrado Express';
+
+                // Prepara e exibe a bolha de digitação
+                if (typingBubble && typingSender) {
+                    typingSender.textContent = senderName;
+                    // Move a bolha de digitação para o final do chat body para mantê-la abaixo das mensagens visíveis
+                    chatBody.appendChild(typingBubble);
+                    
+                    // Ajusta o alinhamento da bolha de digitação conforme o remetente
+                    if (isIncoming) {
+                        typingBubble.className = 'mock-msg incoming typing-bubble';
+                    } else {
+                        typingBubble.className = 'mock-msg outgoing typing-bubble';
+                    }
+                    typingBubble.classList.remove('hidden');
+                }
+
+                // Scroll suave para o fim do chat
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                // Espera o tempo de digitação, depois esconde a bolha e exibe a mensagem
+                setTimeout(() => {
+                    if (typingBubble) {
+                        typingBubble.classList.add('hidden');
+                    }
+                    
+                    // Mostra a mensagem real
+                    currentMsg.style.display = 'flex';
+                    // Re-insere a mensagem antes da bolha de digitação (caso ela seja exibida novamente)
+                    if (typingBubble) {
+                        chatBody.insertBefore(currentMsg, typingBubble);
+                    }
+                    
+                    // Pequeno delay para acionar a transição CSS de fade-in
+                    setTimeout(() => {
+                        currentMsg.classList.add('visible');
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                        
+                        // Passa para a próxima mensagem
+                        msgIndex++;
+                        // Espera um pouco de silêncio do usuário antes de começar a próxima digitação
+                        setTimeout(showNextMessage, 800);
+                    }, 50);
+
+                }, delay - 500 > 0 ? delay - 500 : 500); // tempo de digitação é a maior parte do delay
+            }
+
+            // Ativa a animação usando IntersectionObserver quando a tela do chat estiver visível
+            if (chatBody) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Inicia a sequência de mensagens
+                            setTimeout(showNextMessage, 500);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                observer.observe(chatBody);
+            }
+        });
+    </script>
 </body>
 </html>

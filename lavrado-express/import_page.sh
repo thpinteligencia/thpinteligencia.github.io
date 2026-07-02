@@ -4,8 +4,9 @@
 # Script de Automação para Importação de Landing Pages no GitHub Pages
 # ==========================================================================
 
-# Configurações do repositório central
-TARGET_REPO_DIR="/home/hiago/Workspace/THP/thpinteligencia.github.io"
+# Configurações do repositório central (determinado dinamicamente)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TARGET_REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 REPO_URL="git@github-thp:thpinteligencia/thpinteligencia.github.io.git"
 
 # Verifica parâmetros
