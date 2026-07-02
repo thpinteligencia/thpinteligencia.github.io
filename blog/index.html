@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Serviços | THP Inteligência</title>
+    <title>Blog | THP Inteligência</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,11 +106,11 @@
         outline-offset: 4px;
       }
 
-      .back-nav[data-astro-cid-eeadzbub] {
+      .back-nav {
         margin-bottom: 2.5rem;
       }
 
-      .back-button[data-astro-cid-eeadzbub] {
+      .back-button {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
@@ -121,26 +121,26 @@
         transition: color 0.2s ease, transform 0.2s ease;
       }
 
-      .back-button[data-astro-cid-eeadzbub]:hover {
+      .back-button:hover {
         color: var(--color-text-primary);
         transform: translate(-3px);
       }
 
-      .back-button[data-astro-cid-eeadzbub] .arrow[data-astro-cid-eeadzbub] {
+      .back-button .arrow {
         font-size: 1.1rem;
       }
 
-      .services-container[data-astro-cid-eeadzbub] {
+      .articles-container {
         max-width: 900px;
         margin: 0 auto;
       }
 
-      .services-header[data-astro-cid-eeadzbub] {
+      .articles-header {
         text-align: center;
         margin-bottom: 4rem;
       }
 
-      .services-header[data-astro-cid-eeadzbub] h1[data-astro-cid-eeadzbub] {
+      .articles-header h1 {
         font-family: var(--font-heading);
         font-size: 3rem;
         font-weight: 800;
@@ -148,13 +148,13 @@
         letter-spacing: -0.03em;
       }
 
-      .gradient-text[data-astro-cid-eeadzbub] {
+      .gradient-text {
         background: var(--gradient-text);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      .subtitle[data-astro-cid-eeadzbub] {
+      .subtitle {
         font-size: 1.2rem;
         color: var(--color-text-secondary);
         max-width: 800px;
@@ -163,45 +163,47 @@
         text-wrap: balance;
       }
 
-      .services-grid[data-astro-cid-eeadzbub] {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      .articles-list {
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
       }
 
-      .service-card[data-astro-cid-eeadzbub] {
+      .article-card {
         background: var(--color-surface);
         backdrop-filter: blur(12px);
         border: 1px solid var(--color-border);
         border-radius: 20px;
         padding: 2.5rem;
         transition: all 0.3s ease;
+        text-decoration: none;
+        display: block;
       }
 
-      .service-card[data-astro-cid-eeadzbub]:hover {
+      .article-card:hover {
         border-color: #a78bfa4d;
         transform: translateY(-3px);
       }
 
-      .card-header[data-astro-cid-eeadzbub] {
+      .article-meta {
+        font-size: 0.85rem;
+        color: #a78bfa;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
         display: flex;
-        align-items: center;
         gap: 1rem;
-        margin-bottom: 1.5rem;
       }
 
-      .service-card[data-astro-cid-eeadzbub] .icon[data-astro-cid-eeadzbub] {
-        font-size: 2.5rem;
-      }
-
-      .service-card[data-astro-cid-eeadzbub] h2[data-astro-cid-eeadzbub] {
+      .article-card h2 {
         font-family: var(--font-heading);
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--color-text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.3;
       }
 
-      .service-card[data-astro-cid-eeadzbub] p[data-astro-cid-eeadzbub] {
+      .article-card p {
         color: var(--color-text-secondary);
         line-height: 1.6;
         font-size: 0.95rem;
@@ -211,10 +213,19 @@
         -webkit-hyphens: auto;
       }
 
-      @media (max-width: 768px) {
-        .services-grid[data-astro-cid-eeadzbub] {
-          grid-template-columns: 1fr;
-        }
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #c084fc;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 1.25rem;
+        transition: color 0.2s ease;
+      }
+
+      .article-card:hover .read-more {
+        color: #e9d5ff;
       }
     </style>
   </head>
@@ -224,64 +235,62 @@
     <div class="mesh-bg-accent"></div>
 
     <div class="app-container">
-      <div class="back-nav" data-astro-cid-eeadzbub>
-        <a href="../" class="back-button" data-astro-cid-eeadzbub>
-          <span class="arrow" data-astro-cid-eeadzbub>←</span> Voltar para o portfólio
+      <div class="back-nav">
+        <a href="../" class="back-button">
+          <span class="arrow">←</span> Voltar para a página inicial
         </a>
       </div>
 
-      <main class="services-container" data-astro-cid-eeadzbub>
-        <header class="services-header" data-astro-cid-eeadzbub>
-          <h1 class="gradient-text" data-astro-cid-eeadzbub>Nossos Serviços</h1>
-          <p class="subtitle" data-astro-cid-eeadzbub>
-            A THP é uma Deep Tech dedicada a traduzir a ciência, tecnologias de fronteira e o estado da arte em tecnologia e negócios em soluções táticas de alto impacto, escalabilidade e competitividade para o mercado.
+      <main class="articles-container">
+        <header class="articles-header">
+          <h1 class="gradient-text">Blog</h1>
+          <p class="subtitle">
+            Análises e conhecimentos práticos sobre IA, automações, engenharia de software e controle de dados.
           </p>
         </header>
 
-        <div class="services-grid" data-astro-cid-eeadzbub>
-          <!-- Service 1 -->
-          <div class="service-card" data-astro-cid-eeadzbub>
-            <div class="card-header" data-astro-cid-eeadzbub>
-              <div class="icon" data-astro-cid-eeadzbub>🧠</div>
-              <h2 data-astro-cid-eeadzbub>IA de Fronteira Aplicada</h2>
+        <div class="articles-list">
+          <!-- Article 1 -->
+          <article class="article-card">
+            <div class="article-meta">
+              <span>📅 Junho 2026</span>
+              <span>•</span>
+              <span>🧠 IA & Negócios</span>
             </div>
-            <p data-astro-cid-eeadzbub>
-              Projetamos e implementamos o estado da arte em sistemas cognitivos. De assistentes inteligentes avançados a arquiteturas híbridas com foco em soberania de dados locais, criamos sistemas robustos que automatizam decisões com segurança de ponta.
+            <h2>Como a Inteligência Artificial pode reduzir custos operacionais em até 40%</h2>
+            <p>
+              Entenda como sistemas inteligentes e automações de fluxos de trabalho eliminam tarefas redundantes, corrigem erros manuais e liberam seu time para focar no que realmente gera receita.
             </p>
-          </div>
+            <div class="read-more">Ler artigo completo <span>→</span></div>
+          </article>
 
-          <!-- Service 2 -->
-          <div class="service-card" data-astro-cid-eeadzbub>
-            <div class="card-header" data-astro-cid-eeadzbub>
-              <div class="icon" data-astro-cid-eeadzbub>📊</div>
-              <h2 data-astro-cid-eeadzbub>Inteligência de Dados e BI</h2>
+          <!-- Article 2 -->
+          <article class="article-card">
+            <div class="article-meta">
+              <span>📅 Maio 2026</span>
+              <span>•</span>
+              <span>🔒 Segurança & Privacidade</span>
             </div>
-            <p data-astro-cid-eeadzbub>
-              Transformamos dados complexos em inteligência de negócios acionável. Modelamos dados através de pipelines de dados de alta performance e dashboards executivos customizados para guiar decisões de alto escalão em tempo real.
+            <h2>Soberania de Dados: Por que sua empresa precisa considerar IA local</h2>
+            <p>
+              Os riscos de conformidade ao trafegar dados sensíveis de clientes por APIs de terceiros e como a implantação de modelos de linguagem locais traz segurança e total controle à sua operação.
             </p>
-          </div>
+            <div class="read-more">Ler artigo completo <span>→</span></div>
+          </article>
 
-          <!-- Service 3 -->
-          <div class="service-card" data-astro-cid-eeadzbub>
-            <div class="card-header" data-astro-cid-eeadzbub>
-              <div class="icon" data-astro-cid-eeadzbub>⚙️</div>
-              <h2 data-astro-cid-eeadzbub>Hiperautomação de Processos</h2>
+          <!-- Article 3 -->
+          <article class="article-card">
+            <div class="article-meta">
+              <span>📅 Abril 2026</span>
+              <span>•</span>
+              <span>📊 Business Intelligence</span>
             </div>
-            <p data-astro-cid-eeadzbub>
-              Eliminamos fricção operacional e escalamos processos de ponta a ponta. Atuamos com bots integrados e agentes inteligentes para onboarding, logística e e-commerce conversacional, além de triagem documental com processamento de linguagem natural (NLP).
+            <h2>O Guia Prático de BI para Tomada de Decisões Seguras</h2>
+            <p>
+              Como transformar volumes brutos de dados geoespaciais e temporais em painéis analíticos dinâmicos e fáceis de ler para guiar o crescimento real de negócios de médio e grande porte.
             </p>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="service-card" data-astro-cid-eeadzbub>
-            <div class="card-header" data-astro-cid-eeadzbub>
-              <div class="icon" data-astro-cid-eeadzbub>🛡️</div>
-              <h2 data-astro-cid-eeadzbub>Cibersegurança, Governança e Compliance</h2>
-            </div>
-            <p data-astro-cid-eeadzbub>
-              Construímos sistemas que protegem dados e garantem conformidade regulatória, atuando em gestão de riscos, auditoria e adequação a normas como LGPD e ISO 27001. Criamos sistemas inteligentes de validação automatizada e análise preditiva de conformidade jurídica e financeira.
-            </p>
-          </div>
+            <div class="read-more">Ler artigo completo <span>→</span></div>
+          </article>
         </div>
       </main>
     </div>
