@@ -287,6 +287,69 @@
         border-radius: 4px;
       }
 
+      .diagram-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.5rem;
+        overflow-x: auto;
+      }
+
+      .tab-btn {
+        background: transparent;
+        border: none;
+        color: var(--color-text-secondary);
+        padding: 0.5rem 1rem;
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .tab-btn:hover {
+        color: var(--color-text-primary);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .tab-btn.active {
+        color: #c084fc;
+        background: rgba(167, 139, 250, 0.1);
+        border: 1px solid rgba(167, 139, 250, 0.2);
+      }
+
+      .tab-pane {
+        display: none;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .tab-pane.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .diagram-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        background: #fdfdfd;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
       @media (max-width: 768px) {
         .project-detail-card[data-astro-cid-y5f4uwhs] {
           padding: 1.5rem;
@@ -320,40 +383,38 @@
           <h1 class="project-title" data-astro-cid-y5f4uwhs>H.O.R.M.O.S.</h1>
           <div class="eixos-tags" data-astro-cid-y5f4uwhs>
             <span class="tag-item" data-astro-cid-y5f4uwhs>🧠 IA Aplicada</span>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>📚 Gestão de Conhecimento</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>📊 Modelagem Estatística</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>🛡️ Privacidade & Cibersegurança</span>
           </div>
         </header>
 
         <main class="markdown-content" data-astro-cid-y5f4uwhs>
           <p>
-            O <strong>H.O.R.M.O.S.</strong> (Hybrid Organic Relationship Monitoring & Optimization System) é um sistema de inteligência tática focado na otimização de relacionamentos através da bio-sincronização. Ele utiliza modelagem estatística e IA para prever ciclos neurobiológicos e fornecer orientações proativas que visam a redução de conflitos e a melhoria da qualidade de vida do casal.
+            O <strong>H.O.R.M.O.S.</strong> (Hybrid Organic Relationship Monitoring & Optimization System) é um assistente inteligente desenvolvido com foco primário no bem-estar e no monitoramento do ciclo biológico da mulher, estendendo-se à otimização da rotina feminina e do relacionamento através da bio-sincronização. Em termos simples: o sistema acompanha de perto o ciclo biológico natural da usuária, regular ou não, de forma preditiva e ajuda a mapear cada momento, fornecendo informações valiosas de saúde.
           </p>
 
           <h2 id="diferenciais-estratégicos">Diferenciais Estratégicos</h2>
           <ul>
             <li>
-              <strong>Inteligência Híbrida de Fallback:</strong> O sistema possui um roteador de IA que prioriza o Google Gemini para análises complexas, mas faz fallback automático para o Llama 3 local em caso de instabilidade, garantindo que o relatório matinal nunca falhe.
+              <strong>Previsão Probabilística (Sem Calendários Rígidos):</strong> Aplicativos usam calendários fixos e genéricos. O H.O.R.M.O.S. utiliza modelagem matemática de probabilidade (curva Gaussiana) adaptando-se às variações reais do organismo da mulher para calcular as fases do ciclo.
             </li>
             <li>
-              <strong>Privacidade Total:</strong> Foco em processamento local e banco de dados SQLite robusto com modo WAL, garantindo que informações íntimas e sensíveis sejam tratadas com máxima segurança.
+              <strong>Dupla Cobertura de Inteligência (IA Híbrida):</strong> Para garantir que os relatórios nunca falhem, o sistema usa uma estrutura dupla, priorizando a computação em nuvem anônima e de ponta. Caso haja alguma instabilidade de conexão, o sistema aciona de forma automática um cérebro digital local e que se mantem atualizado até que a conexão com a nuvem seja restaurada.
             </li>
             <li>
-              <strong>Abordagem Multidisciplinar:</strong> Integra dados biológicos com sugestões nutricionais e táticas comportamentais, criando um ecossistema de suporte completo.
+              <strong>Privacidade Absoluta e Blindagem de Dados:</strong> Informações íntimas de saúde e relacionamento não devem ser expostas na internet. Seus dados são <strong> seus </strong>. Por isso, a arquitetura permite o processamento totalmente local e armazenamento em bancos de dados blindados, garantindo que tudo permaneça único e confidencial.
+            </li>
+            <li>
+              <strong>Recalibração Inteligente Contra Acidentes:</strong> O assistente se calibra dinamicamente a cada ciclo registrado, adaptando-se às flutuações hormonais ao longo do tempo. Além disso, possui uma trava de segurança inteligente que descarta marcações acidentais ou precoces (como toques incorretos num intervalo de menos de 10 dias) para não corromper o histórico estatístico.
             </li>
           </ul>
 
           <h2 id="pilares-tecnológicos">Pilares Tecnológicos</h2>
           <ul>
-            <li><strong>Linguagem:</strong> Python 3.10.</li>
-            <li><strong>Interface:</strong> Telegram Bot API para interação fluida e onipresente.</li>
-            <li><strong>Analytics:</strong> Estatística Gaussiana para modelagem de tendências biológicas.</li>
-          </ul>
-
-          <h2 id="status-de-entrega">Status de Entrega</h2>
-          <ul>
-            <li><strong>Disponibilidade:</strong> 99.9% (Arquitetura de redundância de IA).</li>
-            <li><strong>Dashboard de Gestão:</strong> Operacional via Streamlit.</li>
-            <li><strong>Base de Conhecimento:</strong> Integrada com especialistas em neurobiologia via RAG.</li>
+            <li><strong>Motor de Processamento Inteligente:</strong> O núcleo central que gerencia toda a lógica, calcula as chances biológicas de forma ágil e processa as informações em milissegundos para responder instantaneamente a qualquer solicitação.</li>
+            <li><strong>Privacidade no Armazenamento de Dados:</strong> Uma estrutura que garante que dados pessoais permaneçam salvos exclusivamente no aparelho. No momento em que qualquer informação deixa o dispositivo, ela passa por uma anonimização completa.</li>
+            <li><strong>Conexão Híbrida de Inteligência Artificial:</strong> Integração dinâmica que combina o poder de processamento de inteligência artificial de ponta com um cérebro local que roda de forma 100% offline para garantir o envio dos relatórios diários mesmo em caso de falhas na rede.</li>
+            <li><strong>Canais e Portais de Acesso:</strong> Interfaces desenvolvidas para a facilidade do usuário, compostas por um robô interativo de mensagens para envio diário de dicas, um painel de controle protegido para ajustes finos de sensibilidade e um aplicativo de celular para acompanhamento rápido.</li>
           </ul>
         </main>
       </article>
