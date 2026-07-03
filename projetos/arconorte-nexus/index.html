@@ -318,6 +318,11 @@
         flex-shrink: 0;
       }
 
+      .diferencial-content {
+        flex: 1;
+        min-width: 0;
+      }
+
       .diferencial-content h3 {
         font-size: 1.1rem;
         font-weight: 600;
@@ -331,6 +336,10 @@
         color: var(--color-text-secondary);
         margin-bottom: 0 !important;
         line-height: 1.5;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
       }
 
       /* Pilares Tech */
@@ -350,6 +359,15 @@
         align-items: center;
         gap: 1rem;
         font-size: 0.95rem;
+      }
+
+      .pilar-item span:not(.pilar-tech-badge) {
+        flex: 1;
+        min-width: 0;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
       }
 
       .pilar-tech-badge {
@@ -456,6 +474,10 @@
         font-size: 0.9rem;
         color: var(--color-text-secondary);
         line-height: 1.5;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
       }
 
       /* Widgets on the Right Column */
@@ -794,6 +816,10 @@
         font-size: 0.85rem;
         line-height: 1.4;
         color: var(--color-text-secondary);
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
       }
 
       @keyframes draw-line {
@@ -845,24 +871,24 @@
       </div>
 
       <article class="project-detail-card">
-        <header class="detail-header">
-          <div class="header-meta">
-            <span class="hierarquia-tag">principal</span>
-            <span class="status-badge status-stable">
-              Maturidade: <strong>Fase 4 - Hardening Concluído (v1.3.1)</strong>
-            </span>
-          </div>
-          <h1 class="project-title">ArcoNorte Nexus</h1>
-          <div class="eixos-tags">
-            <span class="tag-item">🧠 IA Aplicada</span>
-            <span class="tag-item">📊 Business Intelligence</span>
-            <span class="tag-item">🌍 Logística & Exportação</span>
-          </div>
-        </header>
-
         <div class="split-layout">
           <!-- Left Column: Content Narrative -->
           <div class="col-left">
+            <header class="detail-header">
+              <div class="header-meta">
+                <span class="hierarquia-tag">principal</span>
+                <span class="status-badge status-stable">
+                  Maturidade: <strong>Fase 4 - Hardening Concluído (v1.3.1)</strong>
+                </span>
+              </div>
+              <h1 class="project-title">ArcoNorte Nexus</h1>
+              <div class="eixos-tags">
+                <span class="tag-item">🧠 IA Aplicada</span>
+                <span class="tag-item">📊 Business Intelligence</span>
+                <span class="tag-item">🌍 Logística & Exportação</span>
+              </div>
+            </header>
+
             <main class="markdown-content">
               <p>
                 O <strong>ArcoNorte Nexus</strong> é uma plataforma de Inteligência Logística preditiva desenvolvida com o objetivo de analisar e mapear os fluxos de escoamento de grãos nos corredores logísticos do Arco Norte brasileiro (com foco prioritário na soja e no Porto Seco de Roraima). A plataforma apoia a tomada de decisão estratégica de tradings, associações de produtores (como Aprosoja) e órgãos estaduais de planejamento através de um modelo de dados sob assinatura (Data-as-a-Service).
