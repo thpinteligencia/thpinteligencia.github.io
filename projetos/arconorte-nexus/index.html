@@ -444,6 +444,55 @@
         border: 1px solid rgba(255, 255, 255, 0.04);
         border-radius: 12px;
         padding: 1.25rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .timeline-content:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .timeline-item.active .timeline-content {
+        border-color: rgba(56, 189, 248, 0.2);
+      }
+
+      .timeline-item.active .timeline-content:hover {
+        border-color: rgba(56, 189, 248, 0.4);
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .timeline-header-info {
+        flex: 1;
+      }
+
+      .chevron {
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid var(--color-text-secondary);
+        border-bottom: 2px solid var(--color-text-secondary);
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+        margin-right: 0.25rem;
+        flex-shrink: 0;
+      }
+
+      .timeline-item.expanded .chevron {
+        transform: rotate(-135deg);
+      }
+
+      .timeline-item.active .chevron {
+        border-color: var(--accent-cyan);
+      }
+
+      .timeline-item.completed .chevron {
+        border-color: var(--accent-green);
       }
 
       .phase-number {
@@ -467,7 +516,21 @@
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--color-text-primary);
-        margin-bottom: 0.5rem;
+      }
+
+      .timeline-desc-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease-in-out;
+      }
+
+      .timeline-item.expanded .timeline-desc-wrapper {
+        grid-template-rows: 1fr;
+      }
+
+      .timeline-desc {
+        overflow: hidden;
+        min-height: 0;
       }
 
       .phase-desc {
@@ -478,6 +541,7 @@
         text-justify: inter-word;
         hyphens: auto;
         -webkit-hyphens: auto;
+        padding-top: 0.75rem;
       }
 
       /* Widgets on the Right Column */
@@ -719,7 +783,7 @@
       }
 
       .gauge-svg {
-        margin-bottom: -35px;
+        margin-bottom: -20px;
       }
 
       .gauge-fill-path {
@@ -727,6 +791,7 @@
       }
 
       #gauge-needle {
+        transform-box: view-box;
         transform-origin: 100px 110px;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
       }
@@ -964,9 +1029,18 @@
                     </svg>
                   </div>
                   <div class="timeline-content">
-                    <span class="phase-number">Fase 1</span>
-                    <h3 class="phase-title">MVP Frontend (Concluído)</h3>
-                    <p class="phase-desc">Desenvolvimento da interface visual básica, simuladores conceituais com dados representativos e consolidação da identidade visual do produto.</p>
+                    <div class="timeline-header">
+                      <div class="timeline-header-info">
+                        <span class="phase-number">Fase 1</span>
+                        <h3 class="phase-title">MVP Frontend (Concluído)</h3>
+                      </div>
+                      <span class="chevron"></span>
+                    </div>
+                    <div class="timeline-desc-wrapper">
+                      <div class="timeline-desc">
+                        <p class="phase-desc">Desenvolvimento da interface visual básica, simuladores conceituais com dados representativos e consolidação da identidade visual do produto.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -977,9 +1051,18 @@
                     </svg>
                   </div>
                   <div class="timeline-content">
-                    <span class="phase-number">Fase 2</span>
-                    <h3 class="phase-title">O Motor Nexus (Concluído)</h3>
-                    <p class="phase-desc">Ativação do motor analítico real alimentado por fontes oficiais de comércio exterior e cálculo consolidado do Índice de Pressão de Escoamento.</p>
+                    <div class="timeline-header">
+                      <div class="timeline-header-info">
+                        <span class="phase-number">Fase 2</span>
+                        <h3 class="phase-title">O Motor Nexus (Concluído)</h3>
+                      </div>
+                      <span class="chevron"></span>
+                    </div>
+                    <div class="timeline-desc-wrapper">
+                      <div class="timeline-desc">
+                        <p class="phase-desc">Ativação do motor analítico real alimentado por fontes oficiais de comércio exterior e cálculo consolidado do Índice de Pressão de Escoamento.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -990,31 +1073,41 @@
                     </svg>
                   </div>
                   <div class="timeline-content">
-                    <span class="phase-number">Fase 3</span>
-                    <h3 class="phase-title">Inteligência DaaS (Concluído)</h3>
-                    <p class="phase-desc">Validação de margem de erro inferior a 2% nas previsões, disponibilização de painéis de auditoria de dados e relatórios analíticos formatados.</p>
+                    <div class="timeline-header">
+                      <div class="timeline-header-info">
+                        <span class="phase-number">Fase 3</span>
+                        <h3 class="phase-title">Inteligência DaaS (Concluído)</h3>
+                      </div>
+                      <span class="chevron"></span>
+                    </div>
+                    <div class="timeline-desc-wrapper">
+                      <div class="timeline-desc">
+                        <p class="phase-desc">Validação de margem de erro inferior a 2% nas previsões, disponibilização de painéis de auditoria de dados e relatórios analíticos formatados.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="timeline-item active">
+                <div class="timeline-item active expanded">
                   <div class="timeline-marker">
                     <span class="pulse-marker"></span>
                   </div>
                   <div class="timeline-content">
-                    <span class="phase-number">Fase 4</span>
-                    <h3 class="phase-title">Hardening & Segurança (Concluído / Estável v1.3.1)</h3>
-                    <p class="phase-desc">Blindagem de infraestrutura contra falhas, transição para armazenamento corporativo de alto desempenho, restrição de acesso e controle de tráfego.</p>
+                    <div class="timeline-header">
+                      <div class="timeline-header-info">
+                        <span class="phase-number">Fase 4</span>
+                        <h3 class="phase-title">Hardening & Segurança (Concluído / Estável v1.3.1)</h3>
+                      </div>
+                      <span class="chevron"></span>
+                    </div>
+                    <div class="timeline-desc-wrapper">
+                      <div class="timeline-desc">
+                        <p class="phase-desc">Blindagem de infraestrutura contra falhas, transição para armazenamento corporativo de alto desempenho, restrição de acesso e controle de tráfego.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <span class="phase-number">Fase 5</span>
-                    <h3 class="phase-title">Monitoramento Ativo (Longo Prazo)</h3>
-                    <p class="phase-desc">Expansão preditiva para Milho e Arroz, autoajuste dinâmico dos modelos matemáticos conforme a colheita evolui e simulação de cenários logísticos integrando clima e BR-174.</p>
-                  </div>
-                </div>
               </div>
             </main>
           </div>
@@ -1121,19 +1214,19 @@
                   <div class="gauge-wrapper">
                     <svg class="gauge-svg" width="180" height="120" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <!-- Background Arc -->
-                      <path d="M 30 110 A 80 80 0 1 1 170 110" stroke="rgba(255,255,255,0.06)" stroke-width="12" stroke-linecap="round"/>
+                      <path d="M 30 110 A 70 70 0 0 1 170 110" stroke="rgba(255,255,255,0.06)" stroke-width="12" stroke-linecap="round"/>
                       
                       <!-- Foreground Dynamic Colored Arc -->
-                      <path id="gauge-fill" d="M 30 110 A 80 80 0 1 1 170 110" stroke="var(--accent-green)" stroke-width="12" stroke-linecap="round" stroke-dasharray="352" stroke-dashoffset="100" class="gauge-fill-path"/>
+                      <path id="gauge-fill" d="M 30 110 A 70 70 0 0 1 170 110" stroke="var(--accent-green)" stroke-width="12" stroke-linecap="round" class="gauge-fill-path"/>
                       
                       <!-- Scale markings -->
-                      <line x1="30" y1="110" x2="40" y2="105" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                      <line x1="170" y1="110" x2="160" y2="105" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
-                      <line x1="100" y1="30" x2="100" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                      <line x1="30" y1="110" x2="40" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                      <line x1="170" y1="110" x2="160" y2="110" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+                      <line x1="100" y1="40" x2="100" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
                       
                       <!-- Needle (Rotation handled in JS) -->
                       <g id="gauge-needle" transform="rotate(0 100 110)">
-                        <path d="M 97 110 L 100 20 L 103 110 Z" fill="var(--color-text-primary)"/>
+                        <path d="M 97 110 L 100 55 L 103 110 Z" fill="var(--color-text-primary)"/>
                         <circle cx="100" cy="110" r="5" fill="var(--color-text-primary)" stroke="#1c1c1f" stroke-width="1.5"/>
                       </g>
                     </svg>
@@ -1251,6 +1344,17 @@
         }
 
         updateSimulator();
+
+        // Roadmap accordion toggle logic
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+          const content = item.querySelector('.timeline-content');
+          if (content) {
+            content.addEventListener('click', () => {
+              item.classList.toggle('expanded');
+            });
+          }
+        });
       });
     </script>
   </body>
