@@ -263,6 +263,11 @@ html[data-theme="light"] .moon-icon { display: block; }
     line-height: 1.6;
     margin-bottom: 36px;
     max-width: 540px;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 .hero-actions {
