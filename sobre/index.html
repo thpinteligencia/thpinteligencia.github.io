@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre Nós | THP Inteligência</title>
+    <title>Sobre Nós | THP Inteligência Empresarial</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../css/custom.css" />
 
     <style>
       :root {
@@ -22,6 +23,9 @@
         --color-border-hover: rgba(255, 255, 255, 0.15);
         --color-text-primary: #f4f4f5;
         --color-text-secondary: #a1a1aa;
+        --color-accent-orange: #f68b23;
+        --color-accent-blue: #38bdf8;
+        --color-accent-purple: #a78bfa;
         --gradient-brand: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
         --gradient-text: linear-gradient(to right, #c084fc, #6366f1, #38bdf8);
         --font-heading: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
@@ -77,9 +81,9 @@
       }
 
       .app-container {
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 2rem 1.5rem;
+        padding: 2rem 1.5rem 4rem;
         position: relative;
         z-index: 1;
       }
@@ -106,6 +110,7 @@
         outline-offset: 4px;
       }
 
+      /* Navigation */
       .back-nav {
         margin-bottom: 2.5rem;
       }
@@ -126,18 +131,26 @@
         transform: translate(-3px);
       }
 
-      .back-button .arrow {
-        font-size: 1.1rem;
-      }
-
-      .about-container {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
+      /* Header */
       .about-header {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .about-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        padding: 0.4rem 1rem;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.25rem;
       }
 
       .about-header h1 {
@@ -146,6 +159,7 @@
         font-weight: 800;
         margin-bottom: 1rem;
         letter-spacing: -0.03em;
+        line-height: 1.15;
       }
 
       .gradient-text {
@@ -157,16 +171,16 @@
       .subtitle {
         font-size: 1.25rem;
         color: var(--color-text-secondary);
-        max-width: 800px;
+        max-width: 820px;
         margin: 0 auto;
         text-align: center;
-        text-wrap: balance;
+        line-height: 1.6;
       }
 
-      /* Sections styling */
+      /* Section Headers */
       .section-title {
         font-family: var(--font-heading);
-        font-size: 2rem;
+        font-size: 1.85rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin: 3.5rem 0 1.5rem 0;
@@ -177,11 +191,26 @@
         padding-bottom: 0.75rem;
       }
 
-      .manifesto-card {
+      .section-title svg {
+        color: #c084fc;
+        flex-shrink: 0;
+      }
+
+      /* Cards Base */
+      .manifesto-card,
+      .company-card,
+      .pillar-card,
+      .translate-card,
+      .predict-card,
+      .cta-card {
         background: var(--color-surface);
         backdrop-filter: blur(12px);
         border: 1px solid var(--color-border);
         border-radius: 20px;
+      }
+
+      /* 1. Manifesto */
+      .manifesto-card {
         padding: 3rem;
         line-height: 1.8;
         font-size: 1.1rem;
@@ -196,10 +225,6 @@
         margin-bottom: 1.5rem;
       }
 
-      .manifesto-card p:last-child {
-        margin-bottom: 0;
-      }
-
       .manifesto-highlight {
         font-size: 1.25rem;
         font-weight: 600;
@@ -207,7 +232,114 @@
         line-height: 1.7;
       }
 
-      /* Pillars Grid */
+      .manifesto-bridge {
+        background: rgba(167, 139, 250, 0.08);
+        border-left: 4px solid #a78bfa;
+        padding: 1.25rem 1.5rem;
+        border-radius: 0 12px 12px 0;
+        color: var(--color-text-primary);
+        font-weight: 500;
+        margin-top: 1.5rem;
+        margin-bottom: 0 !important;
+        text-align: left;
+        text-wrap: pretty;
+        line-height: 1.6;
+      }
+
+      /* 2. Quem Somos (Factual) */
+      .company-card {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+      }
+
+      .company-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 1.5rem;
+      }
+
+      .company-legal-title {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .company-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: rgba(34, 197, 94, 0.12);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        color: #4ade80;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.3rem 0.75rem;
+        border-radius: 99px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .company-details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .detail-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .detail-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .detail-content h4 {
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+      }
+
+      .detail-content p {
+        font-size: 1rem;
+        color: var(--color-text-primary);
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: left;
+        text-wrap: pretty;
+      }
+
+      .cnpj-tag {
+        font-family: monospace;
+        font-size: 1.05rem;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #38bdf8;
+      }
+
+      /* 3. Pilares */
       .pillars-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -215,10 +347,6 @@
       }
 
       .pillar-card {
-        background: var(--color-surface);
-        backdrop-filter: blur(12px);
-        border: 1px solid var(--color-border);
-        border-radius: 20px;
         padding: 2.5rem;
         display: flex;
         flex-direction: column;
@@ -226,44 +354,44 @@
       }
 
       .pillar-card:hover {
-        border-color: #a78bfa4d;
+        border-color: rgba(167, 139, 250, 0.3);
         transform: translateY(-3px);
       }
 
       .pillar-card h3 {
         font-family: var(--font-heading);
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-bottom: 1.25rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
       }
 
       .pillar-card p {
         color: var(--color-text-secondary);
-        line-height: 1.6;
+        line-height: 1.65;
         font-size: 0.98rem;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: auto;
-        -webkit-hyphens: auto;
+        text-align: left;
+        text-wrap: pretty;
       }
 
       .values-list {
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.85rem;
       }
 
       .values-list li {
         position: relative;
-        padding-left: 1.75rem;
+        padding-left: 1.5rem;
         font-size: 0.95rem;
         line-height: 1.5;
         color: var(--color-text-secondary);
+        text-align: left;
+        text-wrap: pretty;
       }
 
       .values-list li::before {
@@ -274,7 +402,53 @@
         font-weight: bold;
       }
 
-      /* Predictability section */
+      /* 4. Como se Traduz */
+      .translate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .translate-card {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .translate-card:hover {
+        border-color: rgba(56, 189, 248, 0.4);
+        transform: translateY(-3px);
+      }
+
+      .translate-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .translate-card h4 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+      }
+
+      .translate-card p {
+        font-size: 0.92rem;
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        text-align: left;
+        text-wrap: pretty;
+      }
+
+      /* 5. Além de um Nome */
       .predict-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -282,22 +456,18 @@
       }
 
       .predict-card {
-        background: var(--color-surface);
-        backdrop-filter: blur(12px);
-        border: 1px solid var(--color-border);
-        border-radius: 20px;
         padding: 2.5rem;
       }
 
       .predict-card h3 {
         font-family: var(--font-heading);
-        font-size: 1.4rem;
+        font-size: 1.35rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-bottom: 1.5rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
       }
 
       .predict-list {
@@ -310,25 +480,95 @@
         font-size: 1.05rem;
         font-weight: 600;
         color: var(--color-text-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
       }
 
       .predict-item p {
         color: var(--color-text-secondary);
         font-size: 0.95rem;
-        line-height: 1.5;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: auto;
-        -webkit-hyphens: auto;
+        line-height: 1.6;
+        text-align: left;
+        text-wrap: pretty;
+      }
+
+      /* 6. CTA Final */
+      .cta-card {
+        margin-top: 5rem;
+        padding: 3.5rem 2.5rem;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(20, 20, 25, 0.8) 0%, rgba(15, 15, 20, 0.95) 100%);
+        border: 1px solid rgba(167, 139, 250, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .cta-card h3 {
+        font-family: var(--font-heading);
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--color-text-primary);
+        letter-spacing: -0.02em;
+      }
+
+      .cta-card p {
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+        max-width: 650px;
+        line-height: 1.6;
+      }
+
+      .cta-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 0.85rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: var(--gradient-brand);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.92;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--color-border);
+        color: var(--color-text-primary);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--color-border-hover);
+        transform: translateY(-2px);
       }
 
       @media (max-width: 850px) {
         .about-header h1 {
-          font-size: 2.8rem;
+          font-size: 2.6rem;
         }
         .predict-container {
           grid-template-columns: 1fr;
+        }
+        .manifesto-card {
+          padding: 2rem;
         }
       }
     </style>
@@ -341,20 +581,34 @@
     <div class="app-container">
       <div class="back-nav">
         <a href="../" class="back-button">
-          <span class="arrow">←</span> Voltar para a página inicial
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Voltar para a página inicial
         </a>
       </div>
 
       <main class="about-container">
+        <!-- 1. Header Manifesto -->
         <header class="about-header">
-          <h1 class="gradient-text">Sobre Nós</h1>
+          <div class="about-badge">
+            ⚡ Identidade & Propósito Institucional
+          </div>
+          <h1>Sobre Nós</h1>
           <p class="subtitle">
-            A bússola estratégica e o compromisso da THP com a transformação tecnológica.
+            Tecnologia adaptada à realidade do cliente. Estrutura, inteligência e direção para decisões melhores.
           </p>
         </header>
 
-        <!-- Manifesto Section -->
-        <h2 class="section-title"><span>📜</span> Nosso Manifesto</h2>
+        <!-- 2. Nosso Manifesto -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+            <path d="M6 6h10"/>
+            <path d="M6 10h10"/>
+          </svg>
+          Nosso Manifesto
+        </h2>
         <div class="manifesto-card">
           <p class="manifesto-highlight">
             Vivemos em uma era de mudanças a cada dia mais rápidas, e a tecnologia e o domínio da informação definem a fronteira da competitividade. A THP Inteligência Empresarial e Soluções em Negócios sabe que, para estar sempre na frente, não se pode deixar ninguém para trás, pois dos lugares mais inesperados saem as soluções mais inovadoras.
@@ -365,14 +619,97 @@
           <p>
             Não somos apenas consultores ou desenvolvedores; somos parceiros ativamente comprometidos com a evolução regional. Por isso, a inovação aplicada e adaptada às realidades locais é o motor que move cada linha de código e cada projeto em produção.
           </p>
+          <div class="manifesto-bridge">
+            💡 <strong>Na prática:</strong> Essa atuação se desdobra em dois eixos complementares: no desenvolvimento de <strong>soluções proprietárias</strong> — produtos com tecnologia e propriedade intelectual próprias da THP — e na prestação de <strong>serviços sob medida</strong> para demandas estratégicas de clientes e parceiros.
+          </div>
         </div>
 
-        <!-- Pilares Estratégicos Section -->
-        <h2 class="section-title"><span>🧭</span> Pilares Estratégicos</h2>
+        <!-- 3. Quem Somos (Identificação Formal) -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="5" rx="2"/>
+            <line x1="2" x2="22" y1="10" y2="10"/>
+          </svg>
+          Quem Somos
+        </h2>
+        <div class="company-card">
+          <div class="company-header">
+            <div>
+              <div class="company-legal-title">THP Inteligência Empresarial e Soluções em Negócios LTDA</div>
+              <p style="color: var(--color-text-secondary); font-size: 0.92rem;">
+                Empresa brasileira de tecnologia, produtos digitais e inteligência corporativa.
+              </p>
+            </div>
+            <div class="company-status-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+              Regular / Ativa
+            </div>
+          </div>
+
+          <div class="company-details-grid">
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <h4>Sede e Atuação</h4>
+                <p>Boa Vista, Roraima — Brasil</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" x2="8" y1="13" y2="13"/>
+                  <line x1="16" x2="8" y1="17" y2="17"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <h4>Cadastro Nacional da Pessoa Jurídica (CNPJ)</h4>
+                <p><span class="cnpj-tag">63.580.847/0001-02</span></p>
+              </div>
+            </div>
+
+            <div class="detail-item" style="grid-column: 1 / -1;">
+              <div class="detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f68b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <h4>Escopo de Especialidade</h4>
+                <p>Criação de soluções proprietárias, desenvolvimento de software sob medida, inteligência artificial e sistemas de apoio à decisão empresarial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Pilares Estratégicos -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+          </svg>
+          Pilares Estratégicos
+        </h2>
         <div class="pillars-grid">
           <!-- Missão -->
           <div class="pillar-card">
-            <h3><span>🎯</span> Missão</h3>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f68b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+              Missão
+            </h3>
             <p>
               Prover soluções inovadoras de inteligência empresarial, consultoria estratégica, transformação digital e inteligência artificial, promovendo o crescimento sustentável e a competitividade das empresas em Roraima e em toda a região Norte do Brasil, com foco na geração de valor, capacitação tecnológica e desenvolvimento regional.
             </p>
@@ -380,19 +717,32 @@
 
           <!-- Visão -->
           <div class="pillar-card">
-            <h3><span>👁️</span> Visão 2035</h3>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Visão 2035
+            </h3>
             <p>
-              Ser a referência na prestação de serviços de inteligência empresarial, consultoria digital e Inteligência Artificial em Roraima e na região Norte até 2035, contribuindo para o desenvolvimento e a transformação tecnológica das organizações regionais.
+              Ser a referência na prestação de serviços de inteligência empresarial, consultoria estratégica e Inteligência Artificial em Roraima e na região Norte até 2035, contribuindo para o desenvolvimento econômico sustentável e a transformação tecnológica das organizações regionais.
             </p>
           </div>
 
           <!-- Valores -->
           <div class="pillar-card">
-            <h3><span>💎</span> Valores</h3>
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12l4 6-10 13L2 9Z"/>
+                <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                <path d="M2 9h20"/>
+              </svg>
+              Valores
+            </h3>
             <ul class="values-list">
               <li>Inovação aplicada e adaptada às realidades locais.</li>
               <li>Compromisso com o crescimento e desenvolvimento regional.</li>
-              <li>Transparência e ética em todas as relações.</li>
+              <li>Transparência e ética em todas as relações comerciais.</li>
               <li>Valorização do conhecimento, capacitação contínua e disseminação tecnológica.</li>
               <li>Atendimento personalizado e focado nas necessidades do cliente.</li>
               <li>Sustentabilidade socioambiental como base para o crescimento.</li>
@@ -400,16 +750,83 @@
           </div>
         </div>
 
-        <!-- Por Que Isso Importa / Previsibilidade -->
-        <h2 class="section-title"><span>🤝</span> Além de um Nome: Por Que Temos um Norte Claro</h2>
+        <!-- 5. Como Isso se Traduz -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Como Isso se Traduz na Prática
+        </h2>
+        <div class="translate-grid">
+          <div class="translate-card">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f68b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+            </div>
+            <h4>Soluções Proprietárias</h4>
+            <p>Plataformas e produtos com propriedade intelectual e tecnologia próprias da THP, desenhados para revolucionar setores estratégicos.</p>
+          </div>
+
+          <div class="translate-card">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                <path d="m9 8 3 3-3 3"/>
+                <line x1="14" x2="16" y1="14" y2="14"/>
+              </svg>
+            </div>
+            <h4>Serviços Sob Medida</h4>
+            <p>Engenharia de software personalizada, automações corporativas e consultorias desenhadas para atender a desafios específicos de clientes.</p>
+          </div>
+
+          <div class="translate-card">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a8 8 0 0 0-8 8c0 3.3 2 6.2 5 7.4V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2.6c3-1.2 5-4.1 5-7.4a8 8 0 0 0-8-8z"/>
+              </svg>
+            </div>
+            <h4>IA & Automação Inteligente</h4>
+            <p>Assistentes conversacionais e modelos aplicados focados em ganho real de produtividade e eliminação de gargalos operacionais.</p>
+          </div>
+
+          <div class="translate-card">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" x2="18" y1="20" y2="10"/>
+                <line x1="12" x2="12" y1="20" y2="4"/>
+                <line x1="6" x2="6" y1="20" y2="14"/>
+              </svg>
+            </div>
+            <h4>Dados, BI & Governança</h4>
+            <p>Painéis analíticos, pipelines de dados e arquiteturas seguras para apoiar tomadas de decisão estratégicas com previsibilidade.</p>
+          </div>
+        </div>
+
+        <!-- 6. Além de um Nome -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Além de um Nome: Por Que Temos um Norte Claro
+        </h2>
         <div class="predict-container">
           <!-- Para a THP -->
           <div class="predict-card">
-            <h3><span>⚙️</span> O Guia para a THP</h3>
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              O Guia para a THP
+            </h3>
             <div class="predict-list">
               <div class="predict-item">
                 <h4>O Presente pela Missão</h4>
-                <p>Nossa razão de existir garante que todo esforço, pesquisa e recurso técnico estejam focados em entregar valor real para o cliente.</p>
+                <p>Nossa razão de existir garante que todo esforço, pesquisa e recurso técnico estejam focados em entregar valor real e mensurável para cada cliente.</p>
               </div>
               <div class="predict-item">
                 <h4>O Futuro pela Visão</h4>
@@ -417,22 +834,27 @@
               </div>
               <div class="predict-item">
                 <h4>A Conduta pelos Valores</h4>
-                <p>Nossos valores guiam nossa ética interna e de mercado, ditando como cada colaborador age e atende.</p>
+                <p>Nossos valores guiam nossa ética interna e de mercado, ditando como cada parceiro e colaborador age, desenvolve e atende.</p>
               </div>
             </div>
           </div>
 
           <!-- Para o Cliente -->
           <div class="predict-card">
-            <h3><span>🛡️</span> A Previsibilidade para Você</h3>
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              A Previsibilidade para Você
+            </h3>
             <div class="predict-list">
               <div class="predict-item">
                 <h4>Garantia de Qualidade da Entrega</h4>
-                <p>A clareza do nosso propósito assegura que você sempre receberá projetos que alinham sofisticação de software com facilidade de uso operacional.</p>
+                <p>A clareza do nosso propósito assegura projetos que alinham sofisticação de engenharia de software com facilidade de uso operacional.</p>
               </div>
               <div class="predict-item">
                 <h4>Transparência Absoluta</h4>
-                <p>O que nós declaramos é o que somos: você sabe o que esperar de nós comercial e tecnologicamente em todas as etapas.</p>
+                <p>O que nós declaramos é o que somos: você sabe exatamente o que esperar de nós comercial e tecnologicamente em todas as etapas.</p>
               </div>
               <div class="predict-item">
                 <h4>Compromisso de Longo Prazo</h4>
@@ -441,6 +863,22 @@
             </div>
           </div>
         </div>
+
+        <!-- 7. CTA Final -->
+        <section class="cta-card">
+          <h3>Pronto para transformar sua operação?</h3>
+          <p>
+            Converse com nossos especialistas e descubra como a THP pode construir a solução ideal de software, dados e inteligência artificial para sua empresa.
+          </p>
+          <div class="cta-actions">
+            <a href="../servicos/" class="btn btn-primary">
+              Conhecer Nossos Serviços ↗
+            </a>
+            <a href="../contato/" class="btn btn-secondary">
+              Fale com a Equipe
+            </a>
+          </div>
+        </section>
       </main>
     </div>
   </body>
