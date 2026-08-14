@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nós | THP Inteligência</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --color-bg: #09090b;
+        --color-surface: rgba(20, 20, 25, 0.6);
+        --color-surface-hover: rgba(30, 30, 40, 0.8);
+        --color-border: rgba(255, 255, 255, 0.08);
+        --color-border-hover: rgba(255, 255, 255, 0.15);
+        --color-text-primary: #f4f4f5;
+        --color-text-secondary: #a1a1aa;
+        --gradient-brand: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
+        --gradient-text: linear-gradient(to right, #c084fc, #6366f1, #38bdf8);
+        --font-heading: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
+        --font-body: "Inter", system-ui, -apple-system, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      .mesh-bg {
+        position: fixed;
+        top: -10%;
+        left: -10%;
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.15) 0%,
+          transparent 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+        filter: blur(80px);
+      }
+
+      .mesh-bg-accent {
+        position: fixed;
+        bottom: -10%;
+        right: -10%;
+        width: 50%;
+        height: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(167, 139, 250, 0.1) 0%,
+          transparent 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+        filter: blur(80px);
+      }
+
+      .app-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #09090b;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46;
+      }
+
+      *:focus-visible {
+        outline: 2px solid #a78bfa;
+        outline-offset: 4px;
+      }
+
+      .back-nav {
+        margin-bottom: 2.5rem;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--color-text-secondary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .back-button:hover {
+        color: var(--color-text-primary);
+        transform: translate(-3px);
+      }
+
+      .back-button .arrow {
+        font-size: 1.1rem;
+      }
+
+      .about-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .about-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .about-header h1 {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .gradient-text {
+        background: var(--gradient-text);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      /* Sections styling */
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 3.5rem 0 1.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.75rem;
+      }
+
+      .manifesto-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 3rem;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+
+      .manifesto-card p {
+        margin-bottom: 1.5rem;
+      }
+
+      .manifesto-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .manifesto-highlight {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        line-height: 1.7;
+      }
+
+      /* Pillars Grid */
+      .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.75rem;
+      }
+
+      .pillar-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      .pillar-card:hover {
+        border-color: #a78bfa4d;
+        transform: translateY(-3px);
+      }
+
+      .pillar-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .pillar-card p {
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        font-size: 0.98rem;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+
+      .values-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .values-list li {
+        position: relative;
+        padding-left: 1.75rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--color-text-secondary);
+      }
+
+      .values-list li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: #c084fc;
+        font-weight: bold;
+      }
+
+      /* Predictability section */
+      .predict-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .predict-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 2.5rem;
+      }
+
+      .predict-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .predict-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .predict-item h4 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .predict-item p {
+        color: var(--color-text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+
+      @media (max-width: 850px) {
+        .about-header h1 {
+          font-size: 2.8rem;
+        }
+        .predict-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mesh Background Decorator -->
+    <div class="mesh-bg"></div>
+    <div class="mesh-bg-accent"></div>
+
+    <div class="app-container">
+      <div class="back-nav">
+        <a href="../" class="back-button">
+          <span class="arrow">←</span> Voltar para a página inicial
+        </a>
+      </div>
+
+      <main class="about-container">
+        <header class="about-header">
+          <h1 class="gradient-text">Sobre Nós</h1>
+          <p class="subtitle">
+            A bússola estratégica e o compromisso da THP com a transformação tecnológica.
+          </p>
+        </header>
+
+        <!-- Manifesto Section -->
+        <h2 class="section-title"><span>📜</span> Nosso Manifesto</h2>
+        <div class="manifesto-card">
+          <p class="manifesto-highlight">
+            Vivemos em uma era de mudanças a cada dia mais rápidas, e a tecnologia e o domínio da informação definem a fronteira da competitividade. A THP Inteligência Empresarial e Soluções em Negócios sabe que, para estar sempre na frente, não se pode deixar ninguém para trás, pois dos lugares mais inesperados saem as soluções mais inovadoras.
+          </p>
+          <p>
+            Nossa missão é prover soluções inovadoras de inteligência empresarial, consultoria estratégica, transformação digital e Inteligência Artificial, capacitando empresas em Roraima e em toda a região Norte para um crescimento sustentável e altamente competitivo.
+          </p>
+          <p>
+            Não somos apenas consultores ou desenvolvedores; somos parceiros ativamente comprometidos com a evolução regional. Por isso, a inovação aplicada e adaptada às realidades locais é o motor que move cada linha de código e cada projeto em produção.
+          </p>
+        </div>
+
+        <!-- Pilares Estratégicos Section -->
+        <h2 class="section-title"><span>🧭</span> Pilares Estratégicos</h2>
+        <div class="pillars-grid">
+          <!-- Missão -->
+          <div class="pillar-card">
+            <h3><span>🎯</span> Missão</h3>
+            <p>
+              Prover soluções inovadoras de inteligência empresarial, consultoria estratégica, transformação digital e inteligência artificial, promovendo o crescimento sustentável e a competitividade das empresas em Roraima e em toda a região Norte do Brasil, com foco na geração de valor, capacitação tecnológica e desenvolvimento regional.
+            </p>
+          </div>
+
+          <!-- Visão -->
+          <div class="pillar-card">
+            <h3><span>👁️</span> Visão 2035</h3>
+            <p>
+              Ser a referência na prestação de serviços de inteligência empresarial, consultoria digital e Inteligência Artificial em Roraima e na região Norte até 2035, contribuindo para o desenvolvimento e a transformação tecnológica das organizações regionais.
+            </p>
+          </div>
+
+          <!-- Valores -->
+          <div class="pillar-card">
+            <h3><span>💎</span> Valores</h3>
+            <ul class="values-list">
+              <li>Inovação aplicada e adaptada às realidades locais.</li>
+              <li>Compromisso com o crescimento e desenvolvimento regional.</li>
+              <li>Transparência e ética em todas as relações.</li>
+              <li>Valorização do conhecimento, capacitação contínua e disseminação tecnológica.</li>
+              <li>Atendimento personalizado e focado nas necessidades do cliente.</li>
+              <li>Sustentabilidade socioambiental como base para o crescimento.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Por Que Isso Importa / Previsibilidade -->
+        <h2 class="section-title"><span>🤝</span> Além de um Nome: Por Que Temos um Norte Claro</h2>
+        <div class="predict-container">
+          <!-- Para a THP -->
+          <div class="predict-card">
+            <h3><span>⚙️</span> O Guia para a THP</h3>
+            <div class="predict-list">
+              <div class="predict-item">
+                <h4>O Presente pela Missão</h4>
+                <p>Nossa razão de existir garante que todo esforço, pesquisa e recurso técnico estejam focados em entregar valor real para o cliente.</p>
+              </div>
+              <div class="predict-item">
+                <h4>O Futuro pela Visão</h4>
+                <p>Nosso horizonte rumo a 2035 orienta nossas metas de longo prazo e inspira a THP a estar sempre na vanguarda tecnológica.</p>
+              </div>
+              <div class="predict-item">
+                <h4>A Conduta pelos Valores</h4>
+                <p>Nossos valores guiam nossa ética interna e de mercado, ditando como cada colaborador age e atende.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Para o Cliente -->
+          <div class="predict-card">
+            <h3><span>🛡️</span> A Previsibilidade para Você</h3>
+            <div class="predict-list">
+              <div class="predict-item">
+                <h4>Garantia de Qualidade da Entrega</h4>
+                <p>A clareza do nosso propósito assegura que você sempre receberá projetos que alinham sofisticação de software com facilidade de uso operacional.</p>
+              </div>
+              <div class="predict-item">
+                <h4>Transparência Absoluta</h4>
+                <p>O que nós declaramos é o que somos: você sabe o que esperar de nós comercial e tecnologicamente em todas as etapas.</p>
+              </div>
+              <div class="predict-item">
+                <h4>Compromisso de Longo Prazo</h4>
+                <p>Nosso foco no avanço de Roraima e do Norte garante que a THP estará ao seu lado nos anos que virão, crescendo e evoluindo junto à sua operação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fiscal Flow | THP</title>
+    <title>CookMaster | THP</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -334,54 +334,52 @@
         <header class="detail-header" data-astro-cid-y5f4uwhs>
           <div class="header-meta" data-astro-cid-y5f4uwhs>
             <span class="hierarquia-tag" data-astro-cid-y5f4uwhs>principal</span>
-            <span class="status-badge status-dev" data-astro-cid-y5f4uwhs>
-              Maturidade: <strong data-astro-cid-y5f4uwhs>Em Desenvolvimento Ativo</strong>
+            <span class="status-badge status-other" data-astro-cid-y5f4uwhs>
+              Maturidade: <strong data-astro-cid-y5f4uwhs>Arquivado / Em Reformulação</strong>
             </span>
-            <a href="https://thpinteligencia.github.io/fiscalflow/" target="_blank" rel="noopener noreferrer" class="visit-project-btn" data-astro-cid-y5f4uwhs>
+            <a href="https://thpinteligencia.github.io/cookmaster/" target="_blank" rel="noopener noreferrer" class="visit-project-btn" data-astro-cid-y5f4uwhs>
               Acessar Projeto ↗
             </a>
           </div>
-          <h1 class="project-title" data-astro-cid-y5f4uwhs>Fiscal Flow</h1>
+          <h1 class="project-title" data-astro-cid-y5f4uwhs>CookMaster</h1>
           <div class="eixos-tags" data-astro-cid-y5f4uwhs>
             <span class="tag-item" data-astro-cid-y5f4uwhs>🧠 IA Aplicada</span>
             <span class="tag-item" data-astro-cid-y5f4uwhs>📊 Business Intelligence</span>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>🛡️ Segurança & Governança</span>
           </div>
         </header>
 
         <main class="markdown-content" data-astro-cid-y5f4uwhs>
+          <div class="archived-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; color: #fbbf24; font-size: 0.95rem; line-height: 1.5;">
+            <strong>⚠️ Projeto Arquivado para Reformulação:</strong> Esta versão legado do sistema (antigo <em>UebaChat</em>) está arquivada. A equipe da THP está ativamente trabalhando em um redesenho e reconstrução completa da solução para transformá-la em uma plataforma revolucionária de orquestração de cozinhas, integrando novos canais de entrada e recursos do ecossistema inteligente.
+          </div>
           <p>
-            O <strong>Fiscal Flow</strong> é uma solução tecnológica voltada ao mercado <strong>B2G (Business-to-Government)</strong> estruturada como um "Escudo de Conformidade" inteligente para a administração pública. O sistema automatiza a análise, auditoria e fiscalização de processos regulatórios, contratações e fluxos de governança, assegurando aderência estrita às legislações vigentes e mitigando riscos de desconformidade.
-          </p>
-          <p>
-            Validando sua robustez e aplicabilidade prática, a plataforma foi selecionada e alcançou a <strong>última fase do Contrato Público para Solução Inovadora (CPSI) LC 0312/2025 da Caixa Econômica Federal</strong>, posicionando-se como uma ferramenta de ponta para a modernização segura e transparente da gestão governamental.
+            O <strong>CookMaster</strong> (anteriormente conhecido como <em>UebaChat</em>) é uma plataforma de "Conversational Commerce" e automação operacional para cozinhas e estabelecimentos gastronômicos. Ele integra um cardápio digital a um assistente de vendas inteligente no WhatsApp, capaz de processar pedidos em linguagem natural, sugerir produtos e validar regras de negócio complexas.
           </p>
 
           <h2 id="diferenciais-estratégicos">Diferenciais Estratégicos</h2>
           <ul>
             <li>
-              <strong>Auditabilidade Visual (Visual Proof):</strong> Mitiga o problema de IAs "caixa-preta", fornecendo ao gestor público a comprovação visual e referenciada de onde cada dado foi extraído dos documentos originais, preservando a soberania humana e a transparência em decisões públicas.
+              <strong>Extração Inteligente de Pedidos:</strong> Utiliza IA para entender pedidos em linguagem natural (ex: “quero 20 de brigadeiro e 30 de ninho para amanhã”), convertendo-os instantaneamente em itens de carrinho.
             </li>
             <li>
-              <strong>Segurança da Informação & Cibersegurança:</strong> Proteção e governança de dados através de uma arquitetura híbrida de execução, com a capacidade de alternar de forma transparente entre o processamento seguro em nuvem corporativa e a inferência em servidores locais offline, isolando dados altamente sensíveis.
+              <strong>Automação de Catálogo:</strong> Engine que extrai itens e preços diretamente de arquivos PDF de fornecedores ou menus antigos, eliminando o cadastro manual exaustivo.
             </li>
             <li>
-              <strong>Integridade e Trilha de Conformidade:</strong> Registro de logs e transações de auditoria com rastreabilidade total, assegurando a conformidade regulatória contínua e facilitando a prestação de contas aos órgãos de controle externo.
+              <strong>Monitoramento de Resiliência:</strong> Dashboard em tempo real e sistema de Circuit Breaker para garantir que, se a API de IA falhar, o cliente ainda receba uma experiência de atendimento de alta qualidade.
             </li>
           </ul>
 
           <h2 id="pilares-tecnológicos">Pilares Tecnológicos</h2>
           <ul>
-            <li><strong>Frontend:</strong> Next.js (App Router) e React, com uma interface de alta performance e acessibilidade.</li>
-            <li><strong>Engine de IA & Orquestração:</strong> LangChain.js estruturando fluxos dinâmicos entre modelos proprietários (Gemini) e locais (Ollama).</li>
-            <li><strong>Cibersegurança & Infraestrutura:</strong> Criptografia ponta a ponta (AES-256 GCM) e isolamento lógico de banco de dados por Row-Level Security (RLS).</li>
+            <li><strong>Web/Admin:</strong> Flask (Python).</li>
+            <li><strong>AI Gateway:</strong> FastAPI de alta performance.</li>
+            <li><strong>Infraestrutura:</strong> Redis para cache e Tesseract para OCR de menus.</li>
           </ul>
 
           <h2 id="status-de-entrega">Status de Entrega</h2>
           <ul>
-            <li><strong>Infraestrutura Core:</strong> 100% concluída.</li>
-            <li><strong>Motor de Conformidade & Cibersegurança:</strong> 90% concluído (regras de validação e isolamento operacional implementados).</li>
-            <li><strong>Interface de Auditoria Assistida:</strong> Em fase final de testes de usabilidade e simulação com cenários reais.</li>
+            <li><strong>Produtividade:</strong> Redução drástica no tempo de atendimento humano por pedido.</li>
+            <li><strong>Faturamento:</strong> Sistema integrado e pronto para expansão de meios de pagamento.</li>
           </ul>
         </main>
       </article>
