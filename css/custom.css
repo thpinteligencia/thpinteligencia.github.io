@@ -359,3 +359,176 @@ body {
     max-height: 330px;
   }
 }
+
+/* ==========================================================================
+   Light Mode Overrides & Toggle Button
+   ========================================================================== */
+[data-theme="light"] {
+  --color-bg: #f8fafc;
+  --color-surface: rgba(255, 255, 255, 0.85);
+  --color-surface-hover: rgba(245, 245, 250, 0.9);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text-primary: #09090b;
+  --color-text-secondary: #52525b;
+}
+
+[data-theme="light"] .navbar[data-astro-cid-j7pv25f6] {
+  background: rgba(244, 244, 246, 0.8);
+}
+
+[data-theme="light"] .dot-grid[data-astro-cid-j7pv25f6] {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+}
+
+[data-theme="light"] .btn-secondary[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .visual-container[data-astro-cid-j7pv25f6] {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .hero-badge[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .bp-line[data-astro-cid-j7pv25f6] {
+  stroke: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .badge-float rect {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .metrics-bar[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .metric-card[data-astro-cid-j7pv25f6]:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .eixo-header[data-astro-cid-j7pv25f6] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .eixo-card.expanded .eixo-header[data-astro-cid-j7pv25f6] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .eixo-icon-wrapper[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .projeto-item[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .projeto-item[data-astro-cid-j7pv25f6]:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .projeto-item[data-astro-cid-j7pv25f6].is-principal {
+  background: rgba(167, 139, 250, 0.05);
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+[data-theme="light"] .projeto-item[data-astro-cid-j7pv25f6].is-principal:hover {
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+[data-theme="light"] .status-other[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .tag-inline[data-astro-cid-j7pv25f6] {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .footer-bottom[data-astro-cid-j7pv25f6] {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .empty-state[data-astro-cid-j7pv25f6] {
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Toggle Button Styles */
+#theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+#theme-toggle:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 4px;
+}
+
+#theme-toggle svg {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-theme="light"] #theme-toggle .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="light"] #theme-toggle .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+[data-theme="dark"] #theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+[data-theme="dark"] #theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* Default initial state if data-theme is not yet set explicitly */
+#theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+#theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* Status Badge - Piloto de Mercado */
+.status-pilot {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
