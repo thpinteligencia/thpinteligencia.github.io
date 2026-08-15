@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | THP Inteligência</title>
+    <title>Blog & Insights | THP Inteligência Empresarial</title>
+    <meta name="description" content="Artigos, ensaios técnicos e análises sobre IA, negócios, engenharia de software e tecnologia pela THP." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +15,27 @@
     />
     <link rel="stylesheet" href="../css/custom.css" />
 
+    <!-- Theme Initialization -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     <style>
+      .app-container {
+        max-width: 900px;
+        padding-bottom: 4rem;
+      }
+
+      /* Navigation */
       .back-nav {
         margin-bottom: 2.5rem;
       }
@@ -35,26 +56,35 @@
         transform: translate(-3px);
       }
 
-      .back-button .arrow {
-        font-size: 1.1rem;
-      }
-
-      .articles-container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .articles-header {
+      /* Header */
+      .blog-header {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3.5rem;
       }
 
-      .articles-header h1 {
+      .blog-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        padding: 0.4rem 1rem;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.25rem;
+      }
+
+      .blog-header h1 {
         font-family: var(--font-heading);
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 800;
         margin-bottom: 1rem;
         letter-spacing: -0.03em;
+        line-height: 1.15;
       }
 
       .gradient-text {
@@ -64,77 +94,123 @@
       }
 
       .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         color: var(--color-text-secondary);
-        max-width: 800px;
+        max-width: 760px;
         margin: 0 auto;
         text-align: center;
-        text-wrap: balance;
+        line-height: 1.6;
       }
 
-      .articles-list {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .article-card {
+      /* Placeholder / Coming Soon Card */
+      .placeholder-card {
         background: var(--color-surface);
         backdrop-filter: blur(12px);
-        border: 1px solid var(--color-border);
-        border-radius: 20px;
-        padding: 2.5rem;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: block;
-      }
-
-      .article-card:hover {
-        border-color: #a78bfa4d;
-        transform: translateY(-3px);
-      }
-
-      .article-meta {
-        font-size: 0.85rem;
-        color: #a78bfa;
-        margin-bottom: 0.75rem;
-        font-weight: 600;
+        border: 1px dashed rgba(246, 139, 35, 0.35);
+        border-radius: 24px;
+        padding: 3.5rem 2.5rem;
+        text-align: center;
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+        overflow: hidden;
       }
 
-      .article-card h2 {
+      .placeholder-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background: rgba(246, 139, 35, 0.12);
+        border: 1px solid rgba(246, 139, 35, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .placeholder-card h2 {
         font-family: var(--font-heading);
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         font-weight: 700;
         color: var(--color-text-primary);
-        margin-bottom: 1rem;
-        line-height: 1.3;
+        max-width: 600px;
       }
 
-      .article-card p {
+      .placeholder-card p {
         color: var(--color-text-secondary);
-        line-height: 1.6;
-        font-size: 0.95rem;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: auto;
-        -webkit-hyphens: auto;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 620px;
       }
 
-      .read-more {
+      /* Future Topics Pills */
+      .topics-preview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+        max-width: 650px;
+        margin-top: 0.5rem;
+      }
+
+      .topic-tag {
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 0.4rem 0.85rem;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--color-border);
+        color: var(--color-text-primary);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      /* Explore Alternative Channels */
+      .alt-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 0.85rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.2s ease;
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        color: #c084fc;
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin-top: 1.25rem;
-        transition: color 0.2s ease;
       }
 
-      .article-card:hover .read-more {
-        color: #e9d5ff;
+      .btn-primary {
+        background: var(--gradient-brand);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.92;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--color-border);
+        color: var(--color-text-primary);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--color-border-hover);
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -146,62 +222,82 @@
     <div class="app-container">
       <div class="back-nav">
         <a href="../" class="back-button">
-          <span class="arrow">←</span> Voltar para a página inicial
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Voltar para a página inicial
         </a>
       </div>
 
-      <main class="articles-container">
-        <header class="articles-header">
-          <h1 class="gradient-text">Blog</h1>
+      <main class="blog-main">
+        <!-- Header -->
+        <header class="blog-header">
+          <div class="blog-badge">
+            ⚡ Editorial & Publicações
+          </div>
+          <h1>THP Insights</h1>
           <p class="subtitle">
-            Análises e conhecimentos práticos sobre IA, automações, engenharia de software e controle de dados.
+            Espaço dedicado à publicação de análises técnicas, pesquisas e ensaios sobre IA, negócios, engenharia de software e tecnologias
           </p>
         </header>
 
-        <div class="articles-list">
-          <!-- Article 1 -->
-          <article class="article-card">
-            <div class="article-meta">
-              <span>📅 Junho 2026</span>
-              <span>•</span>
-              <span>🧠 IA & Negócios</span>
-            </div>
-            <h2>Como a Inteligência Artificial pode reduzir custos operacionais em até 40%</h2>
-            <p>
-              Entenda como sistemas inteligentes e automações de fluxos de trabalho eliminam tarefas redundantes, corrigem erros manuais e liberam seu time para focar no que realmente gera receita.
-            </p>
-            <div class="read-more">Ler artigo completo <span>→</span></div>
-          </article>
+        <!-- Placeholder Card -->
+        <div class="placeholder-card">
+          <div class="placeholder-icon">
+            ✍️
+          </div>
+          <h2>Publicações em Fase de Estruturação</h2>
+          <p>
+            Nosso laboratório está crescendo. Em breve, você encontrará nossas primeiras publicações aqui.
+          </p>
 
-          <!-- Article 2 -->
-          <article class="article-card">
-            <div class="article-meta">
-              <span>📅 Maio 2026</span>
-              <span>•</span>
-              <span>🔒 Segurança & Privacidade</span>
-            </div>
-            <h2>Soberania de Dados: Por que sua empresa precisa considerar IA local</h2>
-            <p>
-              Os riscos de conformidade ao trafegar dados sensíveis de clientes por APIs de terceiros e como a implantação de modelos de linguagem locais traz segurança e total controle à sua operação.
-            </p>
-            <div class="read-more">Ler artigo completo <span>→</span></div>
-          </article>
+          <div class="topics-preview">
+            <span class="topic-tag">🧠 Inteligência Artificial Aplicada</span>
+            <span class="topic-tag">📊 Engenharia de Dados</span>
+            <span class="topic-tag">🌐 Negócios</span>
+            <span class="topic-tag">🛡️ Governança de Dados</span>
+          </div>
 
-          <!-- Article 3 -->
-          <article class="article-card">
-            <div class="article-meta">
-              <span>📅 Abril 2026</span>
-              <span>•</span>
-              <span>📊 Business Intelligence</span>
-            </div>
-            <h2>O Guia Prático de BI para Tomada de Decisões Seguras</h2>
-            <p>
-              Como transformar volumes brutos de dados geoespaciais e temporais em painéis analíticos dinâmicos e fáceis de ler para guiar o crescimento real de negócios de médio e grande porte.
-            </p>
-            <div class="read-more">Ler artigo completo <span>→</span></div>
-          </article>
+          <div class="alt-actions">
+            <a href="../labs/" class="btn btn-primary">
+              Conhecer o THP Labs ↗
+            </a>
+            <a href="../servicos/" class="btn btn-secondary">
+              Nossos Serviços
+            </a>
+          </div>
         </div>
       </main>
     </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Alternar tema claro e escuro">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('theme-toggle');
+        if (!themeBtn) return;
+        
+        const applyTheme = (theme) => {
+          document.documentElement.setAttribute('data-theme', theme);
+        };
+
+        themeBtn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          applyTheme(newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+          if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'light' : 'dark');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
