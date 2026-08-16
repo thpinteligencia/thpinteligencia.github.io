@@ -205,6 +205,116 @@
         }
       }
 
+      .intro-callout {
+        background: rgba(18, 58, 115, 0.18);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-left: 4px solid #38bdf8;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0 2rem 0;
+      }
+
+      .intro-callout p {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: #e2e8f0;
+      }
+
+      .features-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        margin: 1.5rem 0 2.5rem 0;
+      }
+
+      .feature-item-card {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        transition: all 0.25s ease;
+      }
+
+      .feature-item-card:hover {
+        border-color: rgba(56, 189, 248, 0.35);
+        background: rgba(18, 58, 115, 0.25);
+        transform: translateY(-2px);
+      }
+
+      .feature-icon-badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.35rem;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.22);
+      }
+
+      .feature-card-title {
+        font-family: var(--font-heading);
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 0;
+      }
+
+      .feature-card-desc {
+        font-size: 0.92rem;
+        color: #cbd5e1;
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      .tech-stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0 2rem 0;
+      }
+
+      .tech-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 14px;
+        padding: 1.15rem 1.25rem;
+        transition: all 0.2s ease;
+      }
+
+      .tech-card:hover {
+        border-color: rgba(167, 139, 250, 0.35);
+        background: rgba(167, 139, 250, 0.05);
+      }
+
+      .tech-card-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #c084fc;
+        font-weight: 700;
+        margin-bottom: 0.35rem;
+      }
+
+      .tech-card-title {
+        font-weight: 700;
+        color: #f1f5f9;
+        font-size: 0.98rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .tech-card-desc {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        line-height: 1.45;
+        margin: 0;
+      }
+
       .visit-project-btn[data-astro-cid-y5f4uwhs] {
         display: inline-flex;
         align-items: center;
@@ -221,6 +331,7 @@
         letter-spacing: 0.05em;
         margin-left: auto;
       }
+
       .visit-project-btn[data-astro-cid-y5f4uwhs]:hover {
         opacity: 0.9;
         transform: translateY(-1px);
@@ -242,54 +353,88 @@
       <article class="project-detail-card" data-astro-cid-y5f4uwhs>
         <header class="detail-header" data-astro-cid-y5f4uwhs>
           <div class="header-meta" data-astro-cid-y5f4uwhs>
-            <span class="hierarquia-tag" data-astro-cid-y5f4uwhs>principal</span>
+            <span class="hierarquia-tag" data-astro-cid-y5f4uwhs>legado</span>
             <span class="status-badge status-other" data-astro-cid-y5f4uwhs>
-              Maturidade: <strong data-astro-cid-y5f4uwhs>Arquivado / Em Reformulação</strong>
+              Maturidade: <strong data-astro-cid-y5f4uwhs>Projeto Legado (v2.0 - Estável)</strong>
             </span>
             <a href="https://thpinteligencia.github.io/cookmaster/" target="_blank" rel="noopener noreferrer" class="visit-project-btn" data-astro-cid-y5f4uwhs>
               Acessar Projeto ↗
             </a>
           </div>
-          <h1 class="project-title" data-astro-cid-y5f4uwhs>CookMaster</h1>
+          <h1 class="project-title" data-astro-cid-y5f4uwhs>CookMaster / UebaChat</h1>
           <div class="eixos-tags" data-astro-cid-y5f4uwhs>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>🧠 IA Aplicada</span>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>📊 Business Intelligence</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>🧠 IA Generativa</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>🛒 Conversational Commerce</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>📄 Ingestão de Cardápios (PDF)</span>
           </div>
         </header>
 
         <main class="markdown-content" data-astro-cid-y5f4uwhs>
-          <div class="archived-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; color: #fbbf24; font-size: 0.95rem; line-height: 1.5;">
-            <strong>⚠️ Projeto Arquivado para Reformulação:</strong> Esta versão legado do sistema (antigo <em>UebaChat</em>) está arquivada. A equipe da THP está ativamente trabalhando em um redesenho e reconstrução completa da solução para transformá-la em uma plataforma revolucionária de orquestração de cozinhas, integrando novos canais de entrada e recursos do ecossistema inteligente.
-          </div>
           <p>
-            O <strong>CookMaster</strong> (anteriormente conhecido como <em>UebaChat</em>) é uma plataforma de "Conversational Commerce" e automação operacional para cozinhas e estabelecimentos gastronômicos. Ele integra um cardápio digital a um assistente de vendas inteligente no WhatsApp, capaz de processar pedidos em linguagem natural, sugerir produtos e validar regras de negócio complexas.
+            O <strong>CookMaster</strong> (originalmente desenvolvido como <em>UebaChat / Ueba Doces</em>) foi concebido como uma plataforma de <strong>Conversational Commerce</strong> e automação operacional para estabelecimentos gastronômicos, confeitarias e cozinhas comerciais.
           </p>
 
-          <h2 id="diferenciais-estratégicos">Diferenciais Estratégicos</h2>
-          <ul>
-            <li>
-              <strong>Extração Inteligente de Pedidos:</strong> Utiliza IA para entender pedidos em linguagem natural (ex: “quero 20 de brigadeiro e 30 de ninho para amanhã”), convertendo-os instantaneamente em itens de carrinho.
-            </li>
-            <li>
-              <strong>Automação de Catálogo:</strong> Engine que extrai itens e preços diretamente de arquivos PDF de fornecedores ou menus antigos, eliminando o cadastro manual exaustivo.
-            </li>
-            <li>
-              <strong>Monitoramento de Resiliência:</strong> Dashboard em tempo real e sistema de Circuit Breaker para garantir que, se a API de IA falhar, o cliente ainda receba uma experiência de atendimento de alta qualidade.
-            </li>
-          </ul>
+          <div class="intro-callout">
+            <p>
+              ✦ <strong>Evolução Tecnológica:</strong> O projeto transcendeu o conceito de cardápio digital para estabelecer um ecossistema inteligente de alta conversão. Tendo atingido sua <strong>versão 2.0 estável</strong>, serve de fundação arquitetural para as atuais tecnologias de inteligência de catálogo e atendimento da THP.
+            </p>
+          </div>
+
+          <h2 id="diferenciais-estratégicos">Diferenciais da Arquitetura v2.0</h2>
+          
+          <div class="features-card-grid">
+            <div class="feature-item-card">
+              <div class="feature-icon-badge">⚡</div>
+              <h3 class="feature-card-title">Cérebro IA Cloud-Native</h3>
+              <p class="feature-card-desc">
+                Inteligência generativa baseada em nuvem com latência ultra-baixa. Executa <em>grounding dinâmico</em> no cardápio vivo a cada interação e valida regras estritas de pedido mínimo e disponibilidade.
+              </p>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="feature-icon-badge" style="background: rgba(167, 139, 250, 0.1); border-color: rgba(167, 139, 250, 0.22); color: #c084fc;">📑</div>
+              <h3 class="feature-card-title">Smart Admin & Motor de Diff</h3>
+              <p class="feature-card-desc">
+                Ingestão direta de cardápios em PDF com identificação comparativa automática de novos itens, alterações de valores e exclusões, com rotinas de backup instantâneo.
+              </p>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="feature-icon-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.22); color: #4ade80;">📱</div>
+              <h3 class="feature-card-title">Interface Gourmet (Mobile-First)</h3>
+              <p class="feature-card-desc">
+                Frontend ultra-leve em Vanilla JS com carrinho estilo <em>Bottom Sheet</em> e <em>Floating Action Button (FAB)</em> com atualização em tempo real para maximizar a conversão no mobile.
+              </p>
+            </div>
+          </div>
 
           <h2 id="pilares-tecnológicos">Pilares Tecnológicos</h2>
-          <ul>
-            <li><strong>Web/Admin:</strong> Flask (Python).</li>
-            <li><strong>AI Gateway:</strong> FastAPI de alta performance.</li>
-            <li><strong>Infraestrutura:</strong> Redis para cache e Tesseract para OCR de menus.</li>
-          </ul>
 
-          <h2 id="status-de-entrega">Status de Entrega</h2>
-          <ul>
-            <li><strong>Produtividade:</strong> Redução drástica no tempo de atendimento humano por pedido.</li>
-            <li><strong>Faturamento:</strong> Sistema integrado e pronto para expansão de meios de pagamento.</li>
-          </ul>
+          <div class="tech-stack-grid">
+            <div class="tech-card">
+              <div class="tech-card-label">Backend API</div>
+              <div class="tech-card-title">Python (Flask / FastAPI)</div>
+              <p class="tech-card-desc">Estrutura modular em camadas e validação de schema com <code>jsonschema</code>.</p>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card-label">Inteligência</div>
+              <div class="tech-card-title">Modelos LLM Cloud-Native</div>
+              <p class="tech-card-desc">APIs de alta performance com grounding contextual dinâmico.</p>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card-label">Frontend</div>
+              <div class="tech-card-title">Vanilla JS Gourmet</div>
+              <p class="tech-card-desc">Design System ergonômico sem dependência de frameworks pesados.</p>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card-label">Qualidade</div>
+              <div class="tech-card-title">Stress QA & Automação</div>
+              <p class="tech-card-desc">Testes de injeção, controle de cota e pipeline com Makefile.</p>
+            </div>
+          </div>
         </main>
       </article>
     </div>

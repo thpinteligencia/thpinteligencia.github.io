@@ -64,9 +64,9 @@
       }
 
       .hierarquia-tag[data-astro-cid-y5f4uwhs] {
-        background: #a78bfa1a;
-        color: #c084fc;
-        border: 1px solid rgba(167, 139, 250, 0.2);
+        background: rgba(244, 114, 182, 0.12);
+        color: #f472b6;
+        border: 1px solid rgba(244, 114, 182, 0.25);
         font-size: 0.75rem;
         padding: 0.2rem 0.6rem;
         border-radius: 6px;
@@ -91,18 +91,6 @@
         background: #22c55e14;
         color: #4ade80;
         border: 1px solid rgba(34, 197, 94, 0.15);
-      }
-
-      .status-dev[data-astro-cid-y5f4uwhs] {
-        background: #f59e0b14;
-        color: #fbbf24;
-        border: 1px solid rgba(245, 158, 11, 0.15);
-      }
-
-      .status-other[data-astro-cid-y5f4uwhs] {
-        background: #ffffff0d;
-        color: var(--color-text-secondary);
-        border: 1px solid var(--color-border);
       }
 
       .project-title[data-astro-cid-y5f4uwhs] {
@@ -142,7 +130,7 @@
 
       .markdown-content[data-astro-cid-y5f4uwhs] h2 {
         font-family: var(--font-heading);
-        font-size: 1.6rem;
+        font-size: 1.55rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-top: 2.5rem;
@@ -152,7 +140,7 @@
 
       .markdown-content[data-astro-cid-y5f4uwhs] h3 {
         font-family: var(--font-heading);
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-top: 2rem;
@@ -174,7 +162,7 @@
       }
 
       .markdown-content[data-astro-cid-y5f4uwhs] li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.65rem;
         text-align: justify;
         text-justify: inter-word;
         hyphens: auto;
@@ -186,85 +174,167 @@
         font-weight: 600;
       }
 
-      .markdown-content[data-astro-cid-y5f4uwhs] code {
-        font-family: monospace;
-        font-size: 0.9em;
-        background: #ffffff0f;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #e2e8f0;
-        padding: 0.15rem 0.3rem;
-        border-radius: 4px;
-      }
-
-      .diagram-tabs {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--color-border);
-        padding-bottom: 0.5rem;
-        overflow-x: auto;
-      }
-
-      .tab-btn {
-        background: transparent;
-        border: none;
-        color: var(--color-text-secondary);
-        padding: 0.5rem 1rem;
-        font-family: var(--font-heading);
-        font-size: 0.9rem;
-        font-weight: 500;
-        cursor: pointer;
-        border-radius: 6px;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-      }
-
-      .tab-btn:hover {
-        color: var(--color-text-primary);
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .tab-btn.active {
-        color: #c084fc;
-        background: rgba(167, 139, 250, 0.1);
-        border: 1px solid rgba(167, 139, 250, 0.2);
-      }
-
-      .tab-pane {
-        display: none;
-        background: rgba(0, 0, 0, 0.2);
-        border: 1px solid var(--color-border);
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-align: center;
-      }
-
-      .tab-pane.active {
-        display: block;
-        animation: fadeIn 0.3s ease;
-      }
-
-      .diagram-img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        background: #fdfdfd;
-        padding: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(4px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
       @media (max-width: 768px) {
         .project-detail-card[data-astro-cid-y5f4uwhs] {
           padding: 1.5rem;
         }
         .project-title[data-astro-cid-y5f4uwhs] {
           font-size: 2rem;
+        }
+      }
+
+      /* Callout Integrado com Efeito Ambient */
+      .intro-callout {
+        background: linear-gradient(135deg, rgba(244, 114, 182, 0.09) 0%, rgba(30, 27, 75, 0.35) 100%);
+        border: 1px solid rgba(244, 114, 182, 0.22);
+        border-radius: 16px;
+        padding: 1.4rem 1.6rem;
+        margin: 1.5rem 0 2.25rem 0;
+        box-shadow: 0 4px 24px -6px rgba(244, 114, 182, 0.08);
+      }
+
+      .callout-badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #f472b6;
+        background: rgba(244, 114, 182, 0.15);
+        border: 1px solid rgba(244, 114, 182, 0.25);
+        padding: 0.2rem 0.55rem;
+        border-radius: 6px;
+        margin-bottom: 0.75rem;
+      }
+
+      .intro-callout p {
+        margin: 0;
+        font-size: 0.96rem;
+        line-height: 1.65;
+        color: #f1f5f9;
+        text-align: left !important;
+      }
+
+      /* Grid de Diferenciais Principais */
+      .features-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.15rem;
+        margin: 1.25rem 0 2.25rem 0;
+      }
+
+      .feature-item-card {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 16px;
+        padding: 1.35rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        height: 100%;
+        box-sizing: border-box;
+        transition: all 0.25s ease;
+      }
+
+      .feature-item-card:hover {
+        border-color: rgba(244, 114, 182, 0.35);
+        background: rgba(244, 114, 182, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .feature-icon-badge {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        background: rgba(244, 114, 182, 0.1);
+        border: 1px solid rgba(244, 114, 182, 0.22);
+      }
+
+      .feature-card-title {
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 0;
+      }
+
+      .feature-card-desc {
+        font-size: 0.9rem;
+        color: #cbd5e1;
+        line-height: 1.55;
+        margin: 0;
+        text-align: left !important;
+        text-justify: auto !important;
+      }
+
+      /* Pilares de Confiabilidade - Linhas Estruturadas e Encaixadas */
+      .pillars-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        margin: 1.25rem 0 2rem 0;
+      }
+
+      .pillar-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.15rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 14px;
+        padding: 1.1rem 1.35rem;
+        transition: all 0.2s ease;
+      }
+
+      .pillar-row:hover {
+        border-color: rgba(244, 114, 182, 0.25);
+        background: rgba(244, 114, 182, 0.04);
+      }
+
+      .pillar-tag {
+        font-family: var(--font-heading);
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #f472b6;
+        background: rgba(244, 114, 182, 0.1);
+        border: 1px solid rgba(244, 114, 182, 0.2);
+        padding: 0.3rem 0.6rem;
+        border-radius: 8px;
+        white-space: nowrap;
+        margin-top: 0.15rem;
+      }
+
+      .pillar-content {
+        flex: 1;
+      }
+
+      .pillar-title {
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .pillar-desc {
+        font-size: 0.88rem;
+        color: #94a3b8;
+        line-height: 1.5;
+        margin: 0;
+        text-align: left !important;
+      }
+
+      @media (max-width: 820px) {
+        .features-card-grid {
+          grid-template-columns: 1fr;
+        }
+        .pillar-row {
+          flex-direction: column;
+          gap: 0.6rem;
         }
       }
 
@@ -305,9 +375,9 @@
       <article class="project-detail-card" data-astro-cid-y5f4uwhs>
         <header class="detail-header" data-astro-cid-y5f4uwhs>
           <div class="header-meta" data-astro-cid-y5f4uwhs>
-            <span class="hierarquia-tag" data-astro-cid-y5f4uwhs>secundario</span>
+            <span class="hierarquia-tag" data-astro-cid-y5f4uwhs>core</span>
             <span class="status-badge status-stable" data-astro-cid-y5f4uwhs>
-              Maturidade: <strong data-astro-cid-y5f4uwhs>Operacional / Estável</strong>
+              Maturidade: <strong data-astro-cid-y5f4uwhs>Operacional / v2.0</strong>
             </span>
             <a href="https://thpinteligencia.github.io/hormos/" target="_blank" rel="noopener noreferrer" class="visit-project-btn" data-astro-cid-y5f4uwhs>
               Acessar Projeto ↗
@@ -315,39 +385,89 @@
           </div>
           <h1 class="project-title" data-astro-cid-y5f4uwhs>H.O.R.M.O.S.</h1>
           <div class="eixos-tags" data-astro-cid-y5f4uwhs>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>🧠 IA Aplicada</span>
-            <span class="tag-item" data-astro-cid-y5f4uwhs>🛡️ Segurança & Governança</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>🌸 Saúde & Bem-estar Feminino</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>💡 Inteligência Contínua</span>
+            <span class="tag-item" data-astro-cid-y5f4uwhs>🔒 Privacidade Absoluta</span>
           </div>
         </header>
 
         <main class="markdown-content" data-astro-cid-y5f4uwhs>
           <p>
-            O <strong>H.O.R.M.O.S.</strong> (Hybrid Organic Relationship Monitoring & Optimization System) é um assistente inteligente desenvolvido com foco primário no bem-estar e no monitoramento do ciclo biológico da mulher, estendendo-se à otimização da rotina feminina e do relacionamento através da bio-sincronização. Em termos simples: o sistema acompanha de perto o ciclo biológico natural da usuária, regular ou não, de forma preditiva e ajuda a mapear cada momento, fornecendo informações valiosas de saúde.
+            O <strong>H.O.R.M.O.S.</strong> é uma tecnologia voltada ao <strong>cuidado integral e ao ritmo natural da mulher</strong>. Ele compreende as nuances do ciclo biológico de forma inteligente, transformando variações hormonais em orientações práticas de autocuidado, equilíbrio emocional e nutrição.
           </p>
 
-          <h2 id="diferenciais-estratégicos">Diferenciais Estratégicos</h2>
+          <div class="intro-callout">
+            <span class="callout-badge">✦ Conexão & Empatia</span>
+            <p>
+              <strong>Mais acolhimento, menos adivinhação:</strong> O corpo feminino é vivo e dinâmico, não uma tabela com datas fixas. Ao acompanhar cada fase com sensibilidade, a plataforma apoia a rotina da mulher e permite que as pessoas ao seu redor ofereçam o suporte adequado na hora certa — com respeito, carinho e presença.
+            </p>
+          </div>
+
+          <h2 id="diferenciais-estratégicos">Cuidado em Cada Detalhe</h2>
+
+          <div class="features-card-grid">
+            <div class="feature-item-card">
+              <div class="feature-icon-badge" style="color: #f472b6;">🌱</div>
+              <h3 class="feature-card-title">Ritmo Biológico Real</h3>
+              <p class="feature-card-desc">
+                Em vez de calendários rígidos, o sistema aprende as variações reais do organismo feminino, adaptando-se com fluidez e sensibilidade a qualquer ciclo.
+              </p>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="feature-icon-badge" style="background: rgba(244, 114, 182, 0.1); border-color: rgba(244, 114, 182, 0.22); color: #f472b6;">✨</div>
+              <h3 class="feature-card-title">Apoio Ininterrupto</h3>
+              <p class="feature-card-desc">
+                Estrutura inteligente que funciona tanto conectada quanto offline. Seus conselhos diários, dicas de nutrição e bem-estar nunca deixam de chegar.
+              </p>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="feature-icon-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.22); color: #4ade80;">🛡️</div>
+              <h3 class="feature-card-title">Privacidade Inegociável</h3>
+              <p class="feature-card-desc">
+                A intimidade e os dados de saúde pertencem unicamente a você. Toda a informação é mantida em segurança estrita e protegida no próprio dispositivo.
+              </p>
+            </div>
+          </div>
+
+          <h2 id="expansao-futura">Horizontes de Cuidado & Inclusão</h2>
+          <p>
+            O desenvolvimento do H.O.R.M.O.S. foi planejado para acolher a diversidade e as diferentes fases da vida da mulher e do corpo humano. O roadmap de expansão contempla novos módulos especializados:
+          </p>
           <ul>
-            <li>
-              <strong>Previsão Probabilística (Sem Calendários Rígidos):</strong> Aplicativos usam calendários fixos e genéricos. O H.O.R.M.O.S. utiliza modelagem matemática de probabilidade (curva Gaussiana) adaptando-se às variações reais do organismo da mulher para calcular as fases do ciclo.
-            </li>
-            <li>
-              <strong>Dupla Cobertura de Inteligência (IA Híbrida):</strong> Para garantir que os relatórios nunca falhem, o sistema usa uma estrutura dupla, priorizando a computação em nuvem anônima e de ponta. Caso haja alguma instabilidade de conexão, o sistema aciona de forma automática um cérebro digital local e que se mantem atualizado até que a conexão com a nuvem seja restaurada.
-            </li>
-            <li>
-              <strong>Privacidade Absoluta e Blindagem de Dados:</strong> Informações íntimas de saúde e relacionamento não devem ser expostas na internet. Seus dados são <strong> seus </strong>. Por isso, a arquitetura permite o processamento totalmente local e armazenamento em bancos de dados blindados, garantindo que tudo permaneça único e confidencial.
-            </li>
-            <li>
-              <strong>Recalibração Inteligente Contra Acidentes:</strong> O assistente se calibra dinamicamente a cada ciclo registrado, adaptando-se às flutuações hormonais ao longo do tempo. Além disso, possui uma trava de segurança inteligente que descarta marcações acidentais ou precoces (como toques incorretos num intervalo de menos de 10 dias) para não corromper o histórico estatístico.
-            </li>
+            <li><strong>Climatério e Menopausa:</strong> Acompanhamento sensível das transições tardias, oferecendo suporte contínuo para amenizar sintomas e manter o bem-estar e a vitalidade.</li>
+            <li><strong>Modulação Hormonal e Esteroides:</strong> Monitoramento específico para quem utiliza terapias hormonais ou substâncias sintéticas, mapeando respostas do corpo e otimizando a rotina.</li>
+            <li><strong>Transição Hormonal:</strong> Espaço inclusivo e acolhedor para o acompanhamento seguro de alterações biológicas e emocionais em processos de hormonização (TH).</li>
           </ul>
 
-          <h2 id="pilares-tecnológicos">Pilares Tecnológicos</h2>
-          <ul>
-            <li><strong>Motor de Processamento Inteligente:</strong> O núcleo central que gerencia toda a lógica, calcula as chances biológicas de forma ágil e processa as informações em milissegundos para responder instantaneamente a qualquer solicitação.</li>
-            <li><strong>Privacidade no Armazenamento de Dados:</strong> Uma estrutura que garante que dados pessoais permaneçam salvos exclusivamente no aparelho. No momento em que qualquer informação deixa o dispositivo, ela passa por uma anonimização completa.</li>
-            <li><strong>Conexão Híbrida de Inteligência Artificial:</strong> Integração dinâmica que combina o poder de processamento de inteligência artificial de ponta com um cérebro local que roda de forma 100% offline para garantir o envio dos relatórios diários mesmo em caso de falhas na rede.</li>
-            <li><strong>Canais e Portais de Acesso:</strong> Interfaces desenvolvidas para a facilidade do usuário, compostas por um robô interativo de mensagens para envio diário de dicas, um painel de controle protegido para ajustes finos de sensibilidade e um aplicativo de celular para acompanhamento rápido.</li>
-          </ul>
+          <h2 id="pilares-confiabilidade">Pilares de Confiabilidade</h2>
+
+          <div class="pillars-list">
+            <div class="pillar-row">
+              <span class="pillar-tag">Calibração</span>
+              <div class="pillar-content">
+                <h4 class="pillar-title">Ajuste Dinâmico Inteligente</h4>
+                <p class="pillar-desc">O algoritmo descarta toques acidentais e recalibra previsões de forma orgânica a cada novo registro.</p>
+              </div>
+            </div>
+
+            <div class="pillar-row">
+              <span class="pillar-tag">Experiência</span>
+              <div class="pillar-content">
+                <h4 class="pillar-title">Consultoria e Aconselhamento Ativo</h4>
+                <p class="pillar-desc">Recomendações bio-sincronizadas de nutrição e hábitos que traduzem dados em bem-estar palpável.</p>
+              </div>
+            </div>
+
+            <div class="pillar-row">
+              <span class="pillar-tag">Segurança</span>
+              <div class="pillar-content">
+                <h4 class="pillar-title">Blindagem e Custódia Local</h4>
+                <p class="pillar-desc">Informações confidenciais ficam guardadas no próprio aparelho, sem exposição a bancos externos.</p>
+              </div>
+            </div>
+          </div>
         </main>
       </article>
     </div>
