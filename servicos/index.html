@@ -14,6 +14,20 @@
     />
     <link rel="stylesheet" href="../css/custom.css" />
 
+    <!-- Theme Initialization -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     <style>
       .app-container {
         max-width: 1280px;
@@ -246,17 +260,17 @@
       }
 
       .mini-product-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid var(--color-border);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px dashed var(--color-border);
         border-radius: 12px;
         padding: 1.25rem;
+        min-height: 80px;
         transition: all 0.2s ease;
       }
 
       .mini-product-card:hover {
-        background: rgba(255, 255, 255, 0.06);
-        border-color: rgba(246, 139, 35, 0.4);
-        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--color-border-hover);
       }
 
       .mini-product-card h4 {
@@ -279,8 +293,8 @@
         margin-top: 4.5rem;
         padding: 3.5rem 2.5rem;
         text-align: center;
-        background: linear-gradient(180deg, rgba(20, 20, 25, 0.8) 0%, rgba(15, 15, 20, 0.95) 100%);
-        border: 1px solid rgba(167, 139, 250, 0.2);
+        background: linear-gradient(180deg, rgba(18, 58, 115, 0.4) 0%, rgba(10, 30, 63, 0.8) 100%);
+        border: 1px solid rgba(246, 139, 35, 0.25);
         border-radius: 20px;
         display: flex;
         flex-direction: column;
@@ -416,12 +430,12 @@
               <h2>IA Aplicada e Sistemas Inteligentes</h2>
             </div>
             <p>
-              Projetamos e implementamos sistemas cognitivos e assistentes conversacionais com inteligência artificial aplicada. De automações inteligentes a arquiteturas híbridas com foco em privacidade local, criamos soluções práticas que otimizam o atendimento e qualificam a rotina de trabalho.
+              Projetamos e implementamos soluções práticas com inteligência artificial aplicada. Desenvolvemos agentes autônomos para automação de fluxos de trabalho, soluções baseadas em LLMs privados (locais ou em nuvem com foco estrito em privacidade de dados) e visão computacional para triagem e otimização operacional.
             </p>
             <div class="service-features">
-              <span class="feature-tag">Assistentes IA</span>
+              <span class="feature-tag">Agentes & LLMs</span>
               <span class="feature-tag">Modelos Locais</span>
-              <span class="feature-tag">NLP & Visão</span>
+              <span class="feature-tag">Visão Computacional</span>
             </div>
           </div>
 
@@ -455,15 +469,15 @@
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                 </svg>
               </div>
-              <h2>Automação de Processos e Software Sob Medida</h2>
+              <h2>Engenharia de Software & Automação</h2>
             </div>
             <p>
-              Reduzimos tarefas manuais, tempo de processamento e gargalos operacionais. Desenvolvemos softwares personalizados, integrações de sistemas, fluxos de triagem documental e e-commerce conversacional desenhados para a escala do seu negócio.
+              Reduzimos tarefas manuais, tempo de processamento e gargalos operacionais. Desenvolvemos softwares sob medida, integrações de sistemas, APIs robustas e plataformas escaláveis desenhadas para os desafios específicos do seu negócio.
             </p>
             <div class="service-features">
               <span class="feature-tag">Sistemas Web</span>
               <span class="feature-tag">APIs & Integrações</span>
-              <span class="feature-tag">Triagem Documental</span>
+              <span class="feature-tag">Automação de Processos</span>
             </div>
           </div>
 
@@ -511,21 +525,16 @@
           </div>
 
           <div class="products-mini-grid">
-            <div class="mini-product-card">
-            </div>
-            <div class="mini-product-card">
-            </div>
-            <div class="mini-product-card">
-            </div>
-            <div class="mini-product-card">
-            </div>
-            <div class="mini-product-card">
-            </div>
+            <div class="mini-product-card"></div>
+            <div class="mini-product-card"></div>
+            <div class="mini-product-card"></div>
+            <div class="mini-product-card"></div>
+            <div class="mini-product-card"></div>
           </div>
 
           <div style="margin-top: 0.5rem; text-align: right;">
-            <a href="../#portfolio" class="btn btn-secondary" style="font-size: 0.88rem; padding: 0.6rem 1.2rem;">
-              Ver Todos os Produtos no Portfólio ↗
+            <a href="../labs/" class="btn btn-secondary" style="font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+              Explorar Projetos no THP Labs ↗
             </a>
           </div>
         </div>
@@ -541,11 +550,41 @@
               Fale Conosco ↗
             </a>
             <a href="../sobre/" class="btn btn-secondary">
-              Conheça Nossa História
+              Sobre a THP
             </a>
           </div>
         </section>
       </main>
     </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Alternar tema claro e escuro">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('theme-toggle');
+        if (!themeBtn) return;
+        
+        const applyTheme = (theme) => {
+          document.documentElement.setAttribute('data-theme', theme);
+        };
+
+        themeBtn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          applyTheme(newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+          if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'light' : 'dark');
+          }
+        });
+      });
+    </script>
   </body>
 </html>

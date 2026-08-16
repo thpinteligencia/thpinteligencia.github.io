@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contato | THP Inteligência</title>
+    <meta name="description" content="Entre em contato com a THP Inteligência Empresarial. Soluções sob medida, IA aplicada, engenharia de software e consultoria estratégica." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,12 +15,32 @@
     />
     <link rel="stylesheet" href="../css/custom.css" />
 
+    <!-- Theme Initialization -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     <style>
-      .back-nav[data-astro-cid-7iakxibs] {
+      .app-container {
+        max-width: 1000px;
+        padding-bottom: 4rem;
+      }
+
+      /* Navigation */
+      .back-nav {
         margin-bottom: 2.5rem;
       }
 
-      .back-button[data-astro-cid-7iakxibs] {
+      .back-button {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
@@ -30,52 +51,65 @@
         transition: color 0.2s ease, transform 0.2s ease;
       }
 
-      .back-button[data-astro-cid-7iakxibs]:hover {
+      .back-button:hover {
         color: var(--color-text-primary);
         transform: translate(-3px);
       }
 
-      .back-button[data-astro-cid-7iakxibs] .arrow[data-astro-cid-7iakxibs] {
-        font-size: 1.1rem;
-      }
-
-      .contact-container[data-astro-cid-7iakxibs] {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .contact-header[data-astro-cid-7iakxibs] {
+      /* Header */
+      .contact-header {
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3.5rem;
       }
 
-      .contact-header[data-astro-cid-7iakxibs] h1[data-astro-cid-7iakxibs] {
+      .contact-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        padding: 0.4rem 1rem;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.25rem;
+      }
+
+      .contact-header h1 {
         font-family: var(--font-heading);
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 800;
         margin-bottom: 1rem;
         letter-spacing: -0.03em;
+        line-height: 1.15;
       }
 
-      .gradient-text[data-astro-cid-7iakxibs] {
+      .gradient-text {
         background: var(--gradient-text);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      .subtitle[data-astro-cid-7iakxibs] {
-        font-size: 1.2rem;
+      .subtitle {
+        font-size: 1.25rem;
         color: var(--color-text-secondary);
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 1.6;
       }
 
-      .contact-content[data-astro-cid-7iakxibs] {
+      .contact-content {
         display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 3rem;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 2.5rem;
         align-items: start;
       }
 
-      .contact-info[data-astro-cid-7iakxibs] {
+      .contact-info {
         background: var(--color-surface);
         backdrop-filter: blur(12px);
         border: 1px solid var(--color-border);
@@ -83,7 +117,7 @@
         padding: 2.5rem;
       }
 
-      .contact-info[data-astro-cid-7iakxibs] h2[data-astro-cid-7iakxibs] {
+      .contact-info h2 {
         font-family: var(--font-heading);
         font-size: 1.5rem;
         font-weight: 700;
@@ -91,48 +125,55 @@
         color: var(--color-text-primary);
       }
 
-      .info-item[data-astro-cid-7iakxibs] {
+      .info-item {
         display: flex;
         gap: 1rem;
         margin-bottom: 1.5rem;
       }
 
-      .info-item[data-astro-cid-7iakxibs] .icon[data-astro-cid-7iakxibs] {
+      .info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-item .icon {
         font-size: 1.5rem;
-        background: #ffffff0d;
+        background: rgba(255, 255, 255, 0.04);
         border: 1px solid var(--color-border);
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
       }
 
-      .info-item[data-astro-cid-7iakxibs] h3[data-astro-cid-7iakxibs] {
+      .info-item h3 {
         font-size: 0.95rem;
         font-weight: 600;
         color: var(--color-text-primary);
         margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
 
-      .info-item[data-astro-cid-7iakxibs] p[data-astro-cid-7iakxibs] {
+      .info-item p {
         font-size: 0.9rem;
         color: var(--color-text-secondary);
       }
 
-      .info-item[data-astro-cid-7iakxibs] a[data-astro-cid-7iakxibs] {
-        color: #c084fc;
+      .info-item a {
+        color: var(--color-accent-orange);
         text-decoration: none;
-        transition: color 0.2s ease;
+        transition: opacity 0.2s ease;
       }
 
-      .info-item[data-astro-cid-7iakxibs] a[data-astro-cid-7iakxibs]:hover {
-        color: #e9d5ff;
+      .info-item a:hover {
+        opacity: 0.85;
       }
 
-      .contact-form[data-astro-cid-7iakxibs] {
+      .contact-form {
         background: var(--color-surface);
         backdrop-filter: blur(12px);
         border: 1px solid var(--color-border);
@@ -143,63 +184,62 @@
         gap: 1.25rem;
       }
 
-      .contact-form[data-astro-cid-7iakxibs] h2[data-astro-cid-7iakxibs] {
+      .contact-form h2 {
         font-family: var(--font-heading);
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--color-text-primary);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
       }
 
-      .form-group[data-astro-cid-7iakxibs] {
+      .form-group {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.45rem;
       }
 
-      .form-group[data-astro-cid-7iakxibs] label[data-astro-cid-7iakxibs] {
+      .form-group label {
         font-size: 0.85rem;
         font-weight: 600;
         color: var(--color-text-secondary);
       }
 
-      .form-group[data-astro-cid-7iakxibs] input[data-astro-cid-7iakxibs],
-      .form-group[data-astro-cid-7iakxibs] textarea[data-astro-cid-7iakxibs] {
-        background: #ffffff05;
+      .form-group input,
+      .form-group textarea {
+        background: rgba(255, 255, 255, 0.03);
         border: 1px solid var(--color-border);
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
         color: var(--color-text-primary);
         font-family: var(--font-body);
         font-size: 0.95rem;
         transition: border-color 0.2s ease, background-color 0.2s ease;
       }
 
-      .form-group[data-astro-cid-7iakxibs] input[data-astro-cid-7iakxibs]:focus,
-      .form-group[data-astro-cid-7iakxibs] textarea[data-astro-cid-7iakxibs]:focus {
+      .form-group input:focus,
+      .form-group textarea:focus {
         outline: none;
-        border-color: #a78bfa80;
-        background: #ffffff0d;
+        border-color: rgba(246, 139, 35, 0.5);
+        background: rgba(255, 255, 255, 0.06);
       }
 
-      .submit-button[data-astro-cid-7iakxibs] {
+      .submit-button {
         background: var(--gradient-brand);
         color: #fff;
         border: none;
-        border-radius: 8px;
-        padding: 0.85rem;
+        border-radius: 10px;
+        padding: 0.9rem;
         font-size: 0.95rem;
         font-weight: 600;
         cursor: pointer;
-        transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
-        margin-top: 0.5rem;
+        transition: opacity 0.2s ease, transform 0.2s ease;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
       }
 
-      .submit-button[data-astro-cid-7iakxibs]:hover {
+      .submit-button:hover {
         opacity: 0.95;
         transform: translateY(-1px);
       }
@@ -210,13 +250,13 @@
       }
 
       .btn-email-submit {
-        background: #ffffff0a !important;
+        background: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid var(--color-border) !important;
         color: var(--color-text-primary) !important;
       }
 
       .btn-email-submit:hover {
-        background: #ffffff14 !important;
+        background: rgba(255, 255, 255, 0.1) !important;
         border-color: var(--color-border-hover) !important;
       }
 
@@ -233,13 +273,12 @@
         border-radius: 4px;
         font-weight: 600;
         display: inline-block;
-        margin-left: 0.35rem;
       }
 
       .badge-soon {
-        background: rgba(167, 139, 250, 0.15);
-        color: #c084fc;
-        border: 1px solid rgba(167, 139, 250, 0.25);
+        background: rgba(246, 139, 35, 0.15);
+        color: var(--color-accent-orange);
+        border: 1px solid rgba(246, 139, 35, 0.3);
       }
 
       .form-feedback {
@@ -258,7 +297,7 @@
       }
 
       @media (max-width: 768px) {
-        .contact-content[data-astro-cid-7iakxibs] {
+        .contact-content {
           grid-template-columns: 1fr;
         }
         .form-actions-row {
@@ -273,36 +312,42 @@
     <div class="mesh-bg-accent"></div>
 
     <div class="app-container">
-      <div class="back-nav" data-astro-cid-7iakxibs>
-        <a href="../" class="back-button" data-astro-cid-7iakxibs>
-          <span class="arrow" data-astro-cid-7iakxibs>←</span> Voltar para o portfólio
+      <div class="back-nav">
+        <a href="../" class="back-button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Voltar para a página inicial
         </a>
       </div>
 
-      <main class="contact-container" data-astro-cid-7iakxibs>
-        <header class="contact-header" data-astro-cid-7iakxibs>
-          <h1 class="gradient-text" data-astro-cid-7iakxibs>Fale Conosco</h1>
-          <p class="subtitle" data-astro-cid-7iakxibs>
-            Tem um projeto ou desafio estratégico? Entre em contato e vamos conversar.
+      <main class="contact-container">
+        <header class="contact-header">
+          <div class="contact-badge">
+            ⚡ Atendimento & Parcerias
+          </div>
+          <h1>Fale Conosco</h1>
+          <p class="subtitle">
+            Tem um projeto, desafio estratégico ou interesse em soluções sob medida? Entre em contato e vamos conversar.
           </p>
         </header>
 
-        <div class="contact-content" data-astro-cid-7iakxibs>
+        <div class="contact-content">
           <!-- Contact Info -->
-          <div class="contact-info" data-astro-cid-7iakxibs>
-            <h2 data-astro-cid-7iakxibs>Canais Oficiais</h2>
+          <div class="contact-info">
+            <h2>Canais Oficiais</h2>
 
             <!-- WhatsApp -->
-            <div class="info-item" data-astro-cid-7iakxibs>
-              <span class="icon" data-astro-cid-7iakxibs>
+            <div class="info-item">
+              <span class="icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413Z"/>
                 </svg>
               </span>
-              <div data-astro-cid-7iakxibs>
-                <h3 data-astro-cid-7iakxibs>WhatsApp Corporativo</h3>
-                <p data-astro-cid-7iakxibs>
-                  <a href="https://wa.me/5595991205218?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20THP%20Intelig%C3%AAncia." target="_blank" rel="noopener noreferrer" data-astro-cid-7iakxibs>
+              <div>
+                <h3>WhatsApp Corporativo</h3>
+                <p>
+                  <a href="https://wa.me/5595991205218?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20THP%20Intelig%C3%AAncia." target="_blank" rel="noopener noreferrer">
                     +55 (95) 99120-5218 ↗
                   </a>
                 </p>
@@ -310,16 +355,16 @@
             </div>
 
             <!-- Telefone -->
-            <div class="info-item" data-astro-cid-7iakxibs>
-              <span class="icon" data-astro-cid-7iakxibs>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <div class="info-item">
+              <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2C5EA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
               </span>
-              <div data-astro-cid-7iakxibs>
-                <h3 data-astro-cid-7iakxibs>Telefone</h3>
-                <p data-astro-cid-7iakxibs>
-                  <a href="tel:+5595991205218" data-astro-cid-7iakxibs>
+              <div>
+                <h3>Telefone</h3>
+                <p>
+                  <a href="tel:+5595991205218">
                     +55 (95) 99120-5218
                   </a>
                 </p>
@@ -327,17 +372,17 @@
             </div>
 
             <!-- E-mail -->
-            <div class="info-item" data-astro-cid-7iakxibs>
-              <span class="icon" data-astro-cid-7iakxibs>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <div class="info-item">
+              <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F68B23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <rect width="20" height="16" x="2" y="4" rx="2"/>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
               </span>
-              <div data-astro-cid-7iakxibs>
-                <h3 data-astro-cid-7iakxibs>E-mail</h3>
-                <p data-astro-cid-7iakxibs>
-                  <a href="mailto:contato.thpinteligencia@gmail.com" data-astro-cid-7iakxibs>
+              <div>
+                <h3>E-mail</h3>
+                <p>
+                  <a href="mailto:contato.thpinteligencia@gmail.com">
                     contato.thpinteligencia@gmail.com
                   </a>
                 </p>
@@ -345,65 +390,65 @@
             </div>
 
             <!-- LinkedIn -->
-            <div class="info-item" data-astro-cid-7iakxibs>
-              <span class="icon" data-astro-cid-7iakxibs>
+            <div class="info-item">
+              <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v7.6H9.2v-7.6H6.46M7.83 6.2a1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6 1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6Z"/>
                 </svg>
               </span>
-              <div data-astro-cid-7iakxibs>
-                <h3 data-astro-cid-7iakxibs>LinkedIn <span class="badge-tag badge-soon">Em Breve</span></h3>
-                <p data-astro-cid-7iakxibs>linkedin.com/company/thpinteligencia</p>
+              <div>
+                <h3>LinkedIn <span class="badge-tag badge-soon">Em Breve</span></h3>
+                <p>linkedin.com/company/thpinteligencia</p>
               </div>
             </div>
 
             <!-- Localização -->
-            <div class="info-item" data-astro-cid-7iakxibs>
-              <span class="icon" data-astro-cid-7iakxibs>
+            <div class="info-item">
+              <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
               </span>
-              <div data-astro-cid-7iakxibs>
-                <h3 data-astro-cid-7iakxibs>Localização</h3>
-                <p data-astro-cid-7iakxibs>Boa Vista, Roraima - Brasil</p>
+              <div>
+                <h3>Localização</h3>
+                <p>Boa Vista, Roraima - Brasil</p>
               </div>
             </div>
           </div>
 
           <!-- Contact Form -->
-          <form class="contact-form" id="contactForm" data-astro-cid-7iakxibs>
-            <h2 data-astro-cid-7iakxibs>Enviar Mensagem</h2>
+          <form class="contact-form" id="contactForm">
+            <h2>Enviar Mensagem</h2>
 
-            <div class="form-group" data-astro-cid-7iakxibs>
-              <label for="name" data-astro-cid-7iakxibs>Nome Completo *</label>
-              <input type="text" id="name" required placeholder="Seu nome" data-astro-cid-7iakxibs />
+            <div class="form-group">
+              <label for="name">Nome Completo *</label>
+              <input type="text" id="name" required placeholder="Seu nome" />
             </div>
 
-            <div class="form-group" data-astro-cid-7iakxibs>
-              <label for="email" data-astro-cid-7iakxibs>E-mail Corporativo ou Pessoal *</label>
-              <input type="email" id="email" required placeholder="seu@email.com" data-astro-cid-7iakxibs />
+            <div class="form-group">
+              <label for="email">E-mail Corporativo ou Pessoal *</label>
+              <input type="email" id="email" required placeholder="seu@email.com" />
             </div>
 
-            <div class="form-group" data-astro-cid-7iakxibs>
-              <label for="subject" data-astro-cid-7iakxibs>Assunto / Interesse</label>
-              <input type="text" id="subject" placeholder="Ex: Consultoria em IA, Desenvolvimento, Parceria..." data-astro-cid-7iakxibs />
+            <div class="form-group">
+              <label for="subject">Assunto / Interesse</label>
+              <input type="text" id="subject" placeholder="Ex: Consultoria em IA, Desenvolvimento, Parceria..." />
             </div>
 
-            <div class="form-group" data-astro-cid-7iakxibs>
-              <label for="message" data-astro-cid-7iakxibs>Mensagem *</label>
-              <textarea id="message" rows="4" required placeholder="Como a THP pode apoiar o seu negócio?" data-astro-cid-7iakxibs></textarea>
+            <div class="form-group">
+              <label for="message">Mensagem *</label>
+              <textarea id="message" rows="4" required placeholder="Como a THP pode apoiar o seu negócio?"></textarea>
             </div>
 
             <div class="form-actions-row">
-              <button type="button" id="btnWhatsapp" class="submit-button btn-whatsapp-submit" data-astro-cid-7iakxibs>
+              <button type="button" id="btnWhatsapp" class="submit-button btn-whatsapp-submit">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413Z"/>
                 </svg>
                 Enviar via WhatsApp
               </button>
-              <button type="button" id="btnEmail" class="submit-button btn-email-submit" data-astro-cid-7iakxibs>
+              <button type="button" id="btnEmail" class="submit-button btn-email-submit">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <rect width="20" height="16" x="2" y="4" rx="2"/>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -418,9 +463,37 @@
       </main>
     </div>
 
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Alternar tema claro e escuro">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
     <!-- Script de Integração e Formatação de Mensagens -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        // Theme Toggle Handler
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+          const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+          };
+
+          themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+          });
+
+          window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+              applyTheme(e.matches ? 'light' : 'dark');
+            }
+          });
+        }
+
+        // Contact Form Handler
         const form = document.getElementById('contactForm');
         const btnWhatsapp = document.getElementById('btnWhatsapp');
         const btnEmail = document.getElementById('btnEmail');
@@ -447,13 +520,13 @@
           const data = getFormData();
           if (!data) return;
 
-          const textoWpp = `*Novo Contato via Site THP*%0A%0A` +
-            `👤 *Nome:* ${encodeURIComponent(data.name)}%0A` +
-            `✉️ *E-mail:* ${encodeURIComponent(data.email)}%0A` +
-            `📌 *Interesse:* ${encodeURIComponent(data.subject)}%0A%0A` +
-            `📝 *Mensagem:*%0A${encodeURIComponent(data.message)}`;
+          const mensagemBruta = `*Novo Contato via Site THP*\n\n` +
+            `👤 *Nome:* ${data.name}\n` +
+            `✉️ *E-mail:* ${data.email}\n` +
+            `📌 *Interesse:* ${data.subject}\n\n` +
+            `📝 *Mensagem:*\n${data.message}`;
 
-          const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${textoWpp}`;
+          const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(mensagemBruta)}`;
 
           feedback.className = 'form-feedback success';
           feedback.textContent = '✅ Redirecionando para o WhatsApp da THP...';

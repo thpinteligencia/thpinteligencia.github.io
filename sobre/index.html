@@ -134,22 +134,40 @@
         border-radius: 20px;
       }
 
-      /* Leadership Card Styles */
+      /* 3.1 Leadership Card (Accordion Retrátil) */
       .leadership-card {
-        padding: 2.5rem;
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 1.5rem 2rem;
         display: flex;
         flex-direction: column;
-        gap: 1.75rem;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .leadership-card:hover {
+        border-color: rgba(246, 139, 35, 0.4);
+        transform: translateY(-2px);
       }
 
       .leadership-header {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         gap: 1.5rem;
         flex-wrap: wrap;
-        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 1px solid transparent;
+        transition: padding-bottom 0.3s ease, border-color 0.3s ease;
+      }
+
+      .leadership-card.expanded .leadership-header {
         padding-bottom: 1.5rem;
+        border-color: var(--color-border);
       }
 
       .leader-profile {
@@ -159,9 +177,9 @@
       }
 
       .leader-avatar {
-        width: 72px;
-        height: 72px;
-        border-radius: 20px;
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
         background: linear-gradient(135deg, rgba(246, 139, 35, 0.2) 0%, rgba(44, 94, 168, 0.3) 100%);
         border: 2px solid rgba(246, 139, 35, 0.4);
         display: flex;
@@ -182,7 +200,7 @@
 
       .leader-meta h3 {
         font-family: var(--font-heading);
-        font-size: 1.45rem;
+        font-size: 1.4rem;
         font-weight: 700;
         color: var(--color-text-primary);
         line-height: 1.2;
@@ -190,10 +208,17 @@
       }
 
       .leader-role {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         color: var(--color-accent-orange);
         font-weight: 600;
         letter-spacing: 0.02em;
+      }
+
+      .leader-header-right {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
       }
 
       .leader-links {
@@ -209,7 +234,7 @@
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid var(--color-border);
         color: var(--color-text-primary);
-        padding: 0.45rem 0.9rem;
+        padding: 0.45rem 0.85rem;
         border-radius: 8px;
         font-size: 0.82rem;
         font-weight: 600;
@@ -223,9 +248,83 @@
         transform: translateY(-1px);
       }
 
+      .leader-toggle-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .toggle-text {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        transition: color 0.2s ease;
+      }
+
+      .leadership-card:hover .toggle-text {
+        color: var(--color-text-primary);
+      }
+
+      .leader-chevron {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--color-border);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c9d4e0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .leadership-card.expanded .leader-chevron {
+        transform: rotate(180deg);
+        background-color: rgba(246, 139, 35, 0.15);
+        border-color: rgba(246, 139, 35, 0.4);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f68b23' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      }
+
+      [data-theme="light"] .leader-chevron {
+        background-color: rgba(10, 30, 63, 0.05);
+        border-color: rgba(10, 30, 63, 0.1);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1e3f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      }
+
+      [data-theme="light"] .leadership-card.expanded .leader-chevron {
+        background-color: rgba(246, 139, 35, 0.12);
+        border-color: rgba(246, 139, 35, 0.35);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f68b23' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      }
+
+      .leadership-collapse-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .leadership-card.expanded .leadership-collapse-wrapper {
+        grid-template-rows: 1fr;
+      }
+
+      .leadership-collapse-inner {
+        overflow: hidden;
+        min-height: 0;
+      }
+
+      .leadership-content {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
       .leadership-bio {
         color: var(--color-text-secondary);
-        font-size: 1.02rem;
+        font-size: 1rem;
         line-height: 1.75;
         text-align: justify;
         text-justify: inter-word;
@@ -240,7 +339,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 0.85rem;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
       }
 
       .credential-item {
@@ -250,8 +349,8 @@
         padding: 0.85rem 1rem;
         display: flex;
         align-items: center;
-        gap: 0.65rem;
-        font-size: 0.88rem;
+        gap: 0.75rem;
+        font-size: 0.85rem;
         color: var(--color-text-primary);
         font-weight: 500;
       }
@@ -763,7 +862,7 @@
           </svg>
           Liderança & Direção
         </h2>
-        <div class="leadership-card">
+        <div class="leadership-card" id="leadershipCard" role="button" tabindex="0" aria-expanded="false">
           <div class="leadership-header">
             <div class="leader-profile">
               <div class="leader-avatar">
@@ -771,61 +870,78 @@
               </div>
               <div class="leader-meta">
                 <h3>Hiago Pereira</h3>
-                <div class="leader-role">Fundador & Diretor de Tecnologia (Project Lead)</div>
+                <div class="leader-role">Fundador, Diretor de Negócios & Project Lead</div>
               </div>
             </div>
-            <div class="leader-links">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="leader-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect width="4" height="12" x="2" y="9"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                LinkedIn ↗
-              </a>
-              <a href="http://lattes.cnpq.br" target="_blank" rel="noopener noreferrer" class="leader-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-                </svg>
-                Currículo Lattes ↗
-              </a>
+            
+            <div class="leader-header-right">
+              <div class="leader-links">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="leader-btn" title="LinkedIn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect width="4" height="12" x="2" y="9"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                  LinkedIn ↗
+                </a>
+                <a href="http://lattes.cnpq.br" target="_blank" rel="noopener noreferrer" class="leader-btn" title="Currículo Lattes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                  </svg>
+                  Currículo Lattes ↗
+                </a>
+              </div>
+              <div class="leader-toggle-indicator">
+                <span class="toggle-text">Ver biografia & credenciais</span>
+                <span class="leader-chevron"></span>
+              </div>
             </div>
           </div>
 
-          <div class="leadership-bio">
-            <p>
-              Profissional com trajetória multidisciplinar, unindo engenharia de software, Inteligência Artificial e estratégia de negócios globais. À frente da THP, lidera a arquitetura de produtos proprietários e a concepção de soluções sob medida para organizações públicas e privadas.
-            </p>
-            <p>
-              Mestre em Sociedade e Fronteiras (PPGSOF-UFRR), especialista em IA (ECAI-UFRR) e Agronegócio (ITEAM-PMBV), Internacionalista (UFRR) e Analista de Comércio Exterior (Estácio da Amazônia), sua atuação multidisciplinar premiada na escrita, produção intelectual e científica traz para a tecnologia e negócios rigor conceitual, focado na clareza de processos, governança e valor real para o cliente.
-            </p>
-          </div>
+          <div class="leadership-collapse-wrapper">
+            <div class="leadership-collapse-inner">
+              <div class="leadership-content">
+                <div class="leadership-bio">
+                  <p>
+                    Profissional com trajetória multidisciplinar, unindo engenharia de software, Inteligência Artificial e estratégia de negócios globais. À frente da THP, lidera a arquitetura de produtos proprietários e a concepção de soluções sob medida para organizações públicas e privadas.
+                  </p>
+                  <p>
+                    Mestre em Sociedade e Fronteiras (PPGSOF-UFRR), especialista em IA (ECAI-UFRR) e Agronegócio (ITEAM-PMBV), Internacionalista (UFRR) e Analista de Comércio Exterior (Estácio da Amazônia), sua atuação multidisciplinar premiada na escrita, produção intelectual e científica traz para a tecnologia e negócios rigor conceitual, focado na clareza de processos, governança e valor real para o cliente.
+                  </p>
+                </div>
 
-          <div class="credentials-grid">
-            <div class="credential-item">
-              <span class="icon">🎓</span>
-              <span>Mestre em Sociedade e Fronteiras (PPGSOF-UFRR)</span>
-            </div>
-            <div class="credential-item">
-              <span class="icon">🧠</span>
-              <span>Especialista em IA (ECAI-UFRR)</span>
-            </div>
-            <div class="credential-item">
-              <span class="icon">🌾</span>
-              <span>MBA em Agronegócio (ITEAM-PMBV)</span>
-            </div>
-            <div class="credential-item">
-              <span class="icon">🌐</span>
-              <span>Relações Internacionais (UFRR) & Comex</span>
-            </div>
-            <div class="credential-item" style="grid-column: 1 / -1;">
-              <span class="icon">✍️</span>
-              <span>Trajetória Premiada em Escrita, Pesquisa & Produção Intelectual</span>
-            </div>
-          </div>
+                <div class="credentials-grid">
+                  <div class="credential-item">
+                    <span class="icon">🎓</span>
+                    <span>Mestre em Sociedade e Fronteiras (PPGSOF-UFRR)</span>
+                  </div>
+                  <div class="credential-item">
+                    <span class="icon">🧠</span>
+                    <span>Especialista em IA (ECAI-UFRR)</span>
+                  </div>
+                  <div class="credential-item">
+                    <span class="icon">🌾</span>
+                    <span>Especialista MBA em Agronegócio (ITEAM-PMBV)</span>
+                  </div>
+                  <div class="credential-item">
+                    <span class="icon">🗺️</span>
+                    <span>Internacionalista (UFRR)</span>
+                  </div>
+                  <div class="credential-item">
+                    <span class="icon">🌐</span>
+                    <span>Analista de Comércio Exterior (Estácio da Amazônia)</span>
+                  </div>
+                  <div class="credential-item">
+                    <span class="icon">✍️</span>
+                    <span>Trajetória Premiada em Escrita, Pesquisa & Produção Intelectual Acadêmica</span>
+                  </div>
+                </div>
 
-          <div class="network-bridge">
-            💡 <strong>Governança e Escala:</strong> A THP opera sob liderança técnica dedicada e, para projetos de grande escala, mobiliza redes de parceiros técnicos sob a mesma governança e rigor de engenharia.
+                <div class="network-bridge">
+                  💡 <strong>Governança e Escala:</strong> A THP opera sob liderança técnica dedicada e, para projetos de grande escala, mobiliza redes de parceiros técnicos sob a mesma governança e rigor de engenharia.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -941,6 +1057,35 @@
           </div>
         </div>
 
+        <!-- Reconhecimento & Inovação -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Reconhecimento & Validação Institucional
+        </h2>
+        <div class="translate-grid">
+          <div class="translate-card" style="border-color: rgba(246, 139, 35, 0.35); background: rgba(18, 58, 115, 0.25);">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f68b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h4>ConectaHealth Roraima (Harena Inovação)</h4>
+            <p>Aceleração do projeto <strong>H.O.R.M.O.S.</strong>, solução FemTech baseada em inteligência contextual e modelagem probabilística para saúde feminina.</p>
+          </div>
+
+          <div class="translate-card" style="border-color: rgba(56, 189, 248, 0.35); background: rgba(18, 58, 115, 0.25);">
+            <div class="translate-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h4>Inovação Aberta CAIXA (LC 0312/2025)</h4>
+            <p>Solução <strong>Fiscal Flow</strong> classificada para o Pitch Day final no desafio SADIPEM / Caixa Econômica Federal para soluções de inteligência fiscal.</p>
+          </div>
+        </div>
+
         <!-- 6. Além de um Nome -->
         <h2 class="section-title">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1048,6 +1193,30 @@
             applyTheme(e.matches ? 'light' : 'dark');
           }
         });
+
+        // Leadership Accordion Handler
+        const leadershipCard = document.getElementById('leadershipCard');
+        if (leadershipCard) {
+          const toggleLeader = (e) => {
+            // Evita abrir/fechar se o clique for nos links sociais (LinkedIn/Lattes)
+            if (e.target.closest('a')) return;
+            
+            const isExpanded = leadershipCard.classList.toggle('expanded');
+            leadershipCard.setAttribute('aria-expanded', isExpanded);
+            const toggleText = leadershipCard.querySelector('.toggle-text');
+            if (toggleText) {
+              toggleText.textContent = isExpanded ? 'Recolher biografia' : 'Ver biografia & credenciais';
+            }
+          };
+
+          leadershipCard.addEventListener('click', toggleLeader);
+          leadershipCard.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleLeader(e);
+            }
+          });
+        }
       });
     </script>
   </body>

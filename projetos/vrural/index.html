@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VRural | THP Labs</title>
+    <meta name="description" content="Plataforma de capacitação agrícola imersiva em Realidade Virtual para o agronegócio regional e agricultura familiar." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/custom.css" />
+
+    <style>
+      .back-nav {
+        margin-bottom: 2.5rem;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--color-text-secondary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .back-button:hover {
+        color: var(--color-text-primary);
+        transform: translate(-3px);
+      }
+
+      .back-button .arrow {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+      }
+
+      .project-detail-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 24px;
+        padding: 3rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .detail-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .header-meta {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .hierarquia-tag {
+        background: #a78bfa1a;
+        color: #c084fc;
+        border: 1px solid rgba(167, 139, 250, 0.2);
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .status-badge {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+      }
+
+      .status-dev {
+        background: #f59e0b14;
+        color: #fbbf24;
+        border: 1px solid rgba(245, 158, 11, 0.15);
+      }
+
+      .project-title {
+        font-family: var(--font-heading);
+        font-size: 2.8rem;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        color: var(--color-text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-subtitle {
+        font-size: 1.15rem;
+        color: var(--color-text-secondary);
+        margin-bottom: 1.75rem;
+        line-height: 1.6;
+      }
+
+      .eixos-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag-item {
+        font-size: 0.8rem;
+        background: #ffffff0a;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--color-text-secondary);
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .markdown-content {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #d4d4d8;
+      }
+
+      .markdown-content h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .markdown-content p {
+        margin-bottom: 1.25rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        margin: 1.75rem 0 2.5rem 0;
+      }
+
+      .feature-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-border-hover);
+      }
+
+      .feature-box h3 {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-box p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--color-text-secondary);
+        margin-bottom: 0;
+      }
+
+      .validation-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .validation-item {
+        background: rgba(34, 197, 94, 0.04);
+        border: 1px solid rgba(34, 197, 94, 0.18);
+        border-radius: 12px;
+        padding: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .validation-icon {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+
+      .validation-content strong {
+        color: var(--color-text-primary);
+        display: block;
+        font-size: 0.98rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .validation-content span {
+        color: var(--color-text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .ecosystem-summary {
+        background: rgba(18, 58, 115, 0.25);
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .ecosystem-summary h3 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        color: #38bdf8;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .ecosystem-summary ul {
+        margin: 0;
+        padding-left: 1.25rem;
+        color: var(--color-text-secondary);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .project-detail-card {
+          padding: 1.5rem;
+        }
+        .project-title {
+          font-size: 2.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mesh Background Decorator -->
+    <div class="mesh-bg"></div>
+    <div class="mesh-bg-accent"></div>
+
+    <div class="app-container">
+      <div class="back-nav">
+        <a href="../../labs/" class="back-button">
+          <span class="arrow">←</span> Voltar ao THP Labs
+        </a>
+      </div>
+
+      <article class="project-detail-card">
+        <header class="detail-header">
+          <div class="header-meta">
+            <span class="hierarquia-tag">THP Labs · Spin-off</span>
+            <span class="status-badge status-dev">P&D · AgTech</span>
+            <span class="status-badge" style="background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25);">✦ Centelha RR · Sebrae</span>
+          </div>
+          <h1 class="project-title">VRural</h1>
+          <p class="project-subtitle">
+            Capacitação técnica imersiva em Realidade Virtual para a agricultura.
+          </p>
+          <div class="eixos-tags">
+            <span class="tag-item">🌱 AgTech & EdTech</span>
+            <span class="tag-item">🥽 Realidade Virtual (VR)</span>
+            <span class="tag-item">🧠 IA Adaptativa</span>
+          </div>
+        </header>
+
+        <main class="markdown-content">
+          <!-- 1. O Problema -->
+          <section class="project-section">
+            <h2>O Desafio: Exclusão Técnica e o Custo do Erro no Campo</h2>
+            <p>
+              Cerca de 80% dos agricultores familiares no Brasil não têm acesso a assistência técnica regular e continuada. Em regiões periféricas e de fronteira agrícola como Roraima, o aprendizado ocorre por tentativa e erro diretamente na lavoura — onde uma falha de manejo ou regulagem gera prejuízos financeiros severos e endividamento.
+            </p>
+          </section>
+
+          <!-- 2. A Solução -->
+          <section class="project-section">
+            <h2>A Solução: Simuladores Imersivos de Manejo</h2>
+            <p>
+              A VRural desenvolve módulos práticos em Realidade Virtual que permitem ao produtor realizar o manejo de culturas em ambiente 3D seguro e interativo. O agricultor "aprende fazendo", repetindo a técnica até atingir a precisão operacional sem comprometer sua safra real.
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-box">
+                <h3>🌾 Culturas</h3>
+                <p>Módulos voltados ao manejo de culturas de alto valor agregado.</p>
+              </div>
+              <div class="feature-box">
+                <h3>🤝 Modelo Territorial</h3>
+                <p>Atuação integrada a cooperativas e associações locais, capacitando técnicos da própria comunidade como agentes multiplicadores (leads).</p>
+              </div>
+              <div class="feature-box">
+                <h3>🧠 Inteligência Adaptativa</h3>
+                <p>Camada analítica futura para rastrear padrões de erro, prever curvas de aprendizado e personalizar o ritmo de instrução.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Validação e Editais -->
+          <section class="project-section">
+            <h2>Validação Institucional e Fomento</h2>
+            <div class="validation-list">
+              <div class="validation-item">
+                <span class="validation-icon">🏆</span>
+                <div class="validation-content">
+                  <strong>Programa Centelha 3ª Edição - Roraima (FAPERR/FINEP)</strong>
+                  <span>Projeto classificado nas etapas de mérito e avaliação técnica do edital.</span>
+                </div>
+              </div>
+              <div class="validation-item">
+                <span class="validation-icon">🏛️</span>
+                <div class="validation-content">
+                  <strong>Garagem BNDES 2025</strong>
+                  <span>Tese avaliada e selecionada entre as etapas competitivas de negócios com alto impacto socioambiental.</span>
+                </div>
+              </div>
+              <div class="validation-item">
+                <span class="validation-icon">🚀</span>
+                <div class="validation-content">
+                  <strong>Startup Roraima (Sebrae RR)</strong>
+                  <span>Em aceleração ativa com foco em modelagem de mercado e conexão setorial.</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. Síntese dos Eixos do Projeto -->
+          <div class="ecosystem-summary">
+            <h3>💡 Síntese no Ecossistema THP</h3>
+            <ul>
+              <li><strong>Natureza:</strong> Spin-off AgTech / EdTech incubada no laboratório de inovação da THP.</li>
+              <li><strong>Público-Alvo:</strong> Pequenos e médios produtores rurais, cooperativas agrícolas e programas de extensão rural.</li>
+              <li><strong>Diferencial Competitivo:</strong> Treinamento imersivo em Realidade Virtual, articulação comunitária/associativista e desenvolvimento de IA tutor/professor exclusivo para o produtor rural.</li>
+            </ul>
+          </div>
+        </main>
+      </article>
+    </div>
+  </body>
+</html>
