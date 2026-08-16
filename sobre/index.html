@@ -409,25 +409,25 @@
 
       /* 2. Quem Somos (Factual) */
       .company-card {
-        padding: 2.5rem;
+        padding: 2rem 2.25rem;
         display: flex;
         flex-direction: column;
-        gap: 1.75rem;
+        gap: 1.35rem;
       }
 
       .company-header {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         gap: 1rem;
         flex-wrap: wrap;
         border-bottom: 1px solid var(--color-border);
-        padding-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
       }
 
       .company-legal-title {
         font-family: var(--font-heading);
-        font-size: 1.35rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--color-text-primary);
         margin-bottom: 0.25rem;
@@ -442,7 +442,7 @@
         color: #4ade80;
         font-size: 0.75rem;
         font-weight: 700;
-        padding: 0.3rem 0.75rem;
+        padding: 0.25rem 0.7rem;
         border-radius: 99px;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -450,8 +450,8 @@
 
       .company-details-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
       }
 
       .detail-item {
@@ -833,8 +833,8 @@
                 </svg>
               </div>
               <div class="detail-content">
-                <h4>Cadastro Nacional da Pessoa Jurídica (CNPJ)</h4>
-                <p><span class="cnpj-tag">63.580.847/0001-02</span></p>
+                <h4>Registro CNPJ</h4>
+                <p>63.580.847/0001-02</p>
               </div>
             </div>
 
@@ -1065,24 +1065,49 @@
           Reconhecimento & Validação Institucional
         </h2>
         <div class="translate-grid">
-          <div class="translate-card" style="border-color: rgba(246, 139, 35, 0.35); background: rgba(18, 58, 115, 0.25);">
+          <!-- 1. Harena / ConectaHealth -->
+          <div class="translate-card" style="border-color: rgba(167, 139, 250, 0.35); background: rgba(18, 58, 115, 0.25);">
             <div class="translate-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f68b23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
+              <span style="font-size: 1.4rem; line-height: 1;">🩺</span>
             </div>
             <h4>ConectaHealth Roraima (Harena Inovação)</h4>
             <p>Aceleração do projeto <strong>H.O.R.M.O.S.</strong>, solução FemTech baseada em inteligência contextual e modelagem probabilística para saúde feminina.</p>
           </div>
 
+          <!-- 2. CAIXA / Fiscal Flow -->
           <div class="translate-card" style="border-color: rgba(56, 189, 248, 0.35); background: rgba(18, 58, 115, 0.25);">
             <div class="translate-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+              <span style="font-size: 1.4rem; line-height: 1;">🏛️</span>
             </div>
             <h4>Inovação Aberta CAIXA (LC 0312/2025)</h4>
-            <p>Solução <strong>Fiscal Flow</strong> classificada para o Pitch Day final no desafio SADIPEM / Caixa Econômica Federal para soluções de inteligência fiscal.</p>
+            <p>Solução <strong>Fiscal Flow</strong> classificada para a etapa final de Pitch Day no Desafio SADIPEM / Caixa Econômica Federal para soluções de inteligência fiscal.</p>
+          </div>
+
+          <!-- 3. Centelha Roraima -->
+          <div class="translate-card" style="border-color: rgba(34, 197, 94, 0.35); background: rgba(18, 58, 115, 0.25);">
+            <div class="translate-icon">
+              <span style="font-size: 1.4rem; line-height: 1;">🏆</span>
+            </div>
+            <h4>Programa Centelha 3ª Edição (FAPERR/FINEP)</h4>
+            <p>Projeto <strong>VRural</strong> classificado e aprovado nas etapas de mérito e avaliação técnica do edital de fomento e subvenção econômica à inovação.</p>
+          </div>
+
+          <!-- 4. Garagem BNDES -->
+          <div class="translate-card" style="border-color: rgba(56, 189, 248, 0.35); background: rgba(18, 58, 115, 0.25);">
+            <div class="translate-icon">
+              <span style="font-size: 1.4rem; line-height: 1;">🌱</span>
+            </div>
+            <h4>Garagem BNDES 2025</h4>
+            <p>Tese de capacitação imersiva da <strong>VRural</strong> selecionada e qualificada nas etapas competitivas de aceleração voltada a negócios de impacto socioambiental.</p>
+          </div>
+
+          <!-- 5. Startup Roraima Sebrae -->
+          <div class="translate-card" style="border-color: rgba(246, 139, 35, 0.35); background: rgba(18, 58, 115, 0.25);">
+            <div class="translate-icon">
+              <span style="font-size: 1.4rem; line-height: 1;">🚀</span>
+            </div>
+            <h4>Startup Roraima (Sebrae RR)</h4>
+            <p>Em aceleração ativa com o projeto <strong>VRural</strong>, estruturando modelagem de mercado, conexões setoriais e articulação com cooperativas e produtores.</p>
           </div>
         </div>
 
