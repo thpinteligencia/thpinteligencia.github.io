@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Serviços | THP Inteligência</title>
+    <title>Serviços | THP DeepTech & Systems</title>
+    <meta name="description" content="Serviços em IA aplicada, inteligência de dados, engenharia de software e governança corporativa pela THP DeepTech & Systems." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -254,38 +255,70 @@
 
       .products-mini-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 0.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.15rem;
+        margin-top: 1.25rem;
       }
 
       .mini-product-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px dashed var(--color-border);
-        border-radius: 12px;
-        padding: 1.25rem;
-        min-height: 80px;
-        transition: all 0.2s ease;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--color-border);
+        border-radius: 14px;
+        padding: 1.25rem 1.4rem;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0.6rem;
+        transition: all 0.25s ease;
       }
 
       .mini-product-card:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: var(--color-border-hover);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(246, 139, 35, 0.45);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      .mini-product-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .mini-product-card h4 {
         font-family: var(--font-heading);
-        font-size: 1.05rem;
+        font-size: 1.15rem;
         font-weight: 700;
         color: var(--color-text-primary);
-        margin-bottom: 0.3rem;
+        margin: 0;
+        transition: color 0.2s ease;
       }
 
-      .mini-product-card p {
-        font-size: 0.85rem;
+      .mini-product-card:hover h4 {
+        color: #fff;
+      }
+
+      .mini-product-card .mini-product-tag {
+        font-size: 0.78rem;
         color: var(--color-text-secondary);
-        line-height: 1.45;
-        text-align: left;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .mini-product-card .mini-product-action {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-accent-orange);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-top: 0.25rem;
+        transition: transform 0.2s ease;
+      }
+
+      .mini-product-card:hover .mini-product-action {
+        transform: translateX(3px);
       }
 
       /* CTA Final */
@@ -416,7 +449,7 @@
           Serviços Sob Medida
         </h2>
         <p class="section-lead">
-          A THP projeta, desenvolve e implementa soluções tecnológicas adaptadas aos desafios de cada organização. Atuamos em inteligência artificial, dados e engenharia de software, combinando tecnologia de ponta com visão estratégica de negócios.
+          A THP projeta, desenvolve e implementa soluções tecnológicas adaptadas aos desafios de cada organização. Atuamos em inteligência artificial, dados, engenharia de software e governança corporativa, combinando tecnologia de ponta com visão estratégica de negócios.
         </p>
 
         <div class="services-grid">
@@ -481,6 +514,27 @@
               <span class="feature-tag">Automação de Processos</span>
             </div>
           </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <h2>Governança, Cibersegurança & Compliance</h2>
+            </div>
+            <p>
+              Construímos sistemas que protegem ativos digitais e garantem conformidade regulatória. Atuamos em gestão de riscos, auditoria de código e infraestrutura, adequação à LGPD e normas ISO, além de validação automatizada de integridade corporativa.
+            </p>
+            <div class="service-features">
+              <span class="feature-tag">LGPD & Compliance</span>
+              <span class="feature-tag">Gestão de Riscos</span>
+              <span class="feature-tag">Auditoria & Segurança</span>
+            </div>
+          </div>
         </div>
 
         <!-- 2. Soluções Proprietárias -->
@@ -506,11 +560,61 @@
           </div>
 
           <div class="products-mini-grid">
-            <div class="mini-product-card"></div>
-            <div class="mini-product-card"></div>
-            <div class="mini-product-card"></div>
-            <div class="mini-product-card"></div>
-            <div class="mini-product-card"></div>
+            <a href="../arconorte-nexus/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>ArcoNorte Nexus</h4>
+              </div>
+              <span class="mini-product-tag">Inteligência Logística Preditiva</span>
+              <span class="mini-product-action">Acessar plataforma ↗</span>
+            </a>
+
+            <a href="../lavrado-express/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>Lavrado Express</h4>
+              </div>
+              <span class="mini-product-tag">Logística & Despacho via WhatsApp</span>
+              <span class="mini-product-action">Acessar plataforma ↗</span>
+            </a>
+
+            <a href="../projetos/fiscalflow/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>Fiscal Flow</h4>
+              </div>
+              <span class="mini-product-tag">Inteligência Fiscal & Compliance</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
+            </a>
+
+            <a href="../projetos/smartvox/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>SmartVox</h4>
+              </div>
+              <span class="mini-product-tag">Catálogo & Atendimento Inteligente</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
+            </a>
+
+            <a href="../projetos/cookmaster/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>CookMaster</h4>
+              </div>
+              <span class="mini-product-tag">FoodTech & Catálogo Interativo</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
+            </a>
+
+            <a href="../projetos/hormos/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>H.O.R.M.O.S.</h4>
+              </div>
+              <span class="mini-product-tag">HealthTech & IA Preditiva</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
+            </a>
+
+            <a href="../projetos/vrural/" class="mini-product-card">
+              <div class="mini-product-top">
+                <h4>VRural</h4>
+              </div>
+              <span class="mini-product-tag">AgTech & Realidade Virtual</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
+            </a>
           </div>
 
           <div style="margin-top: 0.5rem; text-align: right;">
