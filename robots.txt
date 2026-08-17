@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thpinteligencia.github.io/sitemap.xml
