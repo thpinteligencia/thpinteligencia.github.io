@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico de Maturidade Digital | THP DeepTech & Systems</title>
+    <meta
+      name="description"
+      content="Avalie o nível de maturidade digital, automação, IA e governança de dados da sua empresa em menos de 2 minutos. Receba um score executivo e roadmap personalizado."
+    />
+    <link rel="canonical" href="https://thpinteligencia.github.io/diagnostico/" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diagnóstico de Maturidade Digital | THP DeepTech & Systems" />
+    <meta property="og:description" content="Descubra os gargalos e oportunidades da sua empresa em processos, dados, integrações, segurança e IA com score instantâneo e roadmap executivo." />
+    <meta property="og:image" content="https://thpinteligencia.github.io/og-image.jpg" />
+    <meta property="og:url" content="https://thpinteligencia.github.io/diagnostico/" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../astro/index@_@astro.Cxe_LQJq.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+
+    <!-- Theme Initialization -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Diagnóstico de Maturidade Digital THP",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "THP DeepTech & Systems",
+        "legalName": "THP Inteligência Empresarial e Soluções em Negócios LTDA",
+        "url": "https://thpinteligencia.github.io/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Mesh Background Decorator -->
+    <div class="mesh-bg"></div>
+    <div class="mesh-bg-accent"></div>
+
+    <div class="app-container">
+      <div class="dot-grid"></div>
+
+      <!-- Header Navigation -->
+      <header class="navbar">
+        <div class="nav-container">
+          <a href="../" class="brand">
+            <span class="logo-text">
+              <span class="logo-t">T</span>HP<span class="accent-dot">.</span>
+            </span>
+            <span class="logo-subtext">DeepTech &amp; Systems</span>
+          </a>
+          <nav class="nav-links">
+            <a href="../servicos/" class="nav-link">Serviços</a>
+            <a href="../sobre/" class="nav-link">Sobre</a>
+            <a href="../labs/" class="nav-link">Labs</a>
+            <a href="../blog/" class="nav-link">Blog</a>
+            <a href="../contato/" class="nav-link">Contato</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="main-content">
+        <div class="diag-wrapper">
+          
+          <!-- Back Link (Visible during quiz) -->
+          <div class="back-nav" id="back-nav-container" style="display: none; margin-bottom: 1.5rem;">
+            <a href="../" class="back-button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              <span>Voltar para o Início</span>
+            </a>
+          </div>
+
+          <!-- Printable Executive Header (Shown only during @media print) -->
+          <div class="diag-print-header" style="display: none;">
+            <div>
+              <div class="print-brand">THP DeepTech &amp; Systems</div>
+              <div style="font-size: 10pt; color: #475569; margin-top: 2pt;">Relatório Executivo de Maturidade Digital</div>
+            </div>
+            <div class="diag-print-meta">
+              <div id="print-company-name">Empresa: Avaliação Confidencial</div>
+              <div id="print-date">Data: 18/08/2026</div>
+              <div>THP Inteligência Empresarial · CNPJ 63.580.847/0001-02</div>
+            </div>
+          </div>
+
+          <!-- STEP 0: Hero / Intro -->
+          <div class="diag-card" id="step-intro">
+            <div class="diag-header" style="margin-bottom: 2rem;">
+              <span class="diagnostic-badge-pill">⚡ Autoavaliação Executiva</span>
+              <h1 class="diag-question-title" style="font-size: 2.2rem; margin-bottom: 1.25rem;">
+                Diagnóstico de Maturidade Digital &amp; IA
+              </h1>
+              <p class="diag-cta-desc" style="max-width: 680px; margin: 0 auto 2rem;">
+                Avalie em 90 segundos como sua empresa se posiciona em automação de processos, inteligência de dados, sistemas, segurança e inteligência artificial. Receba um score detalhado e um roadmap executivo com ações prioritárias.
+              </p>
+              
+              <div class="diagnostic-cta-meta" style="justify-content: center; margin-bottom: 2.5rem;">
+                <div class="diagnostic-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Duração: ~90 segundos</span>
+                </div>
+                <div class="diagnostic-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Confidencial &amp; Seguro</span>
+                </div>
+                <div class="diagnostic-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>PDF Executivo Gratuito</span>
+                </div>
+              </div>
+
+              <button type="button" class="diagnostic-btn-primary" id="btn-start-diag" style="border: none; cursor: pointer;">
+                <span>Iniciar Diagnóstico Gratuito</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 1-6: Dynamic Quiz Container -->
+          <div class="diag-card" id="step-quiz" style="display: none;">
+            <div class="diag-progress-bar-container">
+              <div class="diag-progress-bar-fill" id="quiz-progress-bar" style="width: 16.66%;"></div>
+            </div>
+
+            <div class="diag-nav-top">
+              <button type="button" class="diag-btn-back" id="btn-quiz-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                <span>Pergunta Anterior</span>
+              </button>
+              <span id="quiz-step-counter" style="font-weight: 600; color: var(--color-text-secondary);">Pergunta 1 de 6</span>
+            </div>
+
+            <span class="diag-question-category" id="quiz-question-category">Eixo 1: Processos, Atendimento &amp; Automação</span>
+            <h2 class="diag-question-title" id="quiz-question-text">
+              Como sua empresa lida com o atendimento a clientes/parceiros e tarefas repetitivas do dia a dia?
+            </h2>
+
+            <div class="diag-options-grid" id="quiz-options-container">
+              <!-- Options rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- STEP 7: Gating Form (Captura do Lead) -->
+          <div class="diag-card" id="step-gating" style="display: none;">
+            <div class="diag-header" style="text-align: left; margin-bottom: 1.5rem;">
+              <span class="diagnostic-badge-pill">🎉 Diagnóstico Concluído</span>
+              <h2 class="diag-question-title" style="font-size: 1.8rem; margin-bottom: 0.75rem;">
+                Seu score e roadmap estratégico estão prontos!
+              </h2>
+              <p class="diag-cta-desc" style="font-size: 0.98rem; margin-bottom: 0;">
+                Onde devemos enviar o relatório executivo completo? Preencha os campos abaixo para visualizar o dashboard interativo instantaneamente.
+              </p>
+            </div>
+
+            <form id="diag-lead-form" class="diag-gating-form">
+              <div class="diag-form-group">
+                <label for="lead-name" class="diag-form-label">Seu Nome Completo *</label>
+                <input type="text" id="lead-name" class="diag-form-input" placeholder="Ex: Hiago Pereira" required />
+              </div>
+
+              <div class="diag-form-group">
+                <label for="lead-email" class="diag-form-label">E-mail Corporativo *</label>
+                <input type="email" id="lead-email" class="diag-form-input" placeholder="Ex: seu.nome@empresa.com.br" required />
+              </div>
+
+              <div class="diag-form-group">
+                <label for="lead-company" class="diag-form-label">Nome da Empresa *</label>
+                <input type="text" id="lead-company" class="diag-form-input" placeholder="Ex: Empresa ou Cooperativa" required />
+              </div>
+
+              <div class="diag-form-group">
+                <label for="lead-role" class="diag-form-label">Seu Cargo / Área *</label>
+                <input type="text" id="lead-role" class="diag-form-input" placeholder="Ex: Diretor de Operações / Sócio" required />
+              </div>
+
+              <div class="diag-form-group full-width" style="margin-top: 1rem;">
+                <button type="submit" class="diagnostic-btn-primary" id="btn-submit-lead" style="border: none; cursor: pointer; width: 100%; justify-content: center;">
+                  <span>Ver Meu Resultado</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </button>
+                <p style="font-size: 0.78rem; color: var(--color-text-secondary); text-align: center; margin-top: 0.75rem;">
+                  🔒 Respeitamos sua privacidade. Seus dados estão protegidos sob a LGPD e nunca serão compartilhados.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 8: Results Dashboard -->
+          <div class="diag-card" id="step-results" style="display: none;">
+            
+            <div class="diag-header" style="text-align: left; margin-bottom: 2rem;">
+              <span class="diagnostic-badge-pill">📊 Resultado Executivo</span>
+              <h2 class="diag-question-title" style="font-size: 1.85rem; margin-bottom: 0.5rem;" id="results-headline">
+                Maturidade Digital da sua Empresa
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--color-text-secondary);" id="results-company-subtitle">
+                Análise baseada nos 6 eixos de inteligência e engenharia da THP.
+              </p>
+            </div>
+
+            <!-- Score & Radar Visualization Grid -->
+            <div class="diag-results-layout">
+              <!-- Left: Score Card -->
+              <div class="diag-score-display">
+                <div class="diag-score-num" id="results-score-num">0/100</div>
+                <div class="diag-level-badge" id="results-level-badge">Nível 2: Digitalização Fragmentada</div>
+                
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.75rem;" id="results-level-title">
+                  Diagnóstico Resumido
+                </h3>
+                <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6; margin: 0;" id="results-level-desc">
+                  Sua empresa já iniciou processos digitais, mas ainda sofre com silos operacionais e dependência de rotinas manuais que drenam produtividade.
+                </p>
+              </div>
+
+              <!-- Right: Dynamic SVG Radar Chart -->
+              <div class="diag-radar-svg-container">
+                <svg viewBox="0 0 340 340" class="diag-radar-svg" id="radar-chart-svg" aria-label="Gráfico Radar de Maturidade por Eixo">
+                  <!-- Generated dynamically in JavaScript -->
+                </svg>
+              </div>
+            </div>
+
+            <!-- Dynamic Roadmap Section -->
+            <div class="diag-roadmap-section">
+              <h3 class="diag-roadmap-title">
+                🚀 Roadmap Prioritário Recomendado (3 Ações Imediatas)
+              </h3>
+              <div class="diag-roadmap-grid" id="roadmap-cards-container">
+                <!-- Injected dynamically based on lowest scores -->
+              </div>
+            </div>
+
+            <!-- Action Buttons Bar -->
+            <div class="diag-actions-bar">
+              <button type="button" class="diag-btn-print" id="btn-print-report">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 6 2 18 2 18 9"/>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                  <rect x="6" y="14" width="12" height="8"/>
+                </svg>
+                <span>Baixar Relatório Executivo (PDF)</span>
+              </button>
+
+              <a href="../contato/?ref=diagnostico" class="diagnostic-btn-primary" id="btn-contact-advisor">
+                <span>Agendar Sessão Estratégica com Especialista</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="diag-tip-microcopy">
+              <span>💡</span>
+              <span><strong>Dica para exportar:</strong> Na janela que se abrir, selecione o destino <strong>"Salvar como PDF"</strong>.</span>
+            </div>
+
+          </div>
+
+          <!-- Printable Footer (Only for @media print) -->
+          <div class="diag-print-footer" style="display: none;">
+            Documento gerado confidencialmente pelo Diagnóstico de Maturidade Digital THP · https://thpinteligencia.github.io/diagnostico/
+          </div>
+
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <span class="logo-text"><span class="logo-t">T</span>HP<span class="accent-dot">.</span> <span class="logo-subtext-footer">DeepTech &amp; Systems</span></span>
+            <p class="footer-company-name">THP Inteligência Empresarial e Soluções em Negócios LTDA</p>
+            <p class="footer-company-info">CNPJ 63.580.847/0001-02 · Boa Vista, RR</p>
+          </div>
+          <div class="footer-links">
+            <a href="../servicos/">Serviços</a>
+            <a href="../sobre/">Sobre</a>
+            <a href="../labs/">Labs</a>
+            <a href="../blog/">Blog</a>
+            <a href="../contato/">Contato</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 THP DeepTech &amp; Systems · THP Inteligência Empresarial e Soluções em Negócios LTDA.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Alternar tema claro e escuro">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <!-- Interactive Diagnosis State Machine & Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // ==========================================
+        // 1. Matriz de Questões dos 6 Eixos
+        // ==========================================
+        const questions = [
+          {
+            id: 'p1',
+            axisKey: 'processos',
+            axisLabel: 'Processos & Atendimento',
+            category: 'Eixo 1: Processos, Atendimento & Automação',
+            question: 'Como sua empresa lida com o atendimento a clientes/parceiros e tarefas operacionais repetitivas do dia a dia?',
+            options: [
+              { letter: 'A', text: '100% manual por equipe no WhatsApp, telefone ou e-mail; triagem lenta e sem padronização.', score: 0 },
+              { letter: 'B', text: 'Respostas automáticas básicas, mas as rotinas internas ainda exigem digitação repetitiva de dados.', score: 5.5 },
+              { letter: 'C', text: 'Algumas integrações entre canais, porém ainda ocorrem gargalos manuais em horários de pico.', score: 11 },
+              { letter: 'D', text: 'Agentes inteligentes e fluxos automatizados que resolvem demandas de ponta a ponta 24/7.', score: 16.66 }
+            ]
+          },
+          {
+            id: 'p2',
+            axisKey: 'dados',
+            axisLabel: 'Inteligência de Dados',
+            category: 'Eixo 2: Inteligência de Dados & Tomada de Decisão',
+            question: 'Onde e como a diretoria e os gestores acompanham os indicadores-chave (vendas, finanças, estoque)?',
+            options: [
+              { letter: 'A', text: 'Planilhas soltas e descentralizadas; consolidação manual demorada no final do mês.', score: 0 },
+              { letter: 'B', text: 'Relatórios estáticos gerados pelo sistema/ERP, com baixa flexibilidade visual para análise.', score: 5.5 },
+              { letter: 'C', text: 'Painéis em Power BI ou planilhas compartilhadas, mas com atualização manual periódica.', score: 11 },
+              { letter: 'D', text: 'Dashboards em tempo real com fontes de dados unificadas e alertas automáticos de metas.', score: 16.66 }
+            ]
+          },
+          {
+            id: 'p3',
+            axisKey: 'integracao',
+            axisLabel: 'Engenharia & Integrações',
+            category: 'Eixo 3: Softwares, Integrações & Infraestrutura',
+            question: 'Como os sistemas e ferramentas da sua empresa conversam e trocam dados entre si?',
+            options: [
+              { letter: 'A', text: 'Sistemas isolados que não se comunicam; funcionários copiam e colam informações manualmente.', score: 0 },
+              { letter: 'B', text: 'Integrações frágeis ou manuais (importação de arquivos .csv/txt), que frequentemente falham.', score: 5.5 },
+              { letter: 'C', text: 'Softwares conectados via APIs, mas sem customização para os fluxos exclusivos do negócio.', score: 11 },
+              { letter: 'D', text: 'Ecossistema fluido e integrado via APIs robustas ou softwares sob medida para a operação.', score: 16.66 }
+            ]
+          },
+          {
+            id: 'p4',
+            axisKey: 'seguranca',
+            axisLabel: 'Segurança & LGPD',
+            category: 'Eixo 4: Segurança da Informação, LGPD & Continuidade',
+            question: 'Qual é o nível de proteção, governança e conformidade legal dos dados de clientes e arquivos corporativos?',
+            options: [
+              { letter: 'A', text: 'Sem rotina formal de backup, senhas compartilhadas e sem adequação aos requisitos da LGPD.', score: 0 },
+              { letter: 'B', text: 'Backups automáticos básicos, mas sem políticas de acesso por cargo ou termos de confidencialidade.', score: 5.5 },
+              { letter: 'C', text: 'Políticas de segurança ativas e adequação LGPD em andamento, mas sem auditoria periódica.', score: 11 },
+              { letter: 'D', text: 'Dados blindados com criptografia, controle granular de permissões e governança LGPD formal.', score: 16.66 }
+            ]
+          },
+          {
+            id: 'p5',
+            axisKey: 'ia',
+            axisLabel: 'Adoção Prática de IA',
+            category: 'Eixo 5: Adoção Prática de Inteligência Artificial',
+            question: 'Como a inteligência artificial é aplicada hoje na rotina e estratégia da sua empresa?',
+            options: [
+              { letter: 'A', text: 'Não utilizamos, ou apenas uso informal/isolado do ChatGPT por iniciativa individual de funcionários.', score: 0 },
+              { letter: 'B', text: 'Uso de ferramentas prontas de mercado para tarefas pontuais (ex: redação de textos ou resumos).', score: 5.5 },
+              { letter: 'C', text: 'Prompts padronizados e experimentos de IA em alguns fluxos, mas sem modelos proprietários.', score: 11 },
+              { letter: 'D', text: 'Modelos e agentes de IA integrados à infraestrutura interna, operando com autonomia e sigilo.', score: 16.66 }
+            ]
+          },
+          {
+            id: 'p6',
+            axisKey: 'custos',
+            axisLabel: 'Custos & Autonomia',
+            category: 'Eixo 6: Custos de Tecnologia, Eficiência & Dependência',
+            question: 'Como a empresa avalia seus custos recorrentes de software e a flexibilidade técnica das ferramentas atuais?',
+            options: [
+              { letter: 'A', text: 'Custos crescentes com licenças caras e forte dependência de softwares engessados que travam inovações.', score: 0 },
+              { letter: 'B', text: 'Custos razoáveis, porém as ferramentas limitam a criação de novos recursos e integrações.', score: 5.5 },
+              { letter: 'C', text: 'Boa relação custo-benefício, balanceando ferramentas comerciais e adaptações internas.', score: 11 },
+              { letter: 'D', text: 'Infraestrutura altamente eficiente, uso de soluções sob medida/open-source e zero dependência de fornecedor único.', score: 16.66 }
+            ]
+          }
+        ];
+
+        // ==========================================
+        // 2. Estado da Aplicação
+        // ==========================================
+        let currentQuestionIndex = 0;
+        const answers = {}; // { p1: { score: 16.66, optionIndex: 3 }, ... }
+        let leadData = { name: '', email: '', company: '', role: '' };
+
+        // Telemetria Helper
+        const trackEvent = (eventName, eventProps = {}) => {
+          try {
+            if (window.plausible) {
+              window.plausible(eventName, { props: eventProps });
+            }
+            if (window.gtag) {
+              window.gtag('event', eventName, eventProps);
+            }
+            console.log(`[Telemetry] ${eventName}`, eventProps);
+          } catch (e) {
+            // silent fail
+          }
+        };
+
+        // Elementos do DOM
+        const stepIntro = document.getElementById('step-intro');
+        const stepQuiz = document.getElementById('step-quiz');
+        const stepGating = document.getElementById('step-gating');
+        const stepResults = document.getElementById('step-results');
+        const backNavContainer = document.getElementById('back-nav-container');
+
+        const btnStart = document.getElementById('btn-start-diag');
+        const btnQuizBack = document.getElementById('btn-quiz-back');
+        const progressBar = document.getElementById('quiz-progress-bar');
+        const stepCounter = document.getElementById('quiz-step-counter');
+        const questionCategory = document.getElementById('quiz-question-category');
+        const questionText = document.getElementById('quiz-question-text');
+        const optionsContainer = document.getElementById('quiz-options-container');
+
+        const leadForm = document.getElementById('diag-lead-form');
+        const btnPrint = document.getElementById('btn-print-report');
+
+        // ==========================================
+        // 3. Funções de Transição de Telas
+        // ==========================================
+        const showStep = (stepElement) => {
+          [stepIntro, stepQuiz, stepGating, stepResults].forEach(el => el.style.display = 'none');
+          stepElement.style.display = 'block';
+          window.scrollTo({ top: stepElement.offsetTop - 100, behavior: 'smooth' });
+        };
+
+        // Iniciar Quiz
+        btnStart.addEventListener('click', () => {
+          currentQuestionIndex = 0;
+          backNavContainer.style.display = 'block';
+          showStep(stepQuiz);
+          renderQuestion(currentQuestionIndex);
+          trackEvent('diagnostico_start');
+        });
+
+        // Renderizar Pergunta Atual
+        const renderQuestion = (index) => {
+          const q = questions[index];
+          questionCategory.textContent = q.category;
+          questionText.textContent = q.question;
+          stepCounter.textContent = `Pergunta ${index + 1} de ${questions.length}`;
+          
+          const progressPercent = ((index + 1) / questions.length) * 100;
+          progressBar.style.width = `${progressPercent}%`;
+
+          optionsContainer.innerHTML = '';
+
+          q.options.forEach((opt, optIdx) => {
+            const isSelected = answers[q.id] && answers[q.id].optionIndex === optIdx;
+            const optBtn = document.createElement('button');
+            optBtn.type = 'button';
+            optBtn.className = `diag-option-item ${isSelected ? 'selected' : ''}`;
+            optBtn.innerHTML = `
+              <div class="diag-option-letter">${opt.letter}</div>
+              <p class="diag-option-text">${opt.text}</p>
+            `;
+
+            optBtn.addEventListener('click', () => {
+              // Highlight selection
+              Array.from(optionsContainer.children).forEach(child => child.classList.remove('selected'));
+              optBtn.classList.add('selected');
+
+              answers[q.id] = {
+                axisKey: q.axisKey,
+                axisLabel: q.axisLabel,
+                score: opt.score,
+                optionIndex: optIdx,
+                optionLetter: opt.letter,
+                optionText: opt.text
+              };
+
+              trackEvent(`step_${index + 1}_answered`, { axis: q.axisKey, letter: opt.letter });
+
+              // Auto-advance with smooth slight delay
+              setTimeout(() => {
+                if (currentQuestionIndex < questions.length - 1) {
+                  currentQuestionIndex++;
+                  renderQuestion(currentQuestionIndex);
+                } else {
+                  // Reached end of questions -> Go to Lead Gating
+                  showStep(stepGating);
+                  trackEvent('gating_viewed');
+                }
+              }, 260);
+            });
+
+            optionsContainer.appendChild(optBtn);
+          });
+        };
+
+        // Botão Voltar no Quiz
+        btnQuizBack.addEventListener('click', () => {
+          if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            renderQuestion(currentQuestionIndex);
+          } else {
+            showStep(stepIntro);
+            backNavContainer.style.display = 'none';
+          }
+        });
+
+        // ==========================================
+        // 4. Submissão do Lead & Geração do Dashboard
+        // ==========================================
+        leadForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          leadData = {
+            name: document.getElementById('lead-name').value.trim(),
+            email: document.getElementById('lead-email').value.trim(),
+            company: document.getElementById('lead-company').value.trim(),
+            role: document.getElementById('lead-role').value.trim(),
+            submittedAt: new Date().toISOString()
+          };
+
+          // Calcular Pontuação Geral e por Eixo
+          const totalScore = Math.round(Object.values(answers).reduce((acc, curr) => acc + curr.score, 0));
+          const normalizedScore = Math.min(100, Math.max(0, totalScore));
+
+          // Determinar Nível
+          let nivelTexto = 'Nível 2 · Digitalização Fragmentada';
+          if (normalizedScore <= 35) nivelTexto = 'Nível 1 · Operação Reativa & Manual';
+          else if (normalizedScore <= 60) nivelTexto = 'Nível 2 · Digitalização Fragmentada';
+          else if (normalizedScore <= 80) nivelTexto = 'Nível 3 · Operação Orientada a Dados';
+          else nivelTexto = 'Nível 4 · Ecossistema Otimizado / DeepTech';
+
+          // Montar Scores por Eixo
+          const scoresPorEixo = {};
+          questions.forEach(q => {
+            scoresPorEixo[q.axisKey] = answers[q.id] ? answers[q.id].score : 0;
+          });
+
+          // Montar Payload Completo em JSON
+          const payload = {
+            nome: leadData.name,
+            email: leadData.email,
+            empresa: leadData.company,
+            cargo: leadData.role,
+            scoreTotal: normalizedScore,
+            nivel: nivelTexto,
+            scoresPorEixo: scoresPorEixo,
+            respostasDetalhadas: answers,
+            metadata: {
+              source: 'diagnostico_maturidade',
+              dataEnvio: new Date().toLocaleString('pt-BR'),
+              userAgent: navigator.userAgent
+            }
+          };
+
+          // Salvar localmente como fallback de segurança
+          try {
+            localStorage.setItem('thp_last_diagnostic', JSON.stringify(payload));
+          } catch (err) {
+            console.warn('localStorage error:', err);
+          }
+
+          // Disparo assíncrono para o Google Apps Script Webhook com mode: 'no-cors'
+          const GOOGLE_SCRIPT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzrckLOUeKdzs-Q-UD-ibU4mFbKLyef0K1790YYd6P1lUlsyuGY0ndi3rAZ5m7oXJ7bHA/exec';
+          
+          try {
+            fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            }).catch(err => {
+              console.log('[Webhook] Dispatched in background (no-cors)');
+            });
+          } catch (fetchErr) {
+            console.warn('[Webhook] Fetch error:', fetchErr);
+          }
+
+          trackEvent('lead_submitted', { score: normalizedScore, company: leadData.company });
+
+          // Imediatamente avançar o usuário para o Dashboard de Resultados (Etapa 8)
+          renderResults(normalizedScore, leadData);
+          showStep(stepResults);
+        });
+
+        // ==========================================
+        // 5. Renderização dos Resultados & Radar SVG
+        // ==========================================
+        const renderResults = (score, lead) => {
+          // Atualizar textos do score
+          document.getElementById('results-score-num').textContent = `${score}/100`;
+          document.getElementById('results-company-subtitle').textContent = `Relatório exclusivo preparado para ${lead.name} (${lead.company}) · ${lead.role}`;
+          
+          // Print Headers
+          document.getElementById('print-company-name').textContent = `Empresa: ${lead.company} (${lead.name} - ${lead.role})`;
+          document.getElementById('print-date').textContent = `Data: ${new Date().toLocaleDateString('pt-BR')}`;
+
+          const levelBadge = document.getElementById('results-level-badge');
+          const levelTitle = document.getElementById('results-level-title');
+          const levelDesc = document.getElementById('results-level-desc');
+
+          // Determinar Nível
+          levelBadge.className = 'diag-level-badge';
+          if (score <= 35) {
+            levelBadge.classList.add('level-1');
+            levelBadge.textContent = 'Nível 1 · Operação Reativa & Manual';
+            levelTitle.textContent = 'Prioridade: Estancar Ineficiências Manuais e Riscos';
+            levelDesc.textContent = 'Sua operação depende fortemente de intervenção humana em tarefas rotineiras e planilhas desconectadas. Há alto risco de retrabalho, lentidão de atendimento e vazamento de informações.';
+          } else if (score <= 60) {
+            levelBadge.classList.add('level-2');
+            levelBadge.textContent = 'Nível 2 · Digitalização Fragmentada (Silos)';
+            levelTitle.textContent = 'Prioridade: Integração de Sistemas e Visibilidade';
+            levelDesc.textContent = 'Sua empresa utiliza softwares e ferramentas digitais, porém de forma isolada. A falta de integração entre as áreas gera gargalos e impede decisões baseadas em dados em tempo real.';
+          } else if (score <= 80) {
+            levelBadge.classList.add('level-3');
+            levelBadge.textContent = 'Nível 3 · Operação Orientada a Dados';
+            levelTitle.textContent = 'Prioridade: Automação Inteligente e IA Aplicada';
+            levelDesc.textContent = 'Sua empresa possui boa infraestrutura e governança. O próximo passo de alto impacto é a implementação de agentes autônomos de IA, visão computacional e modelos preditivos sob medida.';
+          } else {
+            levelBadge.classList.add('level-4');
+            levelBadge.textContent = 'Nível 4 · Ecossistema Otimizado / DeepTech';
+            levelTitle.textContent = 'Prioridade: P&D Customizado e Vantagem Competitiva';
+            levelDesc.textContent = 'Excelente maturidade técnica! Sua empresa está pronta para operar com IA soberana local (on-premise), modelos proprietários finetunados e otimização avançada de custos.';
+          }
+
+          // Gerar Gráfico Radar Dinâmico em SVG
+          generateRadarChart();
+
+          // Gerar Roadmap com base nos 2 eixos com menor nota
+          generateRoadmap();
+        };
+
+        // Gerador de Gráfico Radar em SVG
+        const generateRadarChart = () => {
+          const svg = document.getElementById('radar-chart-svg');
+          const size = 340;
+          const center = size / 2;
+          const radius = 105;
+          const totalAxes = questions.length; // 6 eixos
+
+          // Coletar notas normalizadas de 0 a 1 por eixo
+          const axisScores = questions.map(q => {
+            const ans = answers[q.id];
+            const rawScore = ans ? ans.score : 0;
+            return {
+              key: q.axisKey,
+              label: q.axisLabel,
+              normalizedRatio: Math.max(0.15, rawScore / 16.66) // min 15% para visualização clara
+            };
+          });
+
+          // Gerar teia de fundo (Grid concêntrico)
+          let gridHtml = '';
+          const levels = [0.25, 0.5, 0.75, 1.0];
+          levels.forEach(lvl => {
+            const points = [];
+            for (let i = 0; i < totalAxes; i++) {
+              const angle = (Math.PI * 2 / totalAxes) * i - Math.PI / 2;
+              const r = radius * lvl;
+              const x = center + r * Math.cos(angle);
+              const y = center + r * Math.sin(angle);
+              points.push(`${x},${y}`);
+            }
+            gridHtml += `<polygon points="${points.join(' ')}" class="diag-radar-grid" />`;
+          });
+
+          // Gerar eixos radiais e labels
+          let axesHtml = '';
+          let polyPoints = [];
+          let nodesHtml = '';
+
+          for (let i = 0; i < totalAxes; i++) {
+            const angle = (Math.PI * 2 / totalAxes) * i - Math.PI / 2;
+            const endX = center + radius * Math.cos(angle);
+            const endY = center + radius * Math.sin(angle);
+            axesHtml += `<line x1="${center}" y1="${center}" x2="${endX}" y2="${endY}" class="diag-radar-axis" />`;
+
+            // Label Position
+            const labelDist = radius + 28;
+            const labelX = center + labelDist * Math.cos(angle);
+            const labelY = center + labelDist * Math.sin(angle) + 4;
+            const textAnchor = Math.abs(Math.cos(angle)) < 0.2 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
+            axesHtml += `<text x="${labelX}" y="${labelY}" text-anchor="${textAnchor}" class="diag-radar-label">${axisScores[i].label}</text>`;
+
+            // Polygon point for user score
+            const scoreR = radius * axisScores[i].normalizedRatio;
+            const scoreX = center + scoreR * Math.cos(angle);
+            const scoreY = center + scoreR * Math.sin(angle);
+            polyPoints.push(`${scoreX},${scoreY}`);
+            nodesHtml += `<circle cx="${scoreX}" cy="${scoreY}" r="4" class="diag-radar-node" />`;
+          }
+
+          svg.innerHTML = `
+            ${gridHtml}
+            ${axesHtml}
+            <polygon points="${polyPoints.join(' ')}" class="diag-radar-poly" />
+            ${nodesHtml}
+          `;
+        };
+
+        // Gerador de Roadmap Customizado
+        const generateRoadmap = () => {
+          const container = document.getElementById('roadmap-cards-container');
+          
+          // Ordenar eixos por menor pontuação (maior gargalo)
+          const sortedAxes = questions.map(q => {
+            const ans = answers[q.id];
+            return {
+              key: q.axisKey,
+              label: q.axisLabel,
+              score: ans ? ans.score : 0
+            };
+          }).sort((a, b) => a.score - b.score);
+
+          // Recomendações personalizadas por eixo
+          const roadmapDatabase = {
+            processos: {
+              badge: 'Ação para Processos',
+              title: 'Automação de Triagem & Atendimento WhatsApp 24/7',
+              desc: 'Implementar agentes inteligentes nos canais de entrada para triar pedidos, documentos e dúvidas frequentes, liberando sua equipe das tarefas repetitivas.'
+            },
+            dados: {
+              badge: 'Ação para Inteligência de Dados',
+              title: 'Centralização de Painéis & Dashboards em Tempo Real',
+              desc: 'Eliminar a dependência de planilhas manuais criando um painel executivo automatizado que consolida vendas, finanças e metas direto no celular da diretoria.'
+            },
+            integracao: {
+              badge: 'Ação para Integrações',
+              title: 'Conexão Fluida de Sistemas & Eliminação de Retrabalho',
+              desc: 'Construir conectores e APIs entre seus softwares legados para que os dados fluam automaticamente sem necessidade de digitação dupla.'
+            },
+            seguranca: {
+              badge: 'Ação para Segurança & LGPD',
+              title: 'Blindagem de Dados Corporativos & Governança LGPD',
+              desc: 'Adotar rotinas de backup criptografado, controle granular de permissões por cargo e adequação prática para evitar vazamentos e multas da LGPD.'
+            },
+            ia: {
+              badge: 'Ação para Inteligência Artificial',
+              title: 'Implementação de IA Aplicada com Privacidade Soberana',
+              desc: 'Integrar modelos de IA diretamente na infraestrutura da sua empresa para sumarização de documentos, OCR fiscal e suporte sem expor dados confidenciais.'
+            },
+            custos: {
+              badge: 'Ação para Eficiência & Custos',
+              title: 'Auditoria de Licenças & Migração para Soluções Sob Medida',
+              desc: 'Substituir mensalidades caras de softwares de terceiros por módulos customizados e open-source de alta performance desenvolvidos sob medida.'
+            }
+          };
+
+          // Pegar as 2 piores áreas + 1 recomendação de aceleração
+          const primaryPillar = sortedAxes[0].key;
+          const secondaryPillar = sortedAxes[1].key;
+          const tertiaryPillar = sortedAxes[2].key;
+
+          const selectedActions = [
+            roadmapDatabase[primaryPillar],
+            roadmapDatabase[secondaryPillar],
+            roadmapDatabase[tertiaryPillar]
+          ];
+
+          container.innerHTML = selectedActions.map((item, idx) => `
+            <div class="diag-roadmap-card">
+              <span class="diag-roadmap-badge">Etapa ${idx + 1} · ${item.badge}</span>
+              <h4>${item.title}</h4>
+              <p>${item.desc}</p>
+            </div>
+          `).join('');
+        };
+
+        // ==========================================
+        // 6. Impressão / Exportação em PDF
+        // ==========================================
+        btnPrint.addEventListener('click', () => {
+          trackEvent('pdf_print_triggered');
+          window.print();
+        });
+
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const applyTheme = (theme) => {
+          document.documentElement.setAttribute('data-theme', theme);
+        };
+
+        themeBtn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          applyTheme(newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -815,10 +815,7 @@ body {
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0 0 1.5rem 0;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  text-align: left;
 }
 
 .service-card-tags {
@@ -833,6 +830,50 @@ body {
   text-align: center;
 }
 
+/* Portfolio & Labs Footer CTA Container */
+.portfolio-footer-cta {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.portfolio-footer-cta .labs-cta-button {
+  margin: 0 auto;
+}
+
+/* Eixos & Service Cards Inner Content Utilities */
+.eixo-card-body {
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eixo-card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+.eixo-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Footer Brand Typography Utilities */
+.footer-company-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.footer-company-info {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
 @media (max-width: 768px) {
   .services-home-grid {
     grid-template-columns: 1fr;
@@ -841,5 +882,705 @@ body {
     padding: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Diagnostic & Maturity Assessment Styles
+   ========================================================================== */
+
+/* Diagnostic Banner CTA (Home & Services) */
+.diagnostic-cta-banner {
+  margin: 5rem 0;
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.5) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.diagnostic-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(99, 102, 241, 0.15), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.diagnostic-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.diagnostic-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  margin-bottom: 1.25rem;
+}
+
+.diagnostic-cta-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.diagnostic-cta-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.diagnostic-cta-meta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.diagnostic-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.diagnostic-cta-action {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.diagnostic-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--gradient-brand);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.diagnostic-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.5);
+  filter: brightness(1.08);
+}
+
+.diagnostic-btn-primary svg {
+  transition: transform 0.2s ease;
+}
+
+.diagnostic-btn-primary:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .diagnostic-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.25rem 1.75rem;
+  }
+  .diagnostic-cta-action {
+    width: 100%;
+  }
+  .diagnostic-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Diagnostic Wizard Page (/diagnostico/)
+   ========================================================================== */
+
+.diag-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 0 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.diag-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.diag-progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 99px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diag-progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-brand);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.diag-card {
+  background: rgba(15, 15, 20, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 2.75rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.diag-nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.diag-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.diag-btn-back:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.diag-question-category {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+.diag-question-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+  margin-bottom: 2rem;
+}
+
+.diag-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.diag-option-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align: left;
+  width: 100%;
+}
+
+.diag-option-item:hover {
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.4);
+  transform: translateY(-2px);
+}
+
+.diag-option-item.selected {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: #818cf8;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+.diag-option-letter {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.diag-option-item:hover .diag-option-letter,
+.diag-option-item.selected .diag-option-letter {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+}
+
+.diag-option-text {
+  font-size: 0.96rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Gating Step Form */
+.diag-gating-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.diag-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.diag-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.diag-form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.diag-form-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.diag-form-input:focus {
+  border-color: #a78bfa;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.2);
+}
+
+/* Results Dashboard */
+.diag-results-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.diag-score-display {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: left;
+}
+
+.diag-score-num {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.diag-level-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.level-1 { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.level-2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.level-3 { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+.level-4 { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+
+.diag-radar-svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diag-radar-svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+.diag-radar-grid {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+  fill: none;
+}
+
+.diag-radar-axis {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-dasharray: 2 2;
+}
+
+.diag-radar-poly {
+  fill: rgba(99, 102, 241, 0.25);
+  stroke: #818cf8;
+  stroke-width: 2.5;
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.diag-radar-node {
+  fill: #a78bfa;
+  stroke: #0f172a;
+  stroke-width: 2;
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.diag-radar-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--color-text-secondary);
+}
+
+.diag-roadmap-section {
+  text-align: left;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+}
+
+.diag-roadmap-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.diag-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.diag-roadmap-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.diag-roadmap-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f68b23;
+}
+
+.diag-roadmap-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.diag-roadmap-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.diag-actions-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.diag-btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-text-primary);
+  padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diag-btn-print:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.diag-tip-microcopy {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.75rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .diag-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .diag-gating-form {
+    grid-template-columns: 1fr;
+  }
+  .diag-results-layout {
+    grid-template-columns: 1fr;
+  }
+  .diag-actions-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+  .diag-actions-bar a,
+  .diag-actions-bar button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Print Styles for Executive A4 PDF Report
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt;
+  }
+
+  .mesh-bg,
+  .mesh-bg-accent,
+  .dot-grid,
+  .navbar,
+  .footer,
+  #theme-toggle,
+  .diag-btn-back,
+  .diag-progress-bar-container,
+  .diag-actions-bar,
+  .diag-tip-microcopy,
+  .back-nav {
+    display: none !important;
+  }
+
+  .app-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .diag-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .diag-card {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+  }
+
+  .diag-print-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2pt solid #1e293b;
+    padding-bottom: 12pt;
+    margin-bottom: 18pt;
+  }
+
+  .diag-print-header .print-brand {
+    font-size: 18pt;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .diag-print-meta {
+    text-align: right;
+    font-size: 9pt;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  .diag-results-layout {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 20pt !important;
+    margin-bottom: 20pt !important;
+  }
+
+  .diag-score-display {
+    background: #f8fafc !important;
+    border: 1pt solid #e2e8f0 !important;
+    padding: 14pt !important;
+    color: #0f172a !important;
+  }
+
+  .diag-score-num {
+    font-size: 32pt !important;
+    color: #1e1b4b !important;
+    -webkit-text-fill-color: #1e1b4b !important;
+  }
+
+  .diag-score-display p,
+  .diag-score-display h3 {
+    color: #1e293b !important;
+  }
+
+  .diag-radar-svg {
+    max-width: 260px !important;
+  }
+
+  .diag-radar-grid {
+    stroke: #cbd5e1 !important;
+  }
+
+  .diag-radar-axis {
+    stroke: #94a3b8 !important;
+  }
+
+  .diag-radar-poly {
+    fill: rgba(99, 102, 241, 0.2) !important;
+    stroke: #4f46e5 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .diag-radar-label {
+    fill: #334155 !important;
+    font-size: 8.5pt !important;
+  }
+
+  .diag-roadmap-section {
+    border-top: 1pt solid #e2e8f0 !important;
+    padding-top: 14pt !important;
+    margin-top: 14pt !important;
+  }
+
+  .diag-roadmap-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 10pt !important;
+  }
+
+  .diag-roadmap-card {
+    background: #f8fafc !important;
+    border: 1pt solid #e2e8f0 !important;
+    padding: 10pt !important;
+    page-break-inside: avoid;
+  }
+
+  .diag-roadmap-card h4 {
+    color: #0f172a !important;
+    font-size: 10pt !important;
+  }
+
+  .diag-roadmap-card p {
+    color: #475569 !important;
+    font-size: 8.5pt !important;
+  }
+
+  .diag-print-footer {
+    display: block !important;
+    margin-top: 20pt;
+    padding-top: 10pt;
+    border-top: 1pt solid #e2e8f0;
+    text-align: center;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+}
+
 
 
