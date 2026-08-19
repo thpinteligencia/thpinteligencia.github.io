@@ -1581,6 +1581,192 @@ body {
     color: #94a3b8;
   }
 }
+/* ==========================================================================
+   Regional Impact / Arco Norte Section Styles
+   ========================================================================== */
+.regional-card-action {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.eixo-card:hover .regional-card-action {
+  transform: translateX(4px);
+}
+
+.regional-card-action svg {
+  transition: transform 0.2s ease;
+}
+
+.regional-card-action:hover svg {
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   Footer Accessibility & Responsiveness Upgrades
+   ========================================================================== */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.footer-links a {
+  padding: 0.5rem 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* Comfortably satisfies touch target sizing criteria */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+/* Specific contrast tweaks for Light Theme */
+[data-theme="light"] .footer-links a {
+  color: var(--color-text-secondary);
+}
+[data-theme="light"] .footer-links a:hover {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem 1rem;
+    width: 100%;
+  }
+
+  .footer-links a {
+    min-height: 44px;
+    padding: 0.5rem 0;
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================================
+   Reusable Blog CTA Card Component
+   ========================================================================== */
+.blog-cta-card {
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent-orange);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.blog-cta-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(246, 139, 35, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.blog-cta-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% -20%, rgba(246, 139, 35, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blog-cta-card:hover .blog-cta-glow {
+  opacity: 1;
+}
+
+.blog-cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.blog-cta-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-orange);
+  background: rgba(246, 139, 35, 0.08);
+  border: 1px solid rgba(246, 139, 35, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+}
+
+.blog-cta-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.blog-cta-desc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+.blog-cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.blog-cta-actions .btn {
+  min-height: 44px; /* Accessible touch target */
+}
+
+@media (max-width: 600px) {
+  .blog-cta-card {
+    padding: 1.75rem 1.5rem;
+  }
+  
+  .blog-cta-title {
+    font-size: 1.35rem;
+  }
+
+  .blog-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .blog-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 
 
