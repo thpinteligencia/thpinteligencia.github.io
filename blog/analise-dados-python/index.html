@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engenharia de Decisão: Evitando CAPEX Desnecessário em Terminais Logísticos | THP DeepTech & Systems</title>
+  <meta name="description"
+    content="Como a modelagem matemática não-linear em Python expõe gargalos operacionais no Arco Norte que médias em planilhas não conseguem enxergar." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/custom.css" />
+
+  <!-- Theme Initialization -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <style>
+    .app-container {
+      max-width: 800px;
+      padding-bottom: 5rem;
+    }
+
+    /* Navigation */
+    .back-nav {
+      margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      color: var(--color-text-primary);
+      transform: translate(-3px);
+    }
+
+    /* Article Header */
+    .post-header {
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .post-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-header h1 {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+    }
+
+    .post-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1.5rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Article Content */
+    .post-content {
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+
+    .post-content p {
+      margin-bottom: 1.75rem;
+      text-wrap: pretty;
+    }
+
+    .post-content h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin: 2.5rem 0 1.25rem 0;
+      letter-spacing: -0.02em;
+    }
+
+    .post-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin: 2rem 0 1rem 0;
+    }
+
+    .post-content ul,
+    .post-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .post-content li {
+      margin-bottom: 0.75rem;
+    }
+
+    .post-content strong {
+      color: var(--color-text-primary);
+    }
+
+    /* SVG Graph Styling */
+    .graph-wrapper {
+      margin: 2.5rem 0;
+      padding: 1.75rem;
+      background: rgba(18, 58, 115, 0.15);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .graph-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Code Styling */
+    pre {
+      background: rgba(10, 30, 63, 0.6);
+      border: 1px solid var(--color-border);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-family: monospace, Courier, monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 2rem 0;
+    }
+
+    [data-theme="light"] pre {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    code {
+      font-family: monospace;
+      font-size: 0.9em;
+      padding: 0.15em 0.45em;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      color: var(--color-accent-orange);
+    }
+
+    [data-theme="light"] code {
+      background: rgba(10, 30, 63, 0.06);
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: var(--color-text-primary);
+    }
+
+    .code-keyword {
+      color: #f472b6;
+      font-weight: 600;
+    }
+
+    .code-string {
+      color: #34d399;
+    }
+
+    .code-comment {
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    .code-number {
+      color: #fbbf24;
+    }
+
+    .code-def {
+      color: #60a5fa;
+    }
+
+    .code-builtin {
+      color: #a78bfa;
+    }
+
+    /* Conversion Card */
+    .post-cta-card {
+      margin-top: 4.5rem;
+      background: linear-gradient(135deg, rgba(18, 58, 115, 0.45) 0%, rgba(246, 139, 35, 0.05) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .post-cta-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+
+    .post-cta-card p {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .post-header h1 {
+        font-size: 2.1rem;
+      }
+
+      .post-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .post-content {
+        font-size: 1.05rem;
+        line-height: 1.75;
+      }
+    }
+
+    /* Author Card styles */
+    .author-card {
+      margin-top: 4rem;
+      background: var(--color-surface);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .author-card:hover {
+      border-color: rgba(246, 139, 35, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .author-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid transparent;
+      transition: padding-bottom 0.3s ease, border-color 0.3s ease;
+    }
+
+    .author-card.expanded .author-header {
+      padding-bottom: 1.5rem;
+      border-color: var(--color-border);
+    }
+
+    .author-profile {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .author-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(246, 139, 35, 0.2) 0%, rgba(44, 94, 168, 0.3) 100%);
+      border: 2px solid rgba(246, 139, 35, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .author-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .author-meta h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.2;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .author-role {
+      font-size: 0.85rem;
+      color: var(--color-accent-orange);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .author-header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .author-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .author-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .author-link-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-border-hover);
+      transform: translateY(-1px);
+    }
+
+    .author-toggle-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .author-toggle-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .author-card:hover .author-toggle-text {
+      color: var(--color-text-primary);
+    }
+
+    .author-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c9d4e0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .author-card.expanded .author-chevron {
+      transform: rotate(180deg);
+      background-color: rgba(246, 139, 35, 0.15);
+      border-color: rgba(246, 139, 35, 0.4);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f68b23' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    }
+
+    [data-theme="light"] .author-chevron {
+      background-color: rgba(10, 30, 63, 0.05);
+      border-color: rgba(10, 30, 63, 0.1);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230a1e3f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    }
+
+    [data-theme="light"] .author-card.expanded .author-chevron {
+      background-color: rgba(246, 139, 35, 0.12);
+      border-color: rgba(246, 139, 35, 0.35);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f68b23' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    }
+
+    .author-collapse-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .author-card.expanded .author-collapse-wrapper {
+      grid-template-rows: 1fr;
+    }
+
+    .author-collapse-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .author-content {
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .author-bio {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .author-bio p {
+      margin: 0;
+    }
+
+    /* Credentials Grid */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-border);
+      padding: 0.65rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    [data-theme="light"] .credential-item {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .credential-item:hover {
+      border-color: rgba(246, 139, 35, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="light"] .credential-item:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .credential-item .icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+  </style>
+  <link rel="canonical" href="https://thpinteligencia.github.io/blog/analise-dados-python/" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Engenharia de Decisão: Por que Simulações Estocásticas Evitam Investimentos Desnecessários de CAPEX em Terminais Logísticos",
+      "description": "Como a modelagem matemática não-linear em Python expõe gargalos operacionais no Arco Norte que médias em planilhas não conseguem enxergar.",
+      "image": "https://thpinteligencia.github.io/og-image.jpg",
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
+      "author": {
+        "@type": "Person",
+        "name": "Hiago Pereira"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "THP DeepTech & Systems",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://thpinteligencia.github.io/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://thpinteligencia.github.io/blog/analise-dados-python/"
+      },
+      "dependencies": "pandas, numpy, scipy",
+      "proficiencyLevel": "Advanced"
+    }
+    </script>
+</head>
+
+<body>
+  <!-- Mesh Background Decorator -->
+  <div class="mesh-bg"></div>
+  <div class="mesh-bg-accent"></div>
+
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="back-nav" aria-label="Navegação de retorno">
+      <a href="../" class="back-button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        Voltar para o blog
+      </a>
+      <a href="../../" class="back-button">
+        Início
+      </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <article class="post-article">
+        <header class="post-header">
+          <span class="post-badge">📊 Engenharia de Decisão</span>
+          <h1>Engenharia de Decisão: Por que Simulações Estocásticas Evitam Investimentos Desnecessários de CAPEX em
+            Terminais Logísticos</h1>
+          <p class="post-subtitle">Como a modelagem matemática não-linear em Python expõe gargalos operacionais no Arco
+            Norte que médias em planilhas não conseguem enxergar.</p>
+
+          <div class="post-meta">
+            <div class="meta-item">
+              <span>📅</span>
+              <time datetime="2026-08-19">19 de Agosto de 2026</time>
+            </div>
+            <div class="meta-item">
+              <span>👤</span>
+              <span>Por Hiago Pereira</span>
+            </div>
+            <div class="meta-item">
+              <span>⏱️</span>
+              <span>5 min de leitura</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="post-content">
+          <p>
+            No papel e em planilhas de médias mensais, a capacidade de qualquer pátio de triagem parece uma conta
+            redonda e confortável. No mundo real, basta uma semana de pico de safra na BR para o pátio colapsar: dezenas
+            de carretas na rodovia, motoristas com o motor ligado no calor equatorial e uma sangria silenciosa de
+            <strong>demurrage rodoviário</strong> comendo a margem do frete.
+          </p>
+          <p>
+            O primeiro instinto da diretoria é quase sempre o mais caro: demandar mais concreto. Aprova-se um orçamento
+            milionário de CAPEX para construir um terceiro tombador, instalar novas balanças e pavimentar hectares de
+            estacionamento. A engenharia de decisão, no entanto, frequentemente prova o oposto: <strong>o gargalo quase
+              nunca é o cimento, mas sim a ilusão estatística das médias no agendamento e a fricção no
+              checkout.</strong>
+          </p>
+
+          <h2>A Armadilha do Excel: Por que 8 &lt; 10 é uma Falsa Segurança</h2>
+          <p>
+            O erro clássico de dimensionamento em logística agrícola nasce em planilhas estáticas. O gestor projeta
+            receber, em média, 8 caminhões por hora (\(\lambda = 8\)) e dimensiona dois tombadores com capacidade
+            conjunta para 10 descargas por hora (\(\mu = 10\)). No cálculo linear, sobram 20% de capacidade. No campo, o
+            pátio transborda.
+          </p>
+          <p>
+            Isso acontece porque caminhões não chegam espaçados com a precisão de um metrônomo suíço a cada 7,5 minutos.
+            Chuvas repentinas nas vicinais, lentidão na emissão de notas fiscais e janelas descompassadas de colheita
+            geram aglomerados estocásticos. Quando a taxa de ocupação da balança passa dos 80%, a física das filas não
+            perdoa: o tempo de espera não cresce em linha reta, ele <strong>explode exponencialmente</strong>.
+          </p>
+
+          <!-- SVG Graph Container -->
+          <div class="graph-wrapper">
+            <h2 class="graph-title">A Curva de Saturação: O Impacto Não-Linear da Ocupação no Tempo de Fila</h2>
+            <svg viewBox="0 0 500 300" width="100%" height="100%"
+              style="font-family: var(--font-body); overflow: visible;">
+              <!-- Grid Lines -->
+              <line x1="50" y1="50" x2="450" y2="50" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+              <line x1="50" y1="110" x2="450" y2="110" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+              <line x1="50" y1="170" x2="450" y2="170" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+              <line x1="50" y1="230" x2="450" y2="230" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+
+              <!-- Vertical Grid lines -->
+              <line x1="150" y1="50" x2="150" y2="250" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+              <line x1="250" y1="50" x2="250" y2="250" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+              <line x1="350" y1="50" x2="350" y2="250" stroke="var(--color-border)" stroke-width="1"
+                stroke-dasharray="4 4" />
+
+              <!-- Axes -->
+              <line x1="50" y1="250" x2="450" y2="250" stroke="var(--color-text-secondary)" stroke-width="2" />
+              <line x1="50" y1="50" x2="50" y2="250" stroke="var(--color-text-secondary)" stroke-width="2" />
+
+              <!-- Y-Axis Labels (Queue Length) -->
+              <text x="40" y="254" fill="var(--color-text-secondary)" font-size="11" text-anchor="end">0</text>
+              <text x="40" y="174" fill="var(--color-text-secondary)" font-size="11" text-anchor="end">10</text>
+              <text x="40" y="114" fill="var(--color-text-secondary)" font-size="11" text-anchor="end">25</text>
+              <text x="40" y="54" fill="var(--color-text-secondary)" font-size="11" text-anchor="end">50+</text>
+
+              <!-- X-Axis Labels (Utilization Rate) -->
+              <text x="50" y="270" fill="var(--color-text-secondary)" font-size="11" text-anchor="middle">0%</text>
+              <text x="150" y="270" fill="var(--color-text-secondary)" font-size="11" text-anchor="middle">50%</text>
+              <text x="250" y="270" fill="var(--color-text-secondary)" font-size="11" text-anchor="middle">80%
+                (Excel)</text>
+              <text x="350" y="270" fill="var(--color-text-secondary)" font-size="11" text-anchor="middle">90%</text>
+              <text x="430" y="270" fill="var(--color-text-secondary)" font-size="11" text-anchor="middle">98%</text>
+
+              <!-- Curve: Non-linear Saturation Curve -->
+              <path d="M 50 250 Q 150 248 250 235 T 350 180 T 430 50" fill="none" stroke="var(--color-accent-orange)"
+                stroke-width="4" stroke-linecap="round" />
+
+              <!-- Highlights -->
+              <circle cx="250" cy="235" r="5" fill="var(--color-accent-blue)" stroke="var(--color-text-primary)"
+                stroke-width="1.5" />
+              <circle cx="350" cy="180" r="5" fill="var(--color-accent-orange)" stroke="var(--color-text-primary)"
+                stroke-width="1.5" />
+              <circle cx="430" cy="50" r="6" fill="#ef4444" stroke="var(--color-text-primary)" stroke-width="2" />
+
+              <!-- Annotations -->
+              <text x="245" y="220" fill="var(--color-text-primary)" font-size="10" font-weight="600"
+                text-anchor="end">Zona de Ilusão de Segurança</text>
+              <text x="360" y="170" fill="var(--color-text-primary)" font-size="10" font-weight="600">Instabilidade
+                Exponencial</text>
+              <text x="420" y="38" fill="#ef4444" font-size="10" font-weight="700" text-anchor="end">Demurrage
+                Crítico</text>
+
+              <!-- Axis Labels -->
+              <text x="250" y="292" fill="var(--color-text-primary)" font-size="12" font-weight="700"
+                text-anchor="middle">Taxa de Utilização da Balança/Tombadores (%)</text>
+              <text x="18" y="150" fill="var(--color-text-primary)" font-size="12" font-weight="700"
+                transform="rotate(-90 18 150)" text-anchor="middle">Tempo de Espera e Fila</text>
+            </svg>
+          </div>
+
+          <p>
+            Quando a taxa de utilização do sistema se aproxima de 80%, qualquer pequena perturbação na chegada gera uma
+            cauda de saturação não-linear (mostrada acima). Em 90% de ocupação, a fila não cresce de forma incremental:
+            ela explode de forma exponencial. É nessa região crítica que planilhas estáticas falham e orçamentos
+            operacionais quebram.
+          </p>
+
+          <h2>Modelagem Estocástica: Prevendo o Colapso em Milissegundos</h2>
+          <p>
+            Para evitar que uma empresa gaste milhões em infraestrutura física desnecessária, nós não especulamos;
+            simulamos a variância real. O script abaixo condensa uma simulação estocástica de eventos discretos. Ele
+            injeta a aleatoriedade de chegadas (Poisson) e a distribuição não-uniforme dos tempos de descarga
+            (Log-Normal, considerando umidade de grão e pequenos travamentos mecânicos):
+          </p>
+
+          <pre><code><span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
+<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+
+<span class="code-keyword">class</span> <span class="code-def">SimuladorCorredorLogistico</span>:
+    <span class="code-keyword">def</span> <span class="code-builtin">__init__</span>(self, tombadores, taxa_chegada, tempo_medio_descarga):
+        self.tombadores = tombadores
+        self.taxa_chegada = taxa_chegada  <span class="code-comment"># lambda: carretas/hora</span>
+        self.tempo_medio_descarga = tempo_medio_descarga  <span class="code-comment"># minutos</span>
+
+    <span class="code-keyword">def</span> <span class="code-def">executar</span>(self, volume_veiculos=1000):
+        <span class="code-comment"># Chegadas estocásticas (Processo de Poisson)</span>
+        intervalos = np.random.exponential(60.0 / self.taxa_chegada, volume_veiculos)
+        momentos_chegada = np.cumsum(intervalos)
+        
+        <span class="code-comment"># Variabilidade real da descarga (Log-Normal para capturar atrasos de umidade/máquina)</span>
+        duracoes = np.random.lognormal(mean=np.log(self.tempo_medio_descarga) - 0.08, sigma=0.4, size=volume_veiculos)
+        
+        agenda_tombadores = np.zeros(self.tombadores)
+        tempos_fila = np.zeros(volume_veiculos)
+        
+        <span class="code-keyword">for</span> i <span class="code-keyword">in</span> <span class="code-builtin">range</span>(volume_veiculos):
+            posto_livre = np.argmin(agenda_tombadores)
+            tempos_fila[i] = <span class="code-builtin">max</span>(0.0, agenda_tombadores[posto_livre] - momentos_chegada[i])
+            agenda_tombadores[posto_livre] = momentos_chegada[i] + tempos_fila[i] + duracoes[i]
+            
+        <span class="code-keyword">return</span> pd.DataFrame({"Espera_Minutos": tempos_fila, "Duracao_Real": duracoes})
+
+<span class="code-comment"># Diagnóstico: 2 tombadores rodando sob regime pesado de colheita</span>
+sim = SimuladorCorredorLogistico(tombadores=2, taxa_chegada=8.5, tempo_medio_descarga=12.0)
+df = sim.executar()
+print(f"Tempo Médio Real em Fila: {df['Espera_Minutos'].mean():.1f} min")
+</code></pre>
+
+          <h2>A Decisão Executiva: Economizar 150 Segundos vs. Gastar R$ 3 Milhões</h2>
+          <p>
+            O resultado da simulação matemática revela uma oportunidade que a intuição ignora: <strong>reduzir o ciclo
+              de checkout e pesagem de 12 para 9,5 minutos gera o mesmo alívio de fila que a construção física de um
+              terceiro tombador.</strong>
+          </p>
+          <p>
+            Ganhar esses 150 segundos por caminhão não exige canteiro de obras nem licenças ambientais morosas. O ganho
+            é obtido com engenharia de fluxo e automação:
+          </p>
+          <ul>
+            <li><strong>Leitura Automática e Pesagem Dinâmica:</strong> Câmeras OCR na guarita capturam a placa e
+              integram a pesagem bruta diretamente ao sistema em frações de segundo, eliminando a digitação manual de
+              notas pelo operador.</li>
+            <li><strong>Janelas Dinâmicas de Agendamento (Slot Booking):</strong> Controle ativo de fluxo que trava o
+              pátio de triagem sempre na faixa ótima de ocupação (abaixo da curva crítica de 80%), diluindo picos de
+              chegada.</li>
+          </ul>
+
+          <h2>Resiliência Local-First: O Que Acontece Quando a Internet Cai?</h2>
+          <p>
+            Todo esse modelo matemático perde o valor se depender de um sistema em nuvem distante que trava ao menor
+            sinal de chuva ou corte de fibra na rodovia. No interior e nos corredores do Norte, conectividade não é
+            garantia — é instabilidade crônica.
+          </p>
+          <p>
+            Por isso, na <strong>THP DeepTech & Systems</strong>, desenhamos essas soluções sob o paradigma
+            <strong>Local-First / Edge Computing</strong>:
+          </p>
+          <ol>
+            <li><strong>Operação Offline Autônoma:</strong> Os motores de pesagem, OCR e triagem rodam em servidores
+              industriais na própria guarita do terminal. Se o sinal de internet cair por 6 horas, o fluxo de entrada
+              continua faturando e operando sem perda de milissegundo.</li>
+            <li><strong>Blindagem e Integridade de Dados:</strong> Para impedir que falhas de conexão abram brechas para
+              fraudes em pesagens manuais, os registros locais são selados criptograficamente em trilhas de auditoria
+              invioláveis. Quando o link retorna, os dados sincronizam com o ERP corporativo com governança e validação
+              completa.</li>
+          </ol>
+
+          <p>
+            É assim que a matemática avançada deixa de ser um paper acadêmico e se transforma em margem líquida
+            protegida para quem opera logística pesada no Norte.
+          </p>
+        </section>
+
+          <!-- Author Card -->
+          <div class="author-card" id="authorCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="author-header">
+              <div class="author-profile">
+                <div class="author-avatar">
+                  <img src="../../sobre/hiago_pereira.jpg" alt="Hiago Pereira - Fundador & Lead da THP" class="author-photo" />
+                </div>
+                <div class="author-meta">
+                  <h3>Hiago Pereira</h3>
+                  <div class="author-role">Fundador & Lead de Projetos</div>
+                </div>
+              </div>
+              <div class="author-header-right">
+                <div class="author-links">
+                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="author-link-btn" title="LinkedIn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect width="4" height="12" x="2" y="9"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                  <a href="http://lattes.cnpq.br" target="_blank" rel="noopener noreferrer" class="author-link-btn" title="Currículo Lattes">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                    </svg>
+                    Lattes
+                  </a>
+                </div>
+                <div class="author-toggle-indicator">
+                  <span class="author-toggle-text">Ver biografia & credenciais</span>
+                  <span class="author-chevron"></span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="author-collapse-wrapper">
+              <div class="author-collapse-inner">
+                <div class="author-content">
+                  <div class="author-bio">
+                    <p>
+                      Mestre em Sociedade e Fronteiras (UFRR) e especialista em Inteligência Artificial, Hiago Pereira atua na interseção entre engenharia de software, IA e estratégia de negócios. Como fundador da THP, lidera o desenvolvimento de soluções inteligentes e arquiteturas resilientes adaptadas à realidade da Região Norte.
+                    </p>
+                  </div>
+                  
+                  <div class="credentials-grid">
+                    <div class="credential-item">
+                      <span class="icon">🎓</span>
+                      <span>Mestre em Sociedade e Fronteiras (UFRR)</span>
+                    </div>
+                    <div class="credential-item">
+                      <span class="icon">🧠</span>
+                      <span>Especialista em IA (ECAI-UFRR)</span>
+                    </div>
+                    <div class="credential-item">
+                      <span class="icon">🌾</span>
+                      <span>Especialista MBA em Agronegócio (ITEAM-PMBV)</span>
+                    </div>
+                    <div class="credential-item">
+                      <span class="icon">🗺️</span>
+                      <span>Internacionalista (UFRR)</span>
+                    </div>
+                    <div class="credential-item">
+                      <span class="icon">🌐</span>
+                      <span>Analista de Comércio Exterior (Estácio)</span>
+                    </div>
+                    <div class="credential-item">
+                      <span class="icon">✍️</span>
+                      <span>Trajetória Premiada em Escrita e Pesquisa</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Footer CTA Card -->
+        <footer class="post-footer">
+          <div class="post-cta-card">
+            <h3>Como está a Maturidade Digital da sua Empresa?</h3>
+            <p>
+              A THP DeepTech & Systems desenvolve simuladores computacionais, integrações de IoT industrial e
+              arquiteturas locais altamente seguras para mitigar riscos de infraestrutura na região Norte.
+            </p>
+            <a href="../../diagnostico/" class="diagnostic-btn-primary">
+              <span>Fazer Diagnóstico de Maturidade 📊</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" aria-label="Alternar tema claro e escuro">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeBtn = document.getElementById('theme-toggle');
+      if (!themeBtn) return;
+
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+      };
+
+      themeBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+          applyTheme(e.matches ? 'light' : 'dark');
+        }
+      });
+
+      // Author Accordion Handler
+      const authorCard = document.getElementById('authorCard');
+      if (authorCard) {
+        const toggleAuthor = (e) => {
+          // Avoid toggling when clicking social links
+          if (e.target.closest('a')) return;
+          
+          const isExpanded = authorCard.classList.toggle('expanded');
+          authorCard.setAttribute('aria-expanded', isExpanded);
+          const toggleText = authorCard.querySelector('.author-toggle-text');
+          if (toggleText) {
+            toggleText.textContent = isExpanded ? 'Recolher informações' : 'Ver biografia & credenciais';
+          }
+        };
+
+        authorCard.addEventListener('click', toggleAuthor);
+        authorCard.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleAuthor(e);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -212,6 +212,132 @@
         border-color: var(--color-border-hover);
         transform: translateY(-2px);
       }
+
+      /* Blog Feed */
+      .blog-feed-title {
+        font-family: var(--font-heading);
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 3.5rem 0 1.75rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.75rem;
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3.5rem;
+      }
+      @media (max-width: 768px) {
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .post-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 2.25rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        overflow: hidden;
+      }
+      .post-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gradient-brand);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .post-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(246, 139, 35, 0.35);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      }
+      .post-card:hover::before {
+        opacity: 1;
+      }
+      .post-card-top {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        text-align: left;
+      }
+      .post-card-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .post-card-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+      }
+      .tag-manifesto {
+        color: #f68b23;
+        background: rgba(246, 139, 35, 0.12);
+        border: 1px solid rgba(246, 139, 35, 0.25);
+      }
+      .tag-technical {
+        color: #a78bfa;
+        background: rgba(167, 139, 250, 0.12);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+      }
+      .post-card h2 {
+        font-family: var(--font-heading);
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        line-height: 1.3;
+        margin: 0;
+      }
+      .post-card p {
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        margin: 0;
+      }
+      .post-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.82rem;
+        color: var(--color-text-secondary);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      [data-theme="light"] .post-card-meta {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .post-card-link {
+        color: var(--color-accent-orange);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        transition: transform 0.2s ease;
+      }
+      .post-card:hover .post-card-link {
+        transform: translateX(4px);
+      }
     </style>
     <link rel="canonical" href="https://thpinteligencia.github.io/blog/" />
   </head>
@@ -242,36 +368,82 @@
           </p>
         </header>
 
-        <!-- Placeholder Card -->
-        <div class="placeholder-card" style="margin-bottom: 2rem;">
-          <div class="placeholder-icon">
-            ✍️
-          </div>
-          <h2>Publicações em Fase de Estruturação</h2>
-          <p>
-            Nosso laboratório está crescendo. Em breve, você encontrará nossas primeiras publicações aqui sobre os seguintes temas:
-          </p>
+        <!-- Blog Posts Grid -->
+        <section class="blog-section" aria-label="Artigos Publicados" style="margin-bottom: 2rem;">
+          <h2 class="blog-feed-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+            Publicações Recentes
+          </h2>
 
-          <div class="topics-preview">
-            <span class="topic-tag">🧠 Inteligência Artificial Aplicada</span>
-            <span class="topic-tag">📊 Engenharia de Dados</span>
-            <span class="topic-tag">🌐 Inteligência de Mercado e Negócios</span>
-            <span class="topic-tag">🛡️ Governança de Dados</span>
+          <div class="blog-grid">
+            <!-- Post 1: Manifesto -->
+            <a href="./manifesto-tecnico/" class="post-card" id="post-manifesto">
+              <div class="post-card-top">
+                <div class="post-card-tags">
+                  <span class="post-card-tag tag-manifesto">⚡ Manifesto</span>
+                  <span class="post-card-tag">Estratégia & TI</span>
+                </div>
+                <h2>Manifesto THP: O Futuro da Inteligência Empresarial e a Transformação do Norte</h2>
+                <p>
+                  Como a união de desenvolvimento tecnológico de ponta com consultoria de gestão estratégica resolve gargalos crônicos e promove crescimento em Roraima e região Norte.
+                </p>
+              </div>
+              <div class="post-card-meta">
+                <span>19 Ago 2026</span>
+                <span class="post-card-link">
+                  Ler artigo 
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <!-- Post 2: Python / Queues Simulation -->
+            <a href="./analise-dados-python/" class="post-card" id="post-analise-dados">
+              <div class="post-card-top">
+                <div class="post-card-tags">
+                  <span class="post-card-tag tag-technical">📊 Engenharia de Decisão</span>
+                  <span class="post-card-tag">Python & Dados</span>
+                </div>
+                <h2>Engenharia de Decisão: Por que Simulações Estocásticas Evitam CAPEX em Terminais Logísticos</h2>
+                <p>
+                  Como a modelagem matemática não-linear em Python expõe gargalos operacionais no Arco Norte que médias em planilhas não conseguem enxergar.
+                </p>
+              </div>
+              <div class="post-card-meta">
+                <span>19 Ago 2026</span>
+                <span class="post-card-link">
+                  Ler artigo 
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
           </div>
-        </div>
+        </section>
 
         <!-- Reusable Blog Conversion CTA Card -->
         <div class="blog-cta-card" style="margin-bottom: 3.5rem;">
           <div class="blog-cta-glow"></div>
           <div class="blog-cta-content">
             <span class="blog-cta-badge">⚡ Autoavaliação Executiva</span>
-            <h2 class="blog-cta-title">Como está a Maturidade Digital da sua Organização?</h2>
+            <h2 class="blog-cta-title">Como está a Maturidade Digital da sua Empresa?</h2>
             <p class="blog-cta-desc">
               Descubra em qual nível de maturidade sua empresa está em relação a processos, dados, integrações, segurança/LGPD, inteligência artificial e autonomia de TI. Responda a autoavaliação gratuita e receba um roadmap com prioridades de evolução.
             </p>
-            <div class="blog-cta-actions">
-              <a href="../diagnostico/" class="btn btn-primary">
-                Iniciar Diagnóstico (90 seg) 📊
+            <div class="blog-cta-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+              <a href="../diagnostico/" class="diagnostic-btn-primary">
+                <span>Iniciar Diagnóstico (90 seg) 📊</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
               </a>
               <a href="../labs/" class="btn btn-secondary">
                 Conhecer o THP Labs ↗
