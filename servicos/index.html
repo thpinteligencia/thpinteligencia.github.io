@@ -409,6 +409,63 @@
           padding: 1.5rem;
         }
       }
+
+      /* Process Grid & Cards */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .process-card {
+        background: var(--color-surface);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        padding: 2.25rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .process-card:hover {
+        border-color: rgba(167, 139, 250, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .process-step-num {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: rgba(167, 139, 250, 0.15);
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+
+      .process-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        line-height: 1.3;
+      }
+
+      .process-card p {
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        font-size: 0.94rem;
+        text-wrap: pretty;
+      }
+
+      @media (max-width: 900px) {
+        .process-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
     </style>
     <script type="application/ld+json">
     {
@@ -512,12 +569,12 @@
               <h2>IA Aplicada e Sistemas Inteligentes</h2>
             </div>
             <p>
-              Projetamos e implementamos soluções práticas com inteligência artificial aplicada. Desenvolvemos agentes autônomos para automação de fluxos de trabalho, soluções baseadas em LLMs privados (locais ou em nuvem com foco estrito em privacidade de dados) e visão computacional para triagem e otimização operacional.
+              Substitua tarefas manuais repetitivas por fluxos de trabalho autônomos que liberam o tempo da sua equipe para o que realmente importa. Implementamos agentes inteligentes para automação, modelos locais soberanos (garantindo que dados estratégicos da sua empresa nunca vazem publicamente) e visão computacional para controle de qualidade e triagem operacional contínua.
             </p>
             <div class="service-features">
-              <span class="feature-tag">Agentes & LLMs</span>
-              <span class="feature-tag">Modelos Locais</span>
-              <span class="feature-tag">Visão Computacional</span>
+              <span class="feature-tag">Automação de Rotinas</span>
+              <span class="feature-tag">Privacidade de Dados</span>
+              <span class="feature-tag">Operação Preditiva</span>
             </div>
           </div>
 
@@ -534,12 +591,12 @@
               <h2>Inteligência de Dados e BI</h2>
             </div>
             <p>
-              Transformamos dados dispersos em inteligência de negócios acionável. Modelamos pipelines de dados de alta performance e dashboards executivos customizados para guiar decisões estratégicas em tempo real com previsibilidade e clareza.
+              Elimine o retrabalho de planilhas manuais e a incerteza nas decisões. Centralizamos e unificamos as informações de toda a sua empresa em dashboards executivos automáticos, oferecendo visão clara de caixa, margem, vendas e estoque em tempo real direto no seu celular ou computador.
             </p>
             <div class="service-features">
-              <span class="feature-tag">Dashboards BI</span>
-              <span class="feature-tag">Pipelines ETL</span>
-              <span class="feature-tag">Decisões em Tempo Real</span>
+              <span class="feature-tag">Visão de Caixa Real</span>
+              <span class="feature-tag">Fim do Caos de Planilhas</span>
+              <span class="feature-tag">Indicadores em Tempo Real</span>
             </div>
           </div>
 
@@ -554,12 +611,12 @@
               <h2>Engenharia de Software & Automação</h2>
             </div>
             <p>
-              Reduzimos tarefas manuais, tempo de processamento e gargalos operacionais. Desenvolvemos softwares sob medida, integrações de sistemas, APIs robustas e plataformas escaláveis desenhadas para os desafios específicos do seu negócio.
+              Construa sistemas sob medida robustos o suficiente para suportar grandes volumes de operação sem lentidão ou quedas. Desenvolvemos aplicativos web, portais de clientes e integrações de sistemas que eliminam a redigitação manual de dados, conectando perfeitamente suas ferramentas e eliminando gargalos de processamento.
             </p>
             <div class="service-features">
-              <span class="feature-tag">Sistemas Web</span>
-              <span class="feature-tag">APIs & Integrações</span>
-              <span class="feature-tag">Automação de Processos</span>
+              <span class="feature-tag">Sistemas que Não Travam</span>
+              <span class="feature-tag">Integração Sem Burocracia</span>
+              <span class="feature-tag">Plataformas Customizadas</span>
             </div>
           </div>
 
@@ -575,13 +632,54 @@
               <h2>Governança, Cibersegurança & Compliance</h2>
             </div>
             <p>
-              Construímos sistemas que protegem ativos digitais e garantem conformidade regulatória. Atuamos em gestão de riscos, auditoria de código e infraestrutura, adequação à LGPD e normas ISO, além de validação automatizada de integridade corporativa.
+              Proteja as informações estratégicas da sua empresa e garanta a conformidade com as regulamentações vigentes e a LGPD. Blindamos sua infraestrutura digital, estruturamos políticas de acesso eficientes e auditamos sistemas para assegurar que sua operação ocorra de forma segura, contínua e sem riscos jurídicos.
             </p>
             <div class="service-features">
-              <span class="feature-tag">LGPD & Compliance</span>
-              <span class="feature-tag">Gestão de Riscos</span>
-              <span class="feature-tag">Auditoria & Segurança</span>
+              <span class="feature-tag">Evite Multas & LGPD</span>
+              <span class="feature-tag">Blindagem de Arquivos</span>
+              <span class="feature-tag">Continuidade de Negócio</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Como Trabalhamos -->
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Como Trabalhamos: Processo Seguro
+        </h2>
+        <p class="section-lead">
+          Contratar tecnologia não precisa ser um processo de alto risco. Eliminamos o medo de atrasos, estouros de orçamento e sistemas engavetados através de um método estruturado em 3 passos simples que garante previsibilidade, segurança e controle total em todas as etapas.
+        </p>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-card">
+            <div class="process-step-num">01</div>
+            <h3>1. Diagnóstico &amp; Escopo Fechado</h3>
+            <p>
+              Antes de escrever qualquer linha de código, entendemos a fundo sua operação. Mapeamos os gargalos e definimos um escopo fechado, com metas claras e orçamento previsível, para que você saiba exatamente o que será entregue e quanto vai custar, sem surpresas no meio do caminho.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card">
+            <div class="process-step-num">02</div>
+            <h3>2. Engenharia &amp; Prototipagem Ágil</h3>
+            <p>
+              Dividimos o projeto em entregas curtas e funcionais. Criamos protótipos rápidos para que sua equipe valide o sistema na prática logo nas primeiras semanas, assegurando que o produto final resolva os problemas reais da rotina e não termine engavetado.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card">
+            <div class="process-step-num">03</div>
+            <h3>3. Implementação &amp; Governança Local</h3>
+            <p>
+              Acompanhamos a virada de chave e o onboarding da sua equipe. Implantamos o sistema com governança de dados robusta, segurança Local-First e documentação limpa, garantindo que sua empresa tenha autonomia completa e controle absoluto sobre a nova solução.
+            </p>
           </div>
         </div>
 
@@ -608,20 +706,20 @@
           </div>
 
           <div class="products-mini-grid">
-            <a href="../arconorte-nexus/" class="mini-product-card">
+            <a href="../projetos/arconorte-nexus/" class="mini-product-card">
               <div class="mini-product-top">
                 <h4>ArcoNorte Nexus</h4>
               </div>
               <span class="mini-product-tag">Inteligência Logística Preditiva</span>
-              <span class="mini-product-action">Acessar plataforma ↗</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
             </a>
 
-            <a href="../lavrado-express/" class="mini-product-card">
+            <a href="../projetos/lavradoexpress/" class="mini-product-card">
               <div class="mini-product-top">
                 <h4>Lavrado Express</h4>
               </div>
               <span class="mini-product-tag">Logística & Despacho via WhatsApp</span>
-              <span class="mini-product-action">Acessar plataforma ↗</span>
+              <span class="mini-product-action">Ver detalhes ↗</span>
             </a>
 
             <a href="../projetos/fiscalflow/" class="mini-product-card">
