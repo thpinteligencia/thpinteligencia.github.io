@@ -36,26 +36,6 @@
         padding-bottom: 4rem;
       }
 
-      .back-nav {
-        margin-bottom: 2.5rem;
-      }
-
-      .back-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        text-decoration: none;
-        color: var(--color-text-secondary);
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.2s ease, transform 0.2s ease;
-      }
-
-      .back-button:hover {
-        color: var(--color-text-primary);
-        transform: translate(-3px);
-      }
-
       .gov-header {
         text-align: center;
         margin-bottom: 3.5rem;
@@ -158,7 +138,7 @@
         margin-bottom: 1.25rem;
       }
 
-      .pilar-footer-tags {
+      .pillar-footer-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
@@ -205,12 +185,91 @@
         margin-bottom: 0;
       }
 
+      /* CTA Final */
+      .cta-card {
+        margin-top: 4rem;
+        padding: 3.5rem 2.5rem;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(18, 58, 115, 0.35) 0%, rgba(10, 30, 63, 0.6) 100%);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .cta-card h3 {
+        font-family: var(--font-heading);
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--color-text-primary);
+        letter-spacing: -0.02em;
+      }
+
+      .cta-card p {
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+        max-width: 680px;
+        line-height: 1.6;
+      }
+
+      .cta-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 0.85rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: var(--gradient-brand);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(246, 139, 35, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(246, 139, 35, 0.45);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--color-border);
+        color: var(--color-text-primary);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--color-border-hover);
+        transform: translateY(-2px);
+      }
+
       @media (max-width: 768px) {
         .gov-header h1 {
           font-size: 2.4rem;
         }
         .narrative-card {
           padding: 2rem 1.5rem;
+        }
+        .cta-card {
+          padding: 2.5rem 1.5rem;
+        }
+        .cta-card h3 {
+          font-size: 1.75rem;
         }
       }
     </style>
@@ -241,14 +300,6 @@
         </nav>
       </div>
     </header>
-<div class="back-nav">
-        <a href="../" class="back-button">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-          Voltar para a página inicial
-        </a>
-      </div>
 
       <main class="gov-main">
         <header class="gov-header">
@@ -271,7 +322,7 @@
                 Desenvolvemos soluções de inteligência artificial de forma independente de grandes monopólios de nuvem. Treinamos, ajustamos e executamos LLMs e agentes inteligentes locais de forma privada e controlada na própria infraestrutura do cliente, garantindo que nenhum dado corporativo sensível vaze para APIs públicas externas.
               </p>
             </div>
-            <div class="pilar-footer-tags">
+            <div class="pillar-footer-tags">
               <span class="tag-inline">Modelos Locais</span>
               <span class="tag-inline">Zero Data Leaks</span>
               <span class="tag-inline">LLMs Privadas</span>
@@ -287,7 +338,7 @@
                 A privacidade e a proteção de dados não são tratadas por nós como um "ajuste posterior", mas sim como premissas fundamentais de engenharia de software de todas as soluções desde o primeiro protótipo. Adotamos controle granular de acessos, criptografia ponta a ponta e auditorias regulares para manter sistemas robustos.
               </p>
             </div>
-            <div class="pilar-footer-tags">
+            <div class="pillar-footer-tags">
               <span class="tag-inline">Acesso Granular</span>
               <span class="tag-inline" style="border-color: rgba(34, 197, 94, 0.25); color: #4ade80; background: rgba(34, 197, 94, 0.05);">Conformidade LGPD</span>
               <span class="tag-inline">Criptografia</span>
@@ -303,10 +354,26 @@
                 Todo projeto de software corporativo envolve segredos comerciais estratégicos. Por padrão operacional, a THP formaliza Acordos de Confidencialidade (Non-Disclosure Agreements) rígidos antes de qualquer etapa de especificação de requisitos ou análise de bancos de dados legados, blindando a propriedade industrial de nossos parceiros.
               </p>
             </div>
-            <div class="pilar-footer-tags">
+            <div class="pillar-footer-tags">
               <span class="tag-inline">Segredo Comercial</span>
               <span class="tag-inline">Blindagem Jurídica</span>
               <span class="tag-inline">NDAs Padrão</span>
+            </div>
+          </div>
+
+          <!-- Pilar 4: Soberania de Código & Zero Lock-in -->
+          <div class="pillar-card">
+            <div class="pillar-card-top">
+              <div class="pillar-icon-wrapper">🔓</div>
+              <h2>Soberania de Código & Zero Lock-in</h2>
+              <p>
+                Construímos soluções utilizando padrões abertos, arquiteturas modulares e total transferência de propriedade intelectual. Garantimos que sua empresa mantenha 100% de autonomia sobre seus ativos digitais, eliminando dependências de fornecedores únicos, licenças proprietárias abusivas ou royalties ocultos.
+              </p>
+            </div>
+            <div class="pillar-footer-tags">
+              <span class="tag-inline">Zero Lock-in</span>
+              <span class="tag-inline">Padrões Abertos</span>
+              <span class="tag-inline">Propriedade Intelectual</span>
             </div>
           </div>
         </div>
@@ -321,6 +388,22 @@
             Nossas soluções sob medida e projetos autorais são projetados especificamente para garantir que as empresas e cooperativas da Região Norte e do Arco Norte brasileiro operem com previsibilidade técnica, sem dependências que limitem sua escala ou exponham sua inteligência competitiva ao mercado.
           </p>
         </div>
+
+        <!-- CTA Final -->
+        <section class="cta-card">
+          <h3>Pronto para Garantir Soberania e Conformidade na Sua Operação?</h3>
+          <p>
+            Agende uma sessão técnica confidencial sob NDA para avaliar a governança de dados, infraestrutura local e segurança da informação da sua organização.
+          </p>
+          <div class="cta-actions">
+            <a href="../contato/" class="btn btn-primary">
+              Solicitar Reunião sob NDA ↗
+            </a>
+            <a href="../diagnostico/" class="btn btn-secondary">
+              Iniciar Diagnóstico Gratuito
+            </a>
+          </div>
+        </section>
       </main>
     </div>
 
