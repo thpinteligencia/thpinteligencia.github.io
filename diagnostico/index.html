@@ -591,17 +591,24 @@
           const normalizedScore = Math.min(100, Math.max(0, totalScore));
 
           // Determinar Nível
-          let nivelTexto = 'Nível 2 · Digitalização Fragmentada em Silos (TRL 3-4)';
-          if (normalizedScore <= 35) nivelTexto = 'Nível 1 · Operação Reativa & Manual (TRL 1-2)';
-          else if (normalizedScore <= 60) nivelTexto = 'Nível 2 · Digitalização Fragmentada em Silos (TRL 3-4)';
-          else if (normalizedScore <= 80) nivelTexto = 'Nível 3 · Operação Orientada a Dados (TRL 5-6)';
-          else nivelTexto = 'Nível 4 · Ecossistema DeepTech & Otimizado (TRL 7-9)';
+          // Determinar Nível
+          let nivelTexto = 'Nível 2 · Estruturação em Andamento (TRL 3-4)';
+          if (normalizedScore <= 40) nivelTexto = 'Nível 1 · Operação Manual & Reativa (TRL 1-2)';
+          else if (normalizedScore <= 75) nivelTexto = 'Nível 2 · Estruturação em Andamento (TRL 3-4)';
+          else nivelTexto = 'Nível 3 · Pronta para Escala & IA (TRL 5-8)';
 
-          // Montar Scores por Eixo
+          // Montar Scores por Eixo e Identificar Gargalos
           const scoresPorEixo = {};
+          const eixoArray = [];
           questions.forEach(q => {
-            scoresPorEixo[q.axisKey] = answers[q.id] ? answers[q.id].score : 0;
+            const score = answers[q.id] ? answers[q.id].score : 0;
+            scoresPorEixo[q.axisKey] = score;
+            eixoArray.push({ label: q.axisLabel, score: score });
           });
+          
+          // Ordenar e extrair os 2 maiores gargalos (menores notas)
+          eixoArray.sort((a, b) => a.score - b.score);
+          const gargalosIdentificados = [eixoArray[0].label, eixoArray[1].label];
 
           // Montar Payload Completo em JSON
           const payload = {
@@ -612,6 +619,7 @@
             scoreTotal: normalizedScore,
             nivel: nivelTexto,
             scoresPorEixo: scoresPorEixo,
+            gargalosIdentificados: gargalosIdentificados,
             respostasDetalhadas: answers,
             metadata: {
               source: 'diagnostico_maturidade',
@@ -668,35 +676,30 @@
           const levelTitle = document.getElementById('results-level-title');
           const levelDesc = document.getElementById('results-level-desc');
 
-          // Determinar Nível
+          // Determinar Nível Visual
           levelBadge.className = 'diag-level-badge';
-          if (score <= 35) {
+          if (score <= 40) {
             levelBadge.classList.add('level-1');
-            levelBadge.textContent = 'Nível 1 · Operação Reativa & Manual (TRL 1-2)';
-            levelTitle.textContent = 'Prioridade: Estancar Retrabalhos Manuais e Riscos de CAPEX';
-            levelDesc.textContent = 'Sua operação depende fortemente de rotinas manuais e planilhas soltas. Estudos do GAO (Government Accountability Office) apontam que digitalizações iniciadas sem requisitos consolidados enfrentam em média +101% de sobrecusto e +120% de atraso. Recomendamos focar imediatamente em escopo fechado e automação de triagem.';
-          } else if (score <= 60) {
+            levelBadge.textContent = 'Nível 1 · Operação Manual & Reativa (TRL 1-2)';
+            levelTitle.textContent = 'Prioridade: Estancar Ineficiências Manuais e Riscos';
+            levelDesc.textContent = 'Alto risco de retrabalho, perda de dados e dependência humana. Sua operação depende fortemente de planilhas e intervenção braçal. Recomendamos foco imediato em escopo fechado e automação de triagem.';
+          } else if (score <= 75) {
             levelBadge.classList.add('level-2');
-            levelBadge.textContent = 'Nível 2 · Digitalização Fragmentada em Silos (TRL 3-4)';
-            levelTitle.textContent = 'Prioridade: Integração de Sistemas e Governança de Dados';
-            levelDesc.textContent = 'Sua empresa utiliza ferramentas digitais, porém isoladas em silos operacionais. Segundo a metodologia ISO 16290, a ausência de conectividade fluida entre componentes eleva o retrabalho manual em até 10x. A prioridade é unificar bases e integrar ERPs via APIs seguras antes de adquirir novos softwares.';
-          } else if (score <= 80) {
-            levelBadge.classList.add('level-3');
-            levelBadge.textContent = 'Nível 3 · Operação Orientada a Dados (TRL 5-6)';
-            levelTitle.textContent = 'Prioridade: Automação Inteligente, Edge & IA Aplicada';
-            levelDesc.textContent = 'Sua empresa possui boa governança e processos estruturados. Está no momento ótimo para saltar de nível com agentes autônomos de IA, visão computacional e arquiteturas Local-First para mitigar riscos de conectividade e otimizar margens operacionais.';
+            levelBadge.textContent = 'Nível 2 · Estruturação em Andamento (TRL 3-4)';
+            levelTitle.textContent = 'Prioridade: Integração de Sistemas e Centralização';
+            levelDesc.textContent = 'Sua empresa utiliza softwares e ferramentas digitais, porém isoladas em silos departamentais. A prioridade é conectar as ferramentas via APIs seguras e eliminar tarefas duplicadas.';
           } else {
-            levelBadge.classList.add('level-4');
-            levelBadge.textContent = 'Nível 4 · Ecossistema DeepTech & Otimizado (TRL 7-9)';
-            levelTitle.textContent = 'Prioridade: Soberania Tecnológica e Modelos Proprietários';
-            levelDesc.textContent = 'Excelente maturidade técnica! Sua infraestrutura está pronta para operar com IA soberana local (on-premise), modelos proprietários finetunados, trilhas de auditoria criptográfica e eliminação total de dependência de fornecedores externos.';
+            levelBadge.classList.add('level-3');
+            levelBadge.textContent = 'Nível 3 · Pronta para Escala & IA (TRL 5-8)';
+            levelTitle.textContent = 'Prioridade: Automação Profunda e Modelos Preditivos';
+            levelDesc.textContent = 'Excelente maturidade técnica e processos estruturados! O foco agora é implementar agentes autônomos de IA, visão computacional e painéis executivos em tempo real para acelerar ganhos de escala.';
           }
 
           // Gerar Gráfico Radar Dinâmico em SVG
           generateRadarChart();
 
           // Gerar Roadmap com base nos 2 eixos com menor nota
-          generateRoadmap();
+          generateRoadmap(score, lead);
 
           // Monta o link do WhatsApp com mensagem pronta contendo os dados do lead:
           const whatsappNumber = "5595991205218"; // WhatsApp Comercial Oficial THP
@@ -777,8 +780,8 @@
           `;
         };
 
-        // Gerador de Roadmap Customizado
-        const generateRoadmap = () => {
+        // Gerador de Roadmap Customizado e CTA de Vendas
+        const generateRoadmap = (score, lead) => {
           const container = document.getElementById('roadmap-cards-container');
           
           // Ordenar eixos por menor pontuação (maior gargalo)
@@ -843,6 +846,23 @@
               <p>${item.desc}</p>
             </div>
           `).join('');
+
+          // Remover CTA antigo se houver
+          const oldCta = document.getElementById('diag-wpp-cta');
+          if (oldCta) oldCta.remove();
+
+          // Adicionar CTA Comercial pós-roadmap
+          const msg = encodeURIComponent(`Olá! Acabei de rodar o Diagnóstico de Maturidade Digital da ${lead.company} (Score: ${score}/100) e gostaria de agendar a sessão de 20 minutos.`);
+          const ctaHtml = `
+            <div id="diag-wpp-cta" style="margin-top: 2rem; background: rgba(18, 58, 115, 0.4); border: 1px solid rgba(246, 139, 35, 0.35); padding: 1.5rem; border-radius: 12px; text-align: center;">
+              <h4 style="font-family: var(--font-heading); color: var(--color-text-primary); margin: 0 0 0.5rem 0; font-size: 1.15rem;">Agende sua Sessão Técnica Gratuita de 20 Minutos</h4>
+              <p style="color: var(--color-text-secondary); font-size: 0.95rem; margin: 0 0 1.25rem 0;">Nossos especialistas vão analisar este relatório com você, detalhando a arquitetura necessária e os potenciais de ROI para seu momento.</p>
+              <a href="https://wa.me/5595991475730?text=${msg}" target="_blank" style="background: var(--gradient-brand); color: #fff; text-decoration: none; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.95rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s ease;">
+                Falar com Especialista ↗
+              </a>
+            </div>
+          `;
+          container.insertAdjacentHTML('afterend', ctaHtml);
         };
 
         // ==========================================
