@@ -3,7 +3,7 @@
 Este diretório contém a landing page moderna, responsiva e de alta conversão para o **Lavrado Express**. A página está publicada na subpasta `/lavrado-express/` do site principal.
 
 O endereço oficial da landing page é:
-👉 **[https://thpinteligencia.github.io/lavrado-express/](https://thpinteligencia.github.io/lavrado-express/)**
+👉 **[https://thpsystems.com.br/lavrado-express/](https://thpsystems.com.br/lavrado-express/)**
 
 ---
 
