@@ -7,12 +7,6 @@
     <meta name="description" content="A visão da THP DeepTech & Systems unindo desenvolvimento tecnológico e consultoria estratégica para impulsionar a competitividade em Roraima e região Norte." />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="../../css/custom.css" />
 
     <!-- Theme Initialization -->
@@ -474,7 +468,12 @@
       }
     }
     </script>
-  </head>
+  
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thpsystems.com.br/blog/manifesto-tecnico/" />
+    <meta property="og:title" content="Manifesto Técnico: O Futuro do Norte é Híbrido | THP DeepTech & Systems" />
+    <meta property="og:description" content="A visão da THP DeepTech & Systems unindo desenvolvimento tecnológico e consultoria estratégica para impulsionar a competitividade em Roraima e região Norte." />
+    <meta property="og:image" content="https://thpsystems.com.br/og-image.jpg" /></head>
   <body>
     <!-- Mesh Background Decorator -->
     <div class="mesh-bg"></div>
@@ -499,6 +498,11 @@
           <a href="../../blog/" class="nav-link active">Blog</a>
           <a href="../../contato/" class="nav-link">Contato</a>
         </nav>
+        <button class="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
     </header>
 <!-- Navigation -->
@@ -776,6 +780,23 @@
               e.preventDefault();
               toggleAuthor(e);
             }
+          });
+        }
+      });
+    </script>
+  
+    <!-- Mobile Menu Script -->
+    <script id="mobile-menu-script">
+      document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (hamburgerBtn && navLinks) {
+          hamburgerBtn.addEventListener('click', () => {
+            const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+            hamburgerBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
           });
         }
       });
